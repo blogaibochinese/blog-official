@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>CRM Chat 部署教程</title>
+<style>
+body{font-family:Arial, sans-serif;line-height:1.6;padding:20px;}
+h4{color:#333;}
+code{background:#f5f5f5;padding:6px 10px;display:block;border-radius:4px;}
+img{max-width:100%;height:auto;border:1px solid #ddd;border-radius:6px;margin:10px 0;}
+a{color:#0073aa;text-decoration:none;}
+a:hover{text-decoration:underline;}
+.note{color:red;font-weight:bold;}
+</style>
+</head>
+<body>
+
+<h4>用户端访问 <a href="http://chat.crmeb.net/demo/index.html" target="_blank">【点击体验】</a></h4>
+<p><img src="https://up.aibochinese.com/2025/09/20250910222733293-1024x907.png" alt=""></p>
+
+<p>安装及使用教程：<a href="https://gitee.com/ZhongBangKeJi/CRMChat/wikis/pages/preview?sort_id=4266819&doc_id=1539498" target="_blank">官方</a></p>
+
+<h4>修改数据库配置文件</h4>
+<code>[mysqld]
+sql_mode=NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION
+</code>
+
+<p>源码下载：<a href="https://drive.aibochinese.com/s/qahw" target="_blank">点击下载⏬</a></p>
+<p>服务器要求：最低 2 核 / 2GB+</p>
+<p><strong>⚠️服务器重启后检查 PHP CLI 版本并重启 Swoole</strong></p>
+
+<code>php think swoole restart</code>
+
+<p>Android APK 下载（输入域名，用客服账号登录）</p>
+<p><img src="https://up.aibochinese.com/2025/09/20250910225630834.png" alt=""></p>
+
+<p>远程人工协助搭建客服系统：<span class="note">⚠️单次50元，会员免费</span></p>
+
+</body>
+</html>

@@ -1,0 +1,601 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cloudflare Pages免费建站完整教程 - 爱博·客</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Microsoft YaHei', Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f8f9fa;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            background: linear-gradient(135deg, #f38020, #ffcc2f);
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+            margin-bottom: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .subtitle {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+
+        .intro {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            margin-bottom: 2rem;
+        }
+
+        .intro h2 {
+            color: #f38020;
+            margin-bottom: 1rem;
+            font-size: 1.8rem;
+        }
+
+        .intro p {
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+            text-align: justify;
+        }
+
+        .toc {
+            background: #fff8e1;
+            padding: 1.5rem;
+            border-radius: 10px;
+            margin-bottom: 2rem;
+            border-left: 4px solid #ffc107;
+        }
+
+        .toc h2 {
+            color: #f38020;
+            margin-bottom: 1rem;
+        }
+
+        .toc ul {
+            columns: 2;
+            column-gap: 2rem;
+        }
+
+        .toc li {
+            margin-bottom: 0.5rem;
+        }
+
+        .toc a {
+            color: #166088;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .toc a:hover {
+            color: #f38020;
+            text-decoration: underline;
+        }
+
+        .tutorial-section {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            margin-bottom: 2rem;
+        }
+
+        .tutorial-section h2 {
+            color: #f38020;
+            margin-bottom: 1.5rem;
+            font-size: 1.8rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid #ffcc2f;
+        }
+
+        .tutorial-section h3 {
+            color: #166088;
+            margin: 1.5rem 0 1rem;
+        }
+
+        .tutorial-section p {
+            margin-bottom: 1rem;
+            text-align: justify;
+        }
+
+        .tutorial-section ul, .tutorial-section ol {
+            margin-left: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .tutorial-section li {
+            margin-bottom: 0.5rem;
+        }
+
+        .steps {
+            counter-reset: step-counter;
+            list-style: none;
+            margin-left: 0;
+        }
+
+        .steps li {
+            margin-bottom: 1.5rem;
+            position: relative;
+            padding-left: 3rem;
+        }
+
+        .steps li:before {
+            counter-increment: step-counter;
+            content: counter(step-counter);
+            position: absolute;
+            left: 0;
+            top: 0;
+            background: #f38020;
+            color: white;
+            width: 2rem;
+            height: 2rem;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+        }
+
+        .note {
+            background: #e3f2fd;
+            border-left: 4px solid #2196f3;
+            padding: 1rem;
+            margin: 1rem 0;
+            border-radius: 0 4px 4px 0;
+        }
+
+        .tip {
+            background: #e8f5e9;
+            border-left: 4px solid #4caf50;
+            padding: 1rem;
+            margin: 1rem 0;
+            border-radius: 0 4px 4px 0;
+        }
+
+        .warning {
+            background: #ffebee;
+            border-left: 4px solid #f44336;
+            padding: 1rem;
+            margin: 1rem 0;
+            border-radius: 0 4px 4px 0;
+        }
+
+        .code-block {
+            background: #2d2d2d;
+            color: #f8f8f2;
+            padding: 1rem;
+            border-radius: 5px;
+            overflow-x: auto;
+            margin: 1rem 0;
+            font-family: 'Courier New', monospace;
+        }
+
+        .image-placeholder {
+            background: #eee;
+            border: 2px dashed #ccc;
+            height: 200px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 1rem 0;
+            color: #999;
+        }
+
+        footer {
+            text-align: center;
+            padding: 2rem 0;
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 10px;
+            }
+            
+            h1 {
+                font-size: 2rem;
+            }
+            
+            .toc ul {
+                columns: 1;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Cloudflare Pages免费建站完整教程</h1>
+            <p class="subtitle">从零开始搭建现代化网站的全流程指南</p>
+        </header>
+
+        <section class="intro">
+            <h2>为什么选择Cloudflare Pages？</h2>
+            <p>Cloudflare Pages是Cloudflare提供的免费静态网站托管服务，具有全球CDN加速、自动HTTPS、无限带宽等优势。结合Cloudflare R2对象存储，您可以构建完整的现代化网站解决方案。</p>
+            <p>本教程将详细介绍如何使用Cloudflare Pages免费建站，涵盖从环境准备到部署上线的全过程，并介绍相关的配套服务如R2存储、域名配置、客服系统、支付系统等。</p>
+        </section>
+
+        <section class="toc">
+            <h2>教程目录</h2>
+            <ul>
+                <li><a href="#pages-setup">1. Cloudflare Pages基础设置</a></li>
+                <li><a href="#r2-storage">2. Cloudflare R2对象存储使用</a></li>
+                <li><a href="#trae-ide">3. 使用Trae IDE编写网站代码</a></li>
+                <li><a href="#domain-config">4. 域名购买与解析配置</a></li>
+                <li><a href="#customer-service">5. 客服系统搭建</a></li>
+                <li><a href="#payment-system">6. 支付系统集成</a></li>
+                <li><a href="#wordpress">7. WordPress建站方法</a></li>
+                <li><a href="#optimization">8. 性能优化与安全防护</a></li>
+            </ul>
+        </section>
+
+        <section class="tutorial-section" id="pages-setup">
+            <h2>1. Cloudflare Pages基础设置</h2>
+            <h3>注册Cloudflare账户</h3>
+            <ol class="steps">
+                <li>访问 <a href="https://dash.cloudflare.com/sign-up" target="_blank">Cloudflare官网</a> 注册账户</li>
+                <li>填写邮箱和密码完成注册</li>
+                <li>验证邮箱地址</li>
+            </ol>
+
+            <h3>创建Pages项目</h3>
+            <ol class="steps">
+                <li>登录Cloudflare控制台，选择"Workers & Pages"</li>
+                <li>点击"Create application"，选择"Pages"</li>
+                <li>选择连接方式：
+                    <ul>
+                        <li><strong>Github连接</strong>：授权Cloudflare访问您的Github仓库</li>
+                        <li><strong>直接上传</strong>：上传静态文件压缩包</li>
+                    </ul>
+                </li>
+                <li>配置项目设置：
+                    <ul>
+                        <li>Project name：输入项目名称</li>
+                        <li>Production branch：选择主分支（默认master/main）</li>
+                    </ul>
+                </li>
+                <li>配置构建设置（针对框架项目）：
+                    <ul>
+                        <li>Framework preset：选择对应框架（如React、Vue等）</li>
+                        <li>Build command：构建命令（如npm run build）</li>
+                        <li>Build output directory：输出目录（如dist、build）</li>
+                    </ul>
+                </li>
+                <li>点击"Save and Deploy"开始首次部署</li>
+            </ol>
+
+            <div class="tip">
+                <strong>提示：</strong>首次部署完成后，Cloudflare会自动分配一个pages.dev子域名，后续可以绑定自定义域名。
+            </div>
+        </section>
+
+        <section class="tutorial-section" id="r2-storage">
+            <h2>2. Cloudflare R2对象存储使用</h2>
+            <p>Cloudflare R2是Cloudflare提供的S3兼容的对象存储服务，具有无出口费用、全球加速等优势。</p>
+
+            <h3>创建R2存储桶</h3>
+            <ol class="steps">
+                <li>在Cloudflare控制台中选择"R2"</li>
+                <li>点击"Create Bucket"创建存储桶</li>
+                <li>输入Bucket名称（全局唯一）</li>
+                <li>选择存储区域（默认即可）</li>
+                <li>点击"Create Bucket"完成创建</li>
+            </ol>
+
+            <h3>上传文件到R2</h3>
+            <ol class="steps">
+                <li>在存储桶详情页面点击"Upload Files"</li>
+                <li>选择要上传的文件或文件夹</li>
+                <li>设置文件访问权限（Public或Private）</li>
+                <li>完成上传后可获取文件访问链接</li>
+            </ol>
+
+            <h3>R2与Pages集成</h3>
+            <ol class="steps">
+                <li>在Pages项目设置中找到"Environment Variables"</li>
+                <li>添加R2绑定：
+                    <ul>
+                        <li>Variable name：R2_BUCKET</li>
+                        <li>Binding type：R2 Bucket</li>
+                        <li>R2 bucket name：选择已创建的存储桶</li>
+                    </ul>
+                </li>
+                <li>在代码中通过环境变量访问R2存储</li>
+            </ol>
+
+            <div class="code-block">
+// 示例：在Cloudflare Worker中访问R2
+export default {
+  async fetch(request, env) {
+    const url = new URL(request.url);
+    const key = url.pathname.slice(1);
+
+    switch (request.method) {
+      case "PUT":
+        await env.R2_BUCKET.put(key, request.body);
+        return new Response(`Put ${key} successfully!`);
+      case "GET":
+        const object = await env.R2_BUCKET.get(key);
+        if (object === null) {
+          return new Response("Object Not Found", { status: 404 });
+        }
+        const headers = new Headers();
+        object.writeHttpMetadata(headers);
+        headers.set('etag', object.httpEtag);
+        return new Response(object.body, {
+          headers,
+        });
+      default:
+        return new Response("Method Not Allowed", {
+          status: 405,
+          headers: {
+            Allow: "PUT, GET",
+          },
+        });
+    }
+  },
+};
+            </div>
+        </section>
+
+        <section class="tutorial-section" id="trae-ide">
+            <h2>3. 使用Trae IDE编写网站代码</h2>
+            <p>Trae IDE是一款强大的在线代码编辑器，支持实时预览和协作开发。</p>
+
+            <h3>创建项目</h3>
+            <ol class="steps">
+                <li>访问Trae IDE官网并注册账户</li>
+                <li>创建新项目或导入现有项目</li>
+                <li>选择项目模板或从空白项目开始</li>
+            </ol>
+
+            <h3>代码编写与实时预览</h3>
+            <ol class="steps">
+                <li>在编辑器中编写HTML/CSS/JavaScript代码</li>
+                <li>使用内置预览功能实时查看效果</li>
+                <li>利用Git功能进行版本控制</li>
+                <li>通过插件系统扩展功能</li>
+            </ol>
+
+            <h3>与Cloudflare Pages集成</h3>
+            <ol class="steps">
+                <li>在Trae IDE中配置Git远程仓库</li>
+                <li>将代码推送到Github/Gitlab</li>
+                <li>在Cloudflare Pages中连接对应的仓库</li>
+                <li>设置自动部署触发条件</li>
+            </ol>
+
+            <div class="tip">
+                <strong>技巧：</strong>Trae IDE支持多种编程语言和框架，可以直接创建React、Vue、Angular等项目模板。
+            </div>
+        </section>
+
+        <section class="tutorial-section" id="domain-config">
+            <h2>4. 域名购买与解析配置</h2>
+            <h3>域名购买渠道</h3>
+            <ul>
+                <li><strong>国外平台</strong>：Namecheap、Godaddy、Google Domains</li>
+                <li><strong>国内平台</strong>：阿里云万网、腾讯云域名、华为云域名</li>
+                <li><strong>特殊后缀</strong>：Porkbun、TLDs等提供便宜的特殊域名后缀</li>
+            </ul>
+
+            <h3>Cloudflare DNS配置</h3>
+            <ol class="steps">
+                <li>在Cloudflare中添加站点：
+                    <ul>
+                        <li>输入已购买的域名</li>
+                        <li>选择免费套餐</li>
+                        <li>按照指引修改域名服务器(NS记录)</li>
+                    </ul>
+                </li>
+                <li>配置DNS记录：
+                    <ul>
+                        <li>Type：A记录或CNAME记录</li>
+                        <li>Name：@（根域名）或www</li>
+                        <li>Content：Pages提供的IP地址或CNAME值</li>
+                        <li>Proxy status：Proxied（开启CDN加速）</li>
+                    </ul>
+                </li>
+                <li>在Pages项目中绑定自定义域名：
+                    <ul>
+                        <li>进入Pages项目设置</li>
+                        <li>找到Custom domains选项</li>
+                        <li>添加已配置的域名</li>
+                        <li>等待SSL证书自动签发</li>
+                    </ul>
+                </li>
+            </ol>
+
+            <div class="note">
+                <strong>注意：</strong>域名服务器修改后需要24-48小时生效，期间可能无法访问网站。
+            </div>
+        </section>
+
+        <section class="tutorial-section" id="customer-service">
+            <h2>5. 客服系统搭建</h2>
+            <p>现代网站需要高效的客服系统来提升用户体验和转化率。</p>
+
+            <h3>在线客服工具推荐</h3>
+            <ul>
+                <li><strong>Tidio</strong>：免费版支持1个邮箱，聊天机器人功能</li>
+                <li><strong>LiveChat</strong>：功能全面，支持多渠道客服</li>
+                <li><strong>Crisp</strong>：界面简洁，免费版支持1个邮箱</li>
+                <li><strong>tawk.to</strong>：完全免费，无任何限制</li>
+            </ul>
+
+            <h3>集成步骤（以tawk.to为例）</h3>
+            <ol class="steps">
+                <li>访问 <a href="https://www.tawk.to/" target="_blank">tawk.to官网</a> 注册账户</li>
+                <li>创建Property并获取Widget代码</li>
+                <li>将代码添加到网站HTML的&lt;body&gt;标签前</li>
+                <li>配置客服团队和自动回复消息</li>
+                <li>自定义外观和功能设置</li>
+            </ol>
+
+            <div class="code-block">
+&lt;!-- tawk.to 客服代码示例 --&gt;
+&lt;script type="text/javascript"&gt;
+var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+(function(){
+var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+s1.async=true;
+s1.src='https://embed.tawk.to/YOUR_PROPERTY_ID/default';
+s1.charset='UTF-8';
+s1.setAttribute('crossorigin','*');
+s0.parentNode.insertBefore(s1,s0);
+})();
+&lt;/script&gt;
+            </div>
+        </section>
+
+        <section class="tutorial-section" id="payment-system">
+            <h2>6. 支付系统集成</h2>
+            <p>为网站添加支付功能是电商或服务类网站的核心需求。</p>
+
+            <h3>国际支付方案</h3>
+            <ul>
+                <li><strong>Stripe</strong>：全球领先的支付处理平台，支持多种付款方式</li>
+                <li><strong>PayPal</strong>：全球最大的在线支付平台之一</li>
+                <li><strong>Paddle</strong>：专为SaaS和软件销售设计的支付平台</li>
+            </ul>
+
+            <h3>国内支付方案</h3>
+            <ul>
+                <li><strong>支付宝</strong>：蚂蚁金服旗下的第三方支付平台</li>
+                <li><strong>微信支付</strong>：腾讯旗下的移动支付服务</li>
+                <li><strong>Stripe中国</strong>：支持人民币结算的国际支付平台</li>
+            </ul>
+
+            <h3>集成步骤（以Stripe为例）</h3>
+            <ol class="steps">
+                <li>注册Stripe账户并通过验证</li>
+                <li>获取API密钥（Publishable Key和Secret Key）</li>
+                <li>在前端集成Stripe.js处理客户端逻辑</li>
+                <li>在后端集成Stripe API处理支付请求</li>
+                <li>配置Webhook接收支付状态通知</li>
+                <li>测试支付流程并上线</li>
+            </ol>
+
+            <div class="code-block">
+&lt;!-- Stripe前端集成示例 --&gt;
+&lt;script src="https://js.stripe.com/v3/"&gt;&lt;/script&gt;
+&lt;script&gt;
+// 注意：以下代码仅为示例，在实际使用中需要替换为您的Stripe Publishable Key
+// var stripe = Stripe('YOUR_PUBLISHABLE_KEY');
+// 
+// document.getElementById('checkout-button').addEventListener('click', function () {
+//   fetch('/create-checkout-session', {
+//     method: 'POST',
+//   })
+//   .then(function (response) {
+//     return response.json();
+//   })
+//   .then(function (session) {
+//     return stripe.redirectToCheckout({ sessionId: session.id });
+//   })
+//   .then(function (result) {
+//     if (result.error) {
+//       alert(result.error.message);
+//     }
+//   })
+//   .catch(function (error) {
+//     console.error('Error:', error);
+//   });
+// });
+&lt;/script&gt;
+            </div>
+        </section>
+
+        <section class="tutorial-section" id="wordpress">
+            <h2>7. WordPress建站方法</h2>
+            <p>虽然Cloudflare Pages主要用于静态网站，但我们仍可以通过一些方法部署WordPress网站。</p>
+
+            <h3>方案一：静态化WordPress</h3>
+            <ol class="steps">
+                <li>使用Simply Static等插件将WordPress网站导出为静态文件</li>
+                <li>将生成的静态文件上传到Cloudflare Pages</li>
+                <li>配置自定义域名和SSL证书</li>
+            </ol>
+
+            <h3>方案二：Headless WordPress + Cloudflare Workers</h3>
+            <ol class="steps">
+                <li>将WordPress作为后端CMS，仅提供REST API</li>
+                <li>使用Cloudflare Workers作为前端渲染层</li>
+                <li>通过WP REST API获取内容并在Worker中渲染</li>
+                <li>部署到Cloudflare Pages或Workers</li>
+            </ol>
+
+            <h3>方案三：替代方案</h3>
+            <p>考虑使用现代化的静态站点生成器替代WordPress：</p>
+            <ul>
+                <li><strong>Jamstack</strong>：Next.js、Nuxt.js、Gatsby等</li>
+                <li><strong>静态CMS</strong>：Contentful、Sanity、Strapi等</li>
+                <li><strong>博客系统</strong>：Ghost、Hugo、Jekyll等</li>
+            </ul>
+
+            <div class="warning">
+                <strong>警告：</strong>传统的WordPress需要PHP运行环境和数据库，无法直接部署到Cloudflare Pages。建议采用静态化方案或现代替代方案。
+            </div>
+        </section>
+
+        <section class="tutorial-section" id="optimization">
+            <h2>8. 性能优化与安全防护</h2>
+            <h3>性能优化</h3>
+            <ul>
+                <li><strong>图片优化</strong>：使用WebP格式，启用Cloudflare Image Resizing</li>
+                <li><strong>缓存策略</strong>：配置Browser Cache TTL和Cache Level</li>
+                <li><strong>资源压缩</strong>：启用Brotli和Gzip压缩</li>
+                <li><strong>Lazy Loading</strong>：延迟加载非首屏图片和内容</li>
+                <li><strong>CDN加速</strong>：利用Cloudflare全球节点加速</li>
+            </ul>
+
+            <h3>安全防护</h3>
+            <ul>
+                <li><strong>DDoS防护</strong>：Cloudflare自动提供DDoS防护</li>
+                <li><strong>WAF防火墙</strong>：配置Web应用防火墙规则</li>
+                <li><strong>Bot管理</strong>：识别和阻止恶意爬虫</li>
+                <li><strong>Rate Limiting</strong>：限制请求频率防止滥用</li>
+                <li><strong>SSL/TLS加密</strong>：自动签发和续期SSL证书</li>
+            </ul>
+
+            <h3>监控与分析</h3>
+            <ul>
+                <li><strong>Cloudflare Analytics</strong>：查看流量、性能和安全指标</li>
+                <li><strong>Google Analytics</strong>：用户行为分析</li>
+                <li><strong>性能监控</strong>：PageSpeed Insights、Lighthouse等</li>
+            </ul>
+        </section>
+
+        <footer>
+            <p>&copy; 2023 爱博·客. All rights reserved. | 专业提供网站建设与云计算解决方案</p>
+            <p>本教程由爱博·客整理制作，转载请注明出处</p>
+        </footer>
+    </div>
+</body>
+</html>

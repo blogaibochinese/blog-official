@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>Rustdesk 自建服务器教程</title>
+<style>
+body {font-family: Arial, sans-serif; line-height: 1.6; padding: 20px;}
+code, pre {background: #000; color: #fff; padding: 10px; border-radius: 5px; display: block; white-space: pre-wrap;}
+a {color: #007bff; text-decoration: none;}
+img {max-width: 100%; height: auto; margin: 10px 0;}
+h2 {margin-top: 30px;}
+ul {margin-left: 20px;}
+</style>
+</head>
+<body>
+
+<h2>Rustdesk 自建服务器教程</h2>
+
+<p>点击 <a href="https://dedicatedlines.top/free-trial/?ref=13" target="_blank">免费🆓海外网络流量</a>，直接启用官方自带的服务器，便可使用</p>
+<p>各设备类型的客户端：<a href="https://github.com/rustdesk/rustdesk/releases/tag/1.4.1" target="_blank">下载</a></p>
+<p>安卓直接下载 apk: <a href="https://cf.dedicatedlines.top/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E5%85%B7/RustDesk%20Remote%20Desktop_1.4.2_APKPure.apk" target="_blank">下载⏬</a></p>
+
+<img src="https://cf.aibochinese.com/%E7%88%B1%E5%8D%9A%C2%B7%E5%AE%A2%E5%9B%BE%E7%89%87%E5%BA%93/img_674424c9a963c.png"/>
+
+<p>宝塔面板-docker部署（首选）：
+<a href="https://www.bt.cn/bbs/forum.php?mod=viewthread&amp;tid=144718" target="_blank">教程</a>
+</p>
+
+<h3>自建服务器使用 Rustdesk 教程</h3>
+
+<h4>1、放行端口或者关闭防火墙</h4>
+<ul>
+<li>放行所有端口或者关闭防火墙（适合刚开始的小伙伴）</li>
+<li>放行指定端口：
+<ul>
+<li>TCP(21115, 21116, 21117, 21118, 21119)</li>
+<li>UDP(21116)</li>
+</ul>
+</li>
+</ul>
+
+<h4>2、更新系统</h4>
+<pre><code>apt update -y && apt upgrade -y</code></pre>
+
+<h4>3、下载 Rustdesk 服务器文件</h4>
+<pre><code>wget https://github.com/rustdesk/rustdesk-server/releases/download/1.1.11-1/rustdesk-server-linux-amd64.zip</code></pre>
+
+<h4>4、安装解压工具并解压</h4>
+<pre><code>apt install unzip
+unzip rustdesk-server-linux-amd64.zip</code></pre>
+
+<h4>5、进入服务器文件夹</h4>
+<pre><code>cd /root/amd64</code></pre>
+
+<h4>6、安装 npm / pm2</h4>
+<pre><code>sudo apt install npm
+sudo npm install -g pm2</code></pre>
+
+<h4>7、启动 Rustdesk</h4>
+<pre><code>pm2 start hbbs
+pm2 start hbbr</code></pre>
+
+<h4>8、设置开机自启</h4>
+<pre><code>pm2 startup
+pm2 save</code></pre>
+
+<h4>9、获取密钥</h4>
+<pre><code>cat id_ed25519.pub</code></pre>
+
+<h4>10、下载客户端</h4>
+<p><a href="https://rustdesk.com/" target="_blank">点击进入</a></p>
+
+<h4>11、设置客户端</h4>
+<p>ID服务器、中继服务器填服务器 IP，填写 API KEY</p>
+
+</body>
+</html>

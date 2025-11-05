@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SafePal 使用指南</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #f5f5f5;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .columns {
+            display: flex;
+            gap: 30px;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+        }
+
+        .column-left {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .column-right {
+            flex: 2;
+            min-width: 300px;
+        }
+
+        h1 {
+            color: #0693e3;
+            margin-bottom: 20px;
+            font-size: 28px;
+        }
+
+        .info-box {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+
+        .warning-box {
+            background: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 15px;
+            margin-bottom: 15px;
+        }
+
+        .tip-box {
+            background: #d1ecf1;
+            border-left: 4px solid #0c5460;
+            padding: 15px;
+            margin-bottom: 15px;
+        }
+
+        .alert-box {
+            background: #f8d7da;
+            border-left: 4px solid #cf2e2e;
+            padding: 15px;
+            margin-bottom: 15px;
+        }
+
+        .highlight {
+            background: #cf2e2e;
+            color: white;
+            padding: 2px 8px;
+            border-radius: 3px;
+            font-weight: bold;
+        }
+
+        .highlight-blue {
+            background: #0693e3;
+            color: white;
+            padding: 2px 8px;
+            border-radius: 3px;
+            font-weight: bold;
+        }
+
+        .invite-code {
+            font-size: 24px;
+            font-weight: bold;
+            color: #cf2e2e;
+            background: #fff3cd;
+            padding: 10px 20px;
+            border-radius: 5px;
+            display: inline-block;
+            margin: 10px 0;
+        }
+
+        a {
+            color: #0693e3;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        .image-container {
+            width: 100%;
+            margin: 20px 0;
+        }
+
+        .image-container img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        ul {
+            margin: 15px 0;
+            padding-left: 20px;
+        }
+
+        li {
+            margin: 10px 0;
+        }
+
+        .button-link {
+            display: inline-block;
+            background: #0693e3;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            margin: 10px 5px;
+            transition: background 0.3s;
+        }
+
+        .button-link:hover {
+            background: #0576bd;
+            text-decoration: none;
+        }
+
+        .small-text {
+            font-size: 14px;
+            color: #666;
+        }
+
+        @media (max-width: 768px) {
+            .columns {
+                flex-direction: column;
+            }
+
+            .container {
+                padding: 20px;
+            }
+
+            h1 {
+                font-size: 24px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>SafePal 钱包使用指南</h1>
+
+        <div class="columns">
+            <div class="column-left">
+                <div class="info-box">
+                    <h3>📱 官方App下载</h3>
+                    <p>SafePal 各端应用程序：<a href="https://www.safepal.com/zh-cn/download" target="_blank">下载⏬</a></p>
+                </div>
+
+                <div class="warning-box">
+                    <p>⚠️ <strong>重要提示：</strong></p>
+                    <p>需使用真实IP地址，SafePal才会显示Bank选项；建议使用中国大陆身份证开通Fiat24银行账户，更加方便。</p>
+                </div>
+
+                <div class="tip-box">
+                    <h3>🎁 邀请码优惠</h3>
+                    <p>输入邀请码（<a href="https://cf.aibochinese.com/爱博·客图片库/常用模板图片/领取SafePal硬件钱包1.png" target="_blank">查看演示</a>）：</p>
+                    <div class="invite-code">538438</div>
+                    <p><strong>享受优惠：</strong></p>
+                    <ul>
+                        <li>手续费优惠</li>
+                        <li>充值奖励</li>
+                        <li>免费领取SafePal硬件钱包（<a href="https://blog.aibochinese.com/forum-post/1672.html/" target="_blank">使用教程</a>）</li>
+                    </ul>
+                </div>
+
+                <div class="info-box">
+                    <h3>💳 万事达卡使用实践</h3>
+                    <p>SafePal联名万事达卡：</p>
+                    <p>
+                        <a href="https://blog.aibochinese.com/archives/mastercard-using-guider/" target="_blank" class="button-link">国内使用指南</a>
+                        <a href="#" class="button-link">境外使用指南</a>
+                    </p>
+                </div>
+            </div>
+
+            <div class="column-right">
+                <div class="image-container">
+                    <img src="https://cf.aiboculture.com/2025/10/20251025154826212-1024x576.png" alt="SafePal界面展示">
+                </div>
+            </div>
+        </div>
+
+        <div class="alert-box">
+            <p><span class="highlight">温馨提示</span></p>
+            <ul>
+                <li><strong>a.</strong> 开通银行账户，数字货币钱包中需存 <strong>0.0001 ETH (Arbitrum)</strong></li>
+                <li><strong>b.</strong> 激活万事达卡，需预存 <strong>10 USD</strong></li>
+            </ul>
+            <p class="small-text">📌 除货币转账和兑换的手续费外，中间不会有任何其他费用</p>
+        </div>
+
+        <div class="info-box">
+            <h3>🌐 相关资源</h3>
+            <ul>
+                <li><strong>免费海外网络流量</strong>：<a href="https://blog.aibochinese.com/?golink=aHR0cHM6Ly9kZWRpY2F0ZWRsaW5lcy50b3AvZnJlZS10cmlhbC8=" target="_blank">获取</a></li>
+                <li><strong>币安 Web3</strong>：<a href="https://accounts.maxweb.red/zh-CN/register?ref=569491541" target="_blank">访问</a></li>
+                <li>使用 USDT / USDC 稳定币进行充值（<a href="https://blog.aibochinese.com/forum-post/1208.html/" target="_blank">查看教程</a>）</li>
+            </ul>
+        </div>
+
+        <div class="warning-box">
+            <p>⚠️ <strong>安全提醒：</strong></p>
+            <p>使用SafePal需学习加密货币相关知识和使用说明，避免操作不当造成损失。</p>
+        </div>
+
+        <div class="tip-box">
+            <p><span class="highlight-blue">建议</span></p>
+            <p>如果仅仅是使用数字货币钱包+万事达卡消费，推荐操作更简单的 <strong><a href="https://blog.aibochinese.com/archives/roogoo-mastercard/" target="_blank">Roogoo尊享卡</a></strong></p>
+            <p>或者，找我代充或提现，仅需1美金/笔手续费，<strong><a href="https://blog.aibochinese.com/forum-post/1334.html/" target="_blank">查看详情</a></strong></p>
+        </div>
+
+        <div class="info-box">
+            <h3>📺 相关视频说明</h3>
+            <p>VCC卡申请与使用教程视频（视频播放器需要在原始环境中加载）</p>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+         <style>
+/* 人工客服按钮样式 */
+#canCustomerServerBtn, .can-customer-server-btn {
+  right: 20px !important;
+  top: 20px !important;
+  left: auto !important;
+  bottom: auto !important;
+  position: fixed !important;
+  z-index: 9997 !important; /* 低于AI客服按钮，避免覆盖 */
+}
+</style>
+
+<!-- 人工客服脚本 -->
+<script>
+(function() {
+  _s = document.createElement('script');
+  _s.src = "https://kefu.aibochinese.com/customerServer.js";
+  _s.onload = function() {
+    var option = {
+      "authInit": true,
+      openUrl: 'https://kefu.aibochinese.com',
+      token: '7fecd3ce216cc26ebd63bf417c193b41',
+      kefuid: '',
+      isShowTip: true,
+      mobileIcon: '',
+      pcIcon: '',
+      windowStyle: 'center',
+    };
+    
+    var canCustomerServer = new initCustomerServer(option);
+    canCustomerServer.init();
+    
+    // 检查按钮是否生成并设置位置
+    var checkInterval = setInterval(function() {
+      var btn = document.querySelector('#canCustomerServerBtn') || 
+                document.querySelector('.can-customer-server-btn') ||
+                document.querySelector('[class*="customer-service"]') ||
+                document.querySelector('[id*="customer"]');
+      
+      if (btn) {
+        clearInterval(checkInterval);
+        // 强制设置位置和层级
+        btn.style.position = 'fixed';
+        btn.style.right = '20px';
+        btn.style.top = '200px';
+        btn.style.left = 'auto';
+        btn.style.bottom = 'auto';
+        btn.style.zIndex = '9997'; // 与样式保持一致
+        // 添加拖拽功能
+        makeDraggable(btn);
+      }
+    }, 300);
+  };
+  
+  document.head.appendChild(_s);
+  
+  // 拖拽功能实现
+  function makeDraggable(element) {
+    let pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
+    element.style.cursor = 'move';
+    
+    element.onmousedown = dragStart;
+    
+    function dragStart(e) {
+      e = e || window.event;
+      e.preventDefault();
+      pos3 = e.clientX;
+      pos4 = e.clientY;
+      document.onmouseup = dragEnd;
+      document.onmousemove = dragMove;
+    }
+    
+    function dragMove(e) {
+      e = e || window.event;
+      e.preventDefault();
+      pos1 = pos3 - e.clientX;
+      pos2 = pos4 - e.clientY;
+      pos3 = e.clientX;
+      pos4 = e.clientY;
+      element.style.top = (element.offsetTop - pos2) + "px";
+      element.style.left = (element.offsetLeft - pos1) + "px";
+    }
+    
+    function dragEnd() {
+      document.onmouseup = null;
+      document.onmousemove = null;
+    }
+  }
+})();
+</script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RackNerd 促销活动</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
+            background: linear-gradient(135deg, #1e1e2e 0%, #2d2d44 100%);
+            color: #fff;
+            padding: 20px;
+        }
+
+        .header {
+            background: #2c3e50;
+            padding: 15px 20px;
+            border-radius: 8px 8px 0 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2px;
+        }
+
+        .header h1 {
+            font-size: 16px;
+            font-weight: normal;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .header-icon {
+            width: 24px;
+            height: 24px;
+            background: #fff;
+            border-radius: 4px;
+        }
+
+        .intro {
+            background: #f8f9fa;
+            color: #333;
+            padding: 15px 20px;
+            border-radius: 0 0 8px 8px;
+            margin-bottom: 20px;
+            font-size: 14px;
+        }
+
+        .section {
+            margin-bottom: 30px;
+        }
+
+        .section-header {
+            background: linear-gradient(90deg, #004d6b 0%, #006b8f 100%);
+            padding: 20px;
+            border-radius: 8px 8px 0 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .section-title {
+            font-size: 24px;
+            font-weight: 300;
+            letter-spacing: 2px;
+        }
+
+        .reveal-btn {
+            color: #4dd0e1;
+            font-size: 14px;
+            cursor: pointer;
+            text-decoration: none;
+        }
+
+        .products-container {
+            background: #1a1a2e;
+            padding: 30px;
+            border-radius: 0 0 8px 8px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 20px;
+        }
+
+        .product-card {
+            background: linear-gradient(135deg, #16213e 0%, #0f3460 100%);
+            border-radius: 8px;
+            padding: 20px;
+            border: 1px solid #2d4059;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(77, 208, 225, 0.3);
+        }
+
+        .product-title {
+            font-size: 15px;
+            font-weight: bold;
+            margin-bottom: 15px;
+            color: #4dd0e1;
+        }
+
+        .product-specs {
+            list-style: none;
+            margin-bottom: 15px;
+        }
+
+        .product-specs li {
+            font-size: 13px;
+            color: #b0b0c8;
+            margin-bottom: 8px;
+            padding-left: 15px;
+            position: relative;
+        }
+
+        .product-specs li:before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            color: #4dd0e1;
+        }
+
+        .price {
+            font-size: 18px;
+            font-weight: bold;
+            color: #00ff88;
+            margin-bottom: 5px;
+        }
+
+        .product-id {
+            font-size: 12px;
+            color: #888;
+            margin-bottom: 15px;
+        }
+
+        .aff-btn {
+            background: #0d7ea3;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 13px;
+            width: 100%;
+            transition: background 0.3s;
+        }
+
+        .aff-btn:hover {
+            background: #0a5f7d;
+        }
+
+        .footer {
+            background: #2c3e50;
+            padding: 20px;
+            border-radius: 8px;
+            text-align: center;
+            margin-top: 30px;
+        }
+
+        .promo-banner {
+            background: linear-gradient(90deg, #00b4db 0%, #0083b0 100%);
+            color: #fff;
+            padding: 12px 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            font-size: 14px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .promo-code {
+            font-weight: bold;
+            background: rgba(255,255,255,0.2);
+            padding: 5px 10px;
+            border-radius: 4px;
+        }
+
+        @media (max-width: 768px) {
+            .products-container {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>
+            <div class="logo">
+                <img src="https://cf.aibochinese.com/%E7%88%B1%E5%8D%9A%C2%B7%E5%AE%A2%E5%9B%BE%E7%89%87%E5%BA%93/%E5%B8%B8%E7%94%A8%E6%A8%A1%E6%9D%BF%E5%9B%BE%E7%89%87/RackNerd100x50.png" alt="RackNerd Logo">
+            </div>
+            RackNerd 的最新促销活动
+        </h1>
+    </div>
+
+    <div class="intro">
+        公告📢：1.以下优惠仅该渠道专享，请保留网址！2.点击购物车，按步骤操作，在支付的前一步会有填写账号和密码的表单，方能成功注册账户；3.先不要支付，回到本站，点击客服图标，咨询服务器购买建议！
+    </div>
+
+    <div class="promo-banner">
+        <span>使用促销代码在所有专用服务器上享受 15% 优惠价:</span>
+        <span class="promo-code">150FFDEDI</span>
+    </div>
+
+    <!-- VPS Section -->
+    <div class="section">
+        <div class="section-header">
+            <h2 class="section-title">VPS（虚拟云服务器）</h2>
+        </div>
+        <div class="products-container">
+            <div class="product-card">
+                <div class="product-title">1 GB RAM KVM VPS</div>
+                <ul class="product-specs">
+                    <li>1 个 vCPU 内核</li>
+                    <li>1 GB 内存</li>
+                    <li>20 GB 固态硬盘</li>
+                    <li>2 TB 带宽</li>
+                </ul>
+                <div class="price">价格: $ 10.96/年</div>
+                <a href="https://my.racknerd.com/aff.php?aff=15852&pid=917" target="_blank"><img src="https://cf.aibochinese.com/%E7%88%B1%E5%8D%9A%C2%B7%E5%AE%A2%E5%9B%BE%E7%89%87%E5%BA%93/%E5%B8%B8%E7%94%A8%E6%A8%A1%E6%9D%BF%E5%9B%BE%E7%89%87/shopping%20cart8-30.png" alt="购物车图标"></a>
+            </div>
+
+            <div class="product-card">
+                <div class="product-title">2 GB RAM KVM VPS</div>
+                <ul class="product-specs">
+                    <li>2 个 vCPU 内核</li>
+                    <li>2 GB 内存</li>
+                    <li>30 GB 固态硬盘</li>
+                    <li>3.5 TB 带宽</li>
+                </ul>
+                <div class="price">价格:  $ 17.66 /年</div>
+                <a href="https://my.racknerd.com/aff.php?aff=15852&pid=918" target="_blank"><img src="https://cf.aibochinese.com/%E7%88%B1%E5%8D%9A%C2%B7%E5%AE%A2%E5%9B%BE%E7%89%87%E5%BA%93/%E5%B8%B8%E7%94%A8%E6%A8%A1%E6%9D%BF%E5%9B%BE%E7%89%87/shopping%20cart8-30.png" alt="购物车图标"></a>
+            </div>
+
+            <div class="product-card">
+                <div class="product-title">3.5 GB RAM KVM VPS</div>
+                <ul class="product-specs">
+                    <li>3 个 vCPU 内核</li>
+                    <li>3 GB 内存</li>
+                    <li>60 GB 固态硬盘</li>
+                    <li>5 TB 带宽</li>
+                </ul>
+                <div class="price">价格: $ 29.99 /年</div>
+                <a href="https://my.racknerd.com/aff.php?aff=15852&pid=919" target="_blank"><img src="https://cf.aibochinese.com/%E7%88%B1%E5%8D%9A%C2%B7%E5%AE%A2%E5%9B%BE%E7%89%87%E5%BA%93/%E5%B8%B8%E7%94%A8%E6%A8%A1%E6%9D%BF%E5%9B%BE%E7%89%87/shopping%20cart8-30.png" alt="购物车图标"></a>
+            </div>
+
+            <div class="product-card">
+                <div class="product-title">5 GB RAM KVM VPS</div>
+                <ul class="product-specs">
+                    <li>4 个 vCPU 内核</li>
+                    <li>4 GB 内存</li>
+                    <li>80 GB 固态硬盘</li>
+                    <li>8 TB 带宽</li>
+                </ul>
+                <div class="price">价格: $ 39.99 /年</div>
+                <a href="https://my.racknerd.com/aff.php?aff=15852&pid=920" target="_blank"><img src="https://cf.aibochinese.com/%E7%88%B1%E5%8D%9A%C2%B7%E5%AE%A2%E5%9B%BE%E7%89%87%E5%BA%93/%E5%B8%B8%E7%94%A8%E6%A8%A1%E6%9D%BF%E5%9B%BE%E7%89%87/shopping%20cart8-30.png" alt="购物车图标"></a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Shared Hosting Section -->
+    <div class="section">
+        <div class="section-header">
+            <h2 class="section-title">网站托管-共享主机</h2>
+        </div>
+        <div class="products-container">
+            <div class="product-card">
+                <div class="product-title">35 GB 共享主机</div>
+                <ul class="product-specs">
+                    <li>35 GB SSD 存储</li>
+                    <li>4 TB 传输</li>
+                    <li>托管 4 个域</li>
+                </ul>
+                <div class="price">价格:  $ 13.77 /年</div>
+                <a href="https://my.racknerd.com/aff.php?aff=15852&pid=884" target="_blank"><img src="https://cf.aibochinese.com/%E7%88%B1%E5%8D%9A%C2%B7%E5%AE%A2%E5%9B%BE%E7%89%87%E5%BA%93/%E5%B8%B8%E7%94%A8%E6%A8%A1%E6%9D%BF%E5%9B%BE%E7%89%87/shopping%20cart8-30.png" alt="购物车图标"></a>
+            </div>
+
+            <div class="product-card">
+                <div class="product-title">75 GB 共享主机</div>
+                <ul class="product-specs">
+                    <li>75 GB SSD 存储</li>
+                    <li>8 TB 传输</li>
+                    <li>托管 12 个域</li>
+                </ul>
+                <div class="price">价格: $  22.93 /年</div>
+                <a href="https://my.racknerd.com/aff.php?aff=15852&pid=885" target="_blank"><img src="https://cf.aibochinese.com/%E7%88%B1%E5%8D%9A%C2%B7%E5%AE%A2%E5%9B%BE%E7%89%87%E5%BA%93/%E5%B8%B8%E7%94%A8%E6%A8%A1%E6%9D%BF%E5%9B%BE%E7%89%87/shopping%20cart8-30.png" alt="购物车图标"></a>
+            </div>
+
+            <div class="product-card">
+                <div class="product-title">130 GB 共享主机</div>
+                <ul class="product-specs">
+                    <li>130 GB SSD 存储</li>
+                    <li>25 TB 传输</li>
+                    <li>无限域</li>
+                </ul>
+                <div class="price">价格:  $ 51.89 /年</div>
+                <a href="https://my.racknerd.com/aff.php?aff=15852&pid=886" target="_blank"><img src="https://cf.aibochinese.com/%E7%88%B1%E5%8D%9A%C2%B7%E5%AE%A2%E5%9B%BE%E7%89%87%E5%BA%93/%E5%B8%B8%E7%94%A8%E6%A8%A1%E6%9D%BF%E5%9B%BE%E7%89%87/shopping%20cart8-30.png" alt="购物车图标"></a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Reseller Hosting Section -->
+    <div class="section">
+        <div class="section-header">
+            <h2 class="section-title">采购cPanel-经销商</h2>
+        </div>
+        <div class="products-container">
+            <div class="product-card">
+                <div class="product-title">60 GB 经销商托管</div>
+                <ul class="product-specs">
+                    <li>60 GB SSD 存储</li>
+                    <li>2 TB 传输</li>
+                    <li>4 个 cPanel 账户</li>
+                </ul>
+                <div class="price">价格: $ 31.88 /年</div>
+                <a href="https://my.racknerd.com/aff.php?aff=15852&pid=887" target="_blank"><img src="https://cf.aibochinese.com/%E7%88%B1%E5%8D%9A%C2%B7%E5%AE%A2%E5%9B%BE%E7%89%87%E5%BA%93/%E5%B8%B8%E7%94%A8%E6%A8%A1%E6%9D%BF%E5%9B%BE%E7%89%87/shopping%20cart8-30.png" alt="购物车图标"></a>
+            </div>
+
+            <div class="product-card">
+                <div class="product-title">100 GB 经销商托管</div>
+                <ul class="product-specs">
+                    <li>100 GB SSD 存储</li>
+                    <li>4 TB 传输</li>
+                    <li>8 个 cPanel 账户</li>
+                </ul>
+                <div class="price">价格: $ 57.99 /年</div>
+                <a href="https://my.racknerd.com/aff.php?aff=15852&pid=888" target="_blank"><img src="https://cf.aibochinese.com/%E7%88%B1%E5%8D%9A%C2%B7%E5%AE%A2%E5%9B%BE%E7%89%87%E5%BA%93/%E5%B8%B8%E7%94%A8%E6%A8%A1%E6%9D%BF%E5%9B%BE%E7%89%87/shopping%20cart8-30.png" alt="购物车图标"></a>
+            </div>
+
+            <div class="product-card">
+                <div class="product-title">160 GB 经销商托管</div>
+                <ul class="product-specs">
+                    <li>160 GB SSD 存储</li>
+                    <li>8 TB 传输</li>
+                    <li>15 个 cPanel 账户</li>
+                </ul>
+                <div class="price">价格: $ 86.88 /年</div>
+                <a href="https://my.racknerd.com/aff.php?aff=15852&pid=889" target="_blank"><img src="https://cf.aibochinese.com/%E7%88%B1%E5%8D%9A%C2%B7%E5%AE%A2%E5%9B%BE%E7%89%87%E5%BA%93/%E5%B8%B8%E7%94%A8%E6%A8%A1%E6%9D%BF%E5%9B%BE%E7%89%87/shopping%20cart8-30.png" alt="购物车图标"></a>
+            </div>
+        </div>
+    </div>
+
+<!-- Dedicated Servers Section -->
+<div class="section">
+    <div class="section-header">
+        <h2 class="section-title">专用服务器优惠</h2>
+    </div>
+    <div class="products-container">
+        <div class="product-card">
+            <div class="product-title">英特尔至强 E3-1240 V3</div>
+            <ul class="product-specs">
+                <li>Intel Xeon E3-1240 V3 (4核/8线程)</li>
+                <li>32 GB 内存</li>
+                <li>1 TB SSD + 3 TB HDD</li>
+                <li>不限流量 1Gbps</li>
+                <li>/28 IPv4 - 13 个IP</li>
+                <li>纽约数据中心</li>
+            </ul>
+            <div class="price">价格: $64.95/月</div>
+            <a href="https://my.racknerd.com/aff.php?aff=15852&pid=908" target="_blank"><img src="https://cf.aibochinese.com/%E7%88%B1%E5%8D%9A%C2%B7%E5%AE%A2%E5%9B%BE%E7%89%87%E5%BA%93/%E5%B8%B8%E7%94%A8%E6%A8%A1%E6%9D%BF%E5%9B%BE%E7%89%87/shopping%20cart8-30.png" alt="购物车图标"></a>
+        </div>
+
+        <div class="product-card">
+            <div class="product-title">AMD 锐龙 7600</div>
+            <ul class="product-specs">
+                <li>AMD Ryzen 7600 (6核/12线程)</li>
+                <li>64 GB 内存</li>
+                <li>1 TB NVMe</li>
+                <li>不限流量 1Gbps</li>
+                <li>/30 IPv4 - 1 个IP</li>
+                <li>犹他州数据中心</li>
+            </ul>
+            <div class="price">价格: $109.95/月</div>
+            <a href="https://my.racknerd.com/aff.php?aff=15852&pid=909" target="_blank"><img src="https://cf.aibochinese.com/%E7%88%B1%E5%8D%9A%C2%B7%E5%AE%A2%E5%9B%BE%E7%89%87%E5%BA%93/%E5%B8%B8%E7%94%A8%E6%A8%A1%E6%9D%BF%E5%9B%BE%E7%89%87/shopping%20cart8-30.png" alt="购物车图标"></a>
+        </div>
+
+        <div class="product-card">
+            <div class="product-title">双路至强 E5-2683 V4</div>
+            <ul class="product-specs">
+                <li>双路 Xeon E5-2683 V4 (32核/64线程)</li>
+                <li>256 GB 内存</li>
+                <li>2x 2 TB SSD</li>
+                <li>不限流量 1Gbps</li>
+                <li>/27 IPv4 - 29 个IP</li>
+                <li>纽约数据中心</li>
+            </ul>
+            <div class="price">价格: $209/月</div>
+            <a href="https://my.racknerd.com/aff.php?aff=15852&pid=910" target="_blank"><img src="https://cf.aibochinese.com/%E7%88%B1%E5%8D%9A%C2%B7%E5%AE%A2%E5%9B%BE%E7%89%87%E5%BA%93/%E5%B8%B8%E7%94%A8%E6%A8%A1%E6%9D%BF%E5%9B%BE%E7%89%87/shopping%20cart8-30.png" alt="购物车图标"></a>
+        </div>
+    </div>
+</div>
+
+    <div class="footer">
+        <p style="margin-bottom: 10px;">感谢🙏订阅我的频道：
+            <a href="https://www.youtube.com/@blog.aibochinese" style="color:white" target="_blank" rel="noopener noreferrer">
+                <img src="https://cf.aibochinese.com/%E7%88%B1%E5%8D%9A%C2%B7%E5%AE%A2%E5%9B%BE%E7%89%87%E5%BA%93/%E5%B8%B8%E7%94%A8%E6%A8%A1%E6%9D%BF%E5%9B%BE%E7%89%87/youtube%20logo%2030.png" 
+                style="max-width: 100%; height: auto;" alt="YouTube频道" />
+            </a>  
+            <a href="https://x.com/blogaibochinese" style="color:white" target="_blank" rel="noopener noreferrer">
+                <img src="https://cf.aibochinese.com/%E7%88%B1%E5%8D%9A%C2%B7%E5%AE%A2%E5%9B%BE%E7%89%87%E5%BA%93/%E5%B8%B8%E7%94%A8%E6%A8%A1%E6%9D%BF%E5%9B%BE%E7%89%87/x%20logo30f1.png" 
+                style="max-width: 100%; height: auto;" alt="X账号" />
+            </a>  
+            <a href="https://www.facebook.com/blog.aibochinese" style="color:white" target="_blank" rel="noopener noreferrer">
+                <img src="https://cf.aibochinese.com/%E7%88%B1%E5%8D%9A%C2%B7%E5%AE%A2%E5%9B%BE%E7%89%87%E5%BA%93/%E5%B8%B8%E7%94%A8%E6%A8%A1%E6%9D%BF%E5%9B%BE%E7%89%87/facebook%20log0%2030.png" 
+                style="max-width: 100%; height: auto;" alt="Facebook页面" />
+            </a>
+        </p>
+        <p style="font-size: 12px; color: #888;">© 2025 
+            <a href="https://blog.aibochinese.com/" style="color:white" target="_blank" rel="noopener noreferrer">爱博·客</a> - 所有权利保留
+        </p>
+    </div>
+</body>
+</html>

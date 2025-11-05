@@ -1,0 +1,682 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+     <style>
+/* 人工客服按钮样式 */
+#canCustomerServerBtn, .can-customer-server-btn {
+  right: 20px !important;
+  top: 20px !important;
+  left: auto !important;
+  bottom: auto !important;
+  position: fixed !important;
+  z-index: 9997 !important;
+}
+</style>
+
+<!-- 人工客服脚本 -->
+<script>
+(function() {
+  _s = document.createElement('script');
+  _s.src = "https://kefu.aibochinese.com/customerServer.js";
+  _s.onload = function() {
+    var option = {
+      "authInit": true,
+      openUrl: 'https://kefu.aibochinese.com',
+      token: '7fecd3ce216cc26ebd63bf417c193b41',
+      kefuid: '',
+      isShowTip: true,
+      mobileIcon: '',
+      pcIcon: '',
+      windowStyle: 'center',
+    };
+    
+    var canCustomerServer = new initCustomerServer(option);
+    canCustomerServer.init();
+    
+    var checkInterval = setInterval(function() {
+      var btn = document.querySelector('#canCustomerServerBtn') || 
+                document.querySelector('.can-customer-server-btn') ||
+                document.querySelector('[class*="customer-service"]') ||
+                document.querySelector('[id*="customer"]');
+      
+      if (btn) {
+        clearInterval(checkInterval);
+        btn.style.position = 'fixed';
+        btn.style.right = '20px';
+        btn.style.top = '200px';
+        btn.style.left = 'auto';
+        btn.style.bottom = 'auto';
+        btn.style.zIndex = '9997';
+        makeDraggable(btn);
+      }
+    }, 300);
+  };
+  
+  document.head.appendChild(_s);
+  
+  function makeDraggable(element) {
+    let pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
+    element.style.cursor = 'move';
+    
+    element.onmousedown = dragStart;
+    
+    function dragStart(e) {
+      e = e || window.event;
+      e.preventDefault();
+      pos3 = e.clientX;
+      pos4 = e.clientY;
+      document.onmouseup = dragEnd;
+      document.onmousemove = dragMove;
+    }
+    
+    function dragMove(e) {
+      e = e || window.event;
+      e.preventDefault();
+      pos1 = pos3 - e.clientX;
+      pos2 = pos4 - e.clientY;
+      pos3 = e.clientX;
+      pos4 = e.clientY;
+      element.style.top = (element.offsetTop - pos2) + "px";
+      element.style.left = (element.offsetLeft - pos1) + "px";
+    }
+    
+    function dragEnd() {
+      document.onmouseup = null;
+      document.onmousemove = null;
+    }
+  }
+})();
+</script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AiboPay - 专业的数字支付解决方案</title>
+    <style>
+        .aibopay-root {
+            all: initial;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            display: block;
+        }
+        
+        .aibopay-root * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        .aibopay-header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .aibopay-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .aibopay-header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .aibopay-logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        .aibopay-logo-icon {
+            width: 70px;
+            height: 30px;
+            background: white;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+        }
+
+        .aibopay-nav {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .aibopay-nav a {
+            color: white;
+            text-decoration: none;
+            font-size: 0.95rem;
+            transition: opacity 0.3s;
+            white-space: nowrap;
+        }
+
+        .aibopay-nav a:hover {
+            opacity: 0.8;
+        }
+
+        .aibopay-nav-buttons {
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+        }
+
+        .aibopay-btn {
+            padding: 0.5rem 1.2rem;
+            border-radius: 6px;
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+            white-space: nowrap;
+        }
+
+        .aibopay-btn-primary {
+            background: white;
+            color: #667eea;
+            font-weight: 600;
+        }
+
+        .aibopay-btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(255,255,255,0.3);
+        }
+
+        .aibopay-btn-secondary {
+            background: rgba(255,255,255,0.2);
+            color: white;
+            border: 1px solid white;
+        }
+
+        .aibopay-btn-secondary:hover {
+            background: rgba(255,255,255,0.3);
+        }
+
+        /* 语言切换按钮 */
+        .aibopay-lang-switch {
+            background: rgba(255,255,255,0.2);
+            color: white;
+            border: 1px solid white;
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .aibopay-lang-switch:hover {
+            background: rgba(255,255,255,0.3);
+        }
+
+        .aibopay-menu-toggle {
+            display: none;
+            background: rgba(255,255,255,0.2);
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            padding: 0.5rem;
+            cursor: pointer;
+            border-radius: 6px;
+        }
+
+        .aibopay-hero {
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.1) 0%, rgba(118, 75, 162, 0.1) 100%),
+                        url('https://cf.aibochinese.com/%E7%88%B1%E5%8D%9A%C2%B7%E5%AE%A2%E5%9B%BE%E7%89%87%E5%BA%93/%E5%B8%B8%E7%94%A8%E6%A8%A1%E6%9D%BF%E5%9B%BE%E7%89%87/00048406_2.jpg') center/cover;
+            color: white;
+            padding: 4rem 0;
+            text-align: center;
+            position: relative;
+        }
+
+        .aibopay-hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+        .aibopay-hero p {
+            font-size: 1.2rem;
+            color: yellow;
+            opacity: 0.95;
+            max-width: 600px;
+            margin: 0 auto 2rem;
+        }
+
+        .aibopay-services {
+            padding: 4rem 0;
+            background: #f8f9fa;
+        }
+
+        .aibopay-section-title {
+            text-align: center;
+            font-size: 2rem;
+            margin-bottom: 3rem;
+            color: #333;
+            font-weight: 700;
+        }
+
+        .aibopay-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .aibopay-card {
+            background: white;
+            border-radius: 12px;
+            padding: 2rem;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.07);
+            transition: all 0.3s;
+        }
+
+        .aibopay-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+        }
+
+        .aibopay-card-icon {
+            width: 180px;
+            height: 60px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .aibopay-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: #333;
+        }
+
+        .aibopay-card p {
+            color: #666;
+            line-height: 1.8;
+            margin-bottom: 1rem;
+        }
+
+        .aibopay-card ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .aibopay-card li {
+            padding: 0.5rem 0;
+            color: #555;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .aibopay-card li:before {
+            content: "✓";
+            color: #667eea;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        .aibopay-footer {
+            background: #2d3748;
+            color: #cbd5e0;
+            padding: 2rem 0;
+            text-align: center;
+        }
+
+        .aibopay-footer p {
+            margin: 0.5rem 0;
+        }
+
+        @media (max-width: 968px) {
+            .aibopay-nav {
+                display: none;
+                width: 100%;
+                flex-direction: column;
+                gap: 1rem;
+                padding: 1rem 0;
+            }
+
+            .aibopay-nav.active {
+                display: flex;
+            }
+
+            .aibopay-menu-toggle {
+                display: block;
+            }
+
+            .aibopay-hero h1 {
+                font-size: 2rem;
+            }
+
+            .aibopay-hero p {
+                font-size: 1rem;
+            }
+
+            .aibopay-cards {
+                grid-template-columns: 1fr;
+            }
+
+            .aibopay-section-title {
+                font-size: 1.5rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .aibopay-hero h1 {
+                font-size: 1.5rem;
+            }
+
+            .aibopay-card {
+                padding: 1.5rem;
+            }
+
+            .aibopay-logo {
+                font-size: 1.2rem;
+            }
+
+            .aibopay-logo-icon {
+                width: 70px;
+                height: 40px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="aibopay-root">
+        <header class="aibopay-header">
+            <div class="aibopay-container">
+                <div class="aibopay-header-content">
+                    <div class="aibopay-logo">
+                        <div class="aibopay-logo-icon"><img src="https://cf.aibochinese.com/%E7%88%B1%E5%8D%9A%C2%B7%E5%AE%A2%E5%9B%BE%E7%89%87%E5%BA%93/%E5%B8%B8%E7%94%A8%E6%A8%A1%E6%9D%BF%E5%9B%BE%E7%89%87/logo.png" style="max-width: 100%; height: auto;" /></div>
+                        <span data-i18n="logo">爱博CTC</span>
+                    </div>
+                    
+                    <button class="aibopay-menu-toggle" onclick="toggleMenu()">☰</button>
+                    
+                    <nav class="aibopay-nav" id="mainNav">
+                        <a href="https://blog.aibochinese.com/" data-i18n="nav.home">首页</a>
+                        <a href="https://blog.aibochinese.com/forum/28.html/" data-i18n="nav.forum">论坛</a>
+                        <a href="https://blog.aibochinese.com/apply-vcc/" data-i18n="nav.vcc">VCC开卡和代充</a>
+                        <a href="https://blog.aibochinese.com/archives/open-payment-channels/" data-i18n="nav.payment">网站支付接口</a>
+                        <a href="#custom" data-i18n="nav.custom">定制收款链接</a>
+                        <div class="aibopay-nav-buttons">
+                            <button class="aibopay-lang-switch" onclick="toggleLanguage()">
+                                <span id="langIcon">🌐</span>
+                                <span id="langText">EN</span>
+                            </button>
+                            <a href="https://pay.aibochinese.com/user/login.php" class="aibopay-btn aibopay-btn-secondary" data-i18n="nav.login">商户登录</a>
+                            <a href="https://pay.aibochinese.com/user/reg.php" class="aibopay-btn aibopay-btn-secondary" data-i18n="nav.register">注册</a>
+                        </div>
+                    </nav>
+                </div>
+            </div>
+        </header>
+
+        <section class="aibopay-hero">
+            <div class="aibopay-container">
+                <h1 data-i18n="hero.title">AiboPay - 专业的数字收付款解决方案</h1>
+                <p data-i18n="hero.subtitle">为全球商户或个人，提供安全、便捷、高效的支付服务。支持多种支付方式，助力您的业务快速增长。</p>
+            </div>
+        </section>
+
+        <section class="aibopay-services">
+            <div class="aibopay-container">
+                <h2 class="aibopay-section-title" data-i18n="services.title">我们的服务</h2>
+                
+                <div class="aibopay-cards">
+                    <div class="aibopay-card" id="vcc">
+                        <div class="aibopay-card-icon"><img src="https://cf.aibochinese.com/%E7%88%B1%E5%8D%9A%C2%B7%E5%AE%A2%E5%9B%BE%E7%89%87%E5%BA%93/%E5%B8%B8%E7%94%A8%E6%A8%A1%E6%9D%BF%E5%9B%BE%E7%89%87/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE_12-10-2025_185442_www.2i1i.com.jpeg" style="max-width: 100%; height: auto;" /></div>
+                        <h3 data-i18n="vcc.title">VCC开卡和代充</h3>
+                        <p data-i18n="vcc.desc">提供电子Visa|MasterCard开卡渠道，即开即用，畅享海外消费或订阅。</p>
+                        <ul>
+                            <li data-i18n="vcc.feature1">免开卡费|0年费：<a href="https://blog.aibochinese.com/apply-vcc/" style="color:red" target="_blank" rel="noopener noreferrer">开卡渠道</a></li>
+                            <li data-i18n="vcc.feature2">代充美元|USDT或提现兑换￥：<a href="https://blog.aibochinese.com/forum-post/1334.html/" style="color:red" target="_blank" rel="noopener noreferrer">说明</a></li>
+                            <li data-i18n="vcc.feature3">支持各类国际订阅服务</li>
+                            <li data-i18n="vcc.feature4">灵活充值，按需使用</li>
+                        </ul>
+                    </div>
+
+                    <div class="aibopay-card" id="payment">
+                        <div class="aibopay-card-icon"><img src="https://cf.aibochinese.com/%E7%88%B1%E5%8D%9A%C2%B7%E5%AE%A2%E5%9B%BE%E7%89%87%E5%BA%93/%E5%B8%B8%E7%94%A8%E6%A8%A1%E6%9D%BF%E5%9B%BE%E7%89%87/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202025-10-13%20050034.png" style="max-width: 100%; height: auto;" /></div>
+                        <h3 data-i18n="payment.title">让您的网站更完美</h3>
+                        <p data-i18n="payment.desc">开通商户后台，并为您的网站接入易支付api，支持微信支付、支付宝和USDT收款，推进网站自动化。</p>
+                        <ul>
+                            <li data-i18n="payment.feature1">测试账户：123456@qq.com 密码：aibopay111 <a href="https://pay.aibochinese.com/user/login.php" style="color:red" target="_blank" rel="noopener noreferrer">登录</a></li>
+                            <li data-i18n="payment.feature2">共享服务器-<a href="https://blog.aibochinese.com/serverless-website-building/" style="color:red" target="_blank" rel="noopener noreferrer">建站</a></li>
+                            <li data-i18n="payment.feature3">费率公开透明</li>
+                        </ul>
+                    </div>
+
+                    <div class="aibopay-card" id="custom">
+                        <div class="aibopay-card-icon"><img src="https://cf.aibochinese.com/%E7%88%B1%E5%8D%9A%C2%B7%E5%AE%A2%E5%9B%BE%E7%89%87%E5%BA%93/%E5%B8%B8%E7%94%A8%E6%A8%A1%E6%9D%BF%E5%9B%BE%E7%89%87/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202025-10-13%20052158.png" style="max-width: 100%; height: auto;" /></div>
+                        <h3 data-i18n="custom.title">共享收付款渠道</h3>
+                        <p data-i18n="custom.desc">无需开发，为您创建个性化的支付链接或收款账号，轻松灵活收款</p>
+                        <ul>
+                            <li data-i18n="custom.feature1">无需技术背景，发给客户直接收款</li>
+                            <li data-i18n="custom.feature2">个性化产品链接🔗系统和服务来自国际支付巨头"Stripe"</li>
+                            <li data-i18n="custom.feature3">共享本站点其它的<a href="https://aibochinese.com/payments/" style="color:red" target="_blank" rel="noopener noreferrer">收付款渠道</a>：Paypal,Wise，近20个本地银行账户（欧盟、越南、美国、泰国等）</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <footer class="aibopay-footer">
+            <div class="aibopay-container">
+                <p data-i18n="footer.copyright">&copy; 2025 AiboPay. 专业的国际首付款解决方案提供商</p>
+                <p data-i18n="footer.slogan">安全 · 便捷 · 高效</p>
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        const translations = {
+            'zh-CN': {
+                logo: '爱博CTC',
+                nav: {
+                    home: '爱博·客首页',
+                    forum: '论坛',
+                    vcc: 'VCC开卡和代充',
+                    payment: '网站支付接口',
+                    custom: '定制收款链接',
+                    login: '商户登录',
+                    register: '注册'
+                },
+                hero: {
+                    title: 'AiboPay - 专业的数字收付款解决方案',
+                    subtitle: '为全球商户或个人，提供安全、便捷、高效的支付服务。支持多种支付方式，助力您的业务快速增长。'
+                },
+                services: {
+                    title: '我们的服务'
+                },
+                vcc: {
+                    title: 'VCC开卡和代充',
+                    desc: '提供电子Visa|MasterCard开卡渠道，即开即用，畅享海外消费或订阅。',
+                    feature1: '免开卡费|0年费：',
+                    feature2: '代充美元|USDT或提现兑换￥：',
+                    feature3: '支持各类国际订阅服务',
+                    feature4: '灵活充值，按需使用'
+                },
+                payment: {
+                    title: '让您的网站更完美',
+                    desc: '开通商户后台，并为您的网站接入易支付api，支持微信支付、支付宝和USDT收款，推进网站自动化。',
+                    feature1: '测试账户：123456@qq.com 密码：aibopay111 ',
+                    feature2: '共享服务器-',
+                    feature3: '费率公开透明'
+                },
+                custom: {
+                    title: '共享收付款渠道',
+                    desc: '无需开发，为您创建个性化的支付链接或收款账号，轻松灵活收款',
+                    feature1: '无需技术背景，发给客户直接收款',
+                    feature2: '个性化产品链接🔗系统和服务来自国际支付巨头"Stripe"',
+                    feature3: '共享本站点其它的'
+                },
+                footer: {
+                    copyright: '© 2025 AiboPay. 专业的国际首付款解决方案提供商',
+                    slogan: '安全 · 便捷 · 高效'
+                }
+            },
+            'en': {
+                logo: 'Aibo CTC',
+                nav: {
+                    home: 'Home',
+                    forum: 'Forum',
+                    vcc: 'VCC Card & Recharge',
+                    payment: 'Payment Gateway',
+                    custom: 'Custom Payment Links',
+                    login: 'Merchant Login',
+                    register: 'Register'
+                },
+                hero: {
+                    title: 'AiboPay - Professional Digital Payment Solutions',
+                    subtitle: 'Providing secure, convenient, and efficient payment services for global merchants and individuals. Supporting multiple payment methods to accelerate your business growth.'
+                },
+                services: {
+                    title: 'Our Services'
+                },
+                vcc: {
+                    title: 'VCC Card & Recharge',
+                    desc: 'Providing electronic Visa|MasterCard issuance channels, ready to use immediately, enjoy overseas consumption or subscriptions.',
+                    feature1: 'No card fee | Zero annual fee: ',
+                    feature2: 'Recharge USD | USDT or withdraw to CNY: ',
+                    feature3: 'Support various international subscription services',
+                    feature4: 'Flexible recharge, use as needed'
+                },
+                payment: {
+                    title: 'Make Your Website Perfect',
+                    desc: 'Open merchant backend and integrate easy payment API to your website, support WeChat Pay, Alipay and USDT payment, promote website automation.',
+                    feature1: 'Test account: 123456@qq.com Password: aibopay111 ',
+                    feature2: 'Shared server - ',
+                    feature3: 'Transparent fees'
+                },
+                custom: {
+                    title: 'Shared Payment Channels',
+                    desc: 'No development required, create personalized payment links or payment accounts for you, easy and flexible payment collection',
+                    feature1: 'No technical background required, send to customers directly',
+                    feature2: 'Personalized product links🔗System and services from international payment giant "Stripe"',
+                    feature3: 'Share other '
+                },
+                footer: {
+                    copyright: '© 2025 AiboPay. Professional International Payment Solutions Provider',
+                    slogan: 'Secure · Convenient · Efficient'
+                }
+            }
+        };
+
+        let currentLang = 'zh-CN';
+
+        function toggleLanguage() {
+            currentLang = currentLang === 'zh-CN' ? 'en' : 'zh-CN';
+            updateLanguage();
+            localStorage.setItem('preferred-language', currentLang);
+        }
+
+        function updateLanguage() {
+            const t = translations[currentLang];
+            document.querySelectorAll('[data-i18n]').forEach(el => {
+                const key = el.getAttribute('data-i18n');
+                const keys = key.split('.');
+                let value = t;
+                for (const k of keys) {
+                    value = value[k];
+                }
+                
+                if (el.tagName === 'LI' && el.querySelector('a')) {
+                    const link = el.querySelector('a');
+                    el.childNodes[0].textContent = value;
+                } else {
+                    el.textContent = value;
+                }
+            });
+
+            document.getElementById('langText').textContent = currentLang === 'zh-CN' ? 'EN' : '中文';
+            document.documentElement.lang = currentLang;
+        }
+
+        window.addEventListener('load', function() {
+            const savedLang = localStorage.getItem('preferred-language');
+            if (savedLang && savedLang !== 'zh-CN') {
+                currentLang = savedLang;
+                updateLanguage();
+            }
+        });
+
+        function toggleMenu() {
+            const nav = document.getElementById('mainNav');
+            nav.classList.toggle('active');
+        }
+
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+                if (window.innerWidth <= 968) {
+                    document.getElementById('mainNav').classList.remove('active');
+                }
+            });
+        });
+    </script>
+<script>
+ window.difyChatbotConfig = {
+  token: 'brAVzhyBCBWUicXN',
+  baseUrl: 'https://gpt.aibochinese.com',
+  inputs: {},
+  systemVariables: {},
+  userVariables: {},
+ }
+</script>
+<script
+ src="https://gpt.aibochinese.com/embed.min.js"
+ id="brAVzhyBCBWUicXN"
+ defer>
+</script>
+<style>
+  #dify-chatbot-bubble-button {
+    background-color: #1C64F2 !important;
+    bottom: 50px !important;
+  }
+  #dify-chatbot-bubble-window {
+    width: 30rem !important;
+    height: 40rem !important;
+    position: fixed !important;
+    bottom: 160px !important;
+    right: 40px !important;
+  }
+</style>
+<script>
+  window.addEventListener('load', function() {
+    setTimeout(function() {
+      const chatWindow = document.getElementById('dify-chatbot-bubble-window');
+      const chatButton = document.getElementById('dify-chatbot-bubble-button');
+      
+      if (chatWindow) {
+        chatWindow.style.position = 'fixed';
+      }
+      
+      if (chatButton) {
+        chatButton.style.position = 'fixed';
+      }

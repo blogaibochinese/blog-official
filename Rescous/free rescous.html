@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>免费资源 - Free Rescous</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+            color: white;
+            padding: 20px;
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .header p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .cards-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+        }
+
+        .card-header {
+            padding: 25px;
+            color: white;
+            text-align: center;
+        }
+
+        .card-header i {
+            font-size: 3rem;
+            margin-bottom: 15px;
+            display: block;
+        }
+
+        .card-header h3 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+        }
+
+        .card-body {
+            padding: 25px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card-body p {
+            color: #555;
+            line-height: 1.6;
+            margin-bottom: 20px;
+            flex-grow: 1;
+        }
+
+        .card-body ul {
+            padding-left: 20px;
+            margin-bottom: 20px;
+        }
+
+        .card-body li {
+            margin-bottom: 8px;
+            color: #666;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 25px;
+            background: #4a90e2;
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            text-align: center;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            margin-top: auto;
+        }
+
+        .btn:hover {
+            background: #357abd;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .card-1 .card-header { background: linear-gradient(135deg, #ff9a9e 0%, #fad0c4 100%); }
+        .card-2 .card-header { background: linear-gradient(135deg, #a1c4fd 0%, #c2e9fb 100%); }
+        .card-3 .card-header { background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%); }
+        .card-4 .card-header { background: linear-gradient(135deg, #84fab0 0%, #8fd3f4 100%); }
+        .card-5 .card-header { background: linear-gradient(135deg, #d4fc79 0%, #96e6a1 100%); }
+        .card-6 .card-header { background: linear-gradient(135deg, #a6c0fe 0%, #f68084 100%); }
+        .card-7 .card-header { background: linear-gradient(135deg, #fccb90 0%, #d57eeb 100%); }
+        .card-8 .card-header { background: linear-gradient(135deg, #e0c3fc 0%, #8ec5fc 100%); }
+
+        .footer {
+            text-align: center;
+            margin-top: 50px;
+            color: white;
+            padding: 20px;
+            font-size: 1rem;
+        }
+
+        @media (max-width: 768px) {
+            .cards-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .header h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1><i class="fas fa-gift"></i> 免费资源宝库</h1>
+        <p>精选各种实用免费工具和资源，助您提升工作效率和生活质量</p>
+    </div>
+
+    <div class="cards-container">
+        <!-- 剪映免费使用 -->
+        <div class="card card-1">
+            <div class="card-header">
+                <i class="fas fa-video"></i>
+                <h3>剪映免费使用</h3>
+            </div>
+            <div class="card-body">
+                <p>剪映是抖音官方推出的专业视频编辑工具，功能强大且完全免费：</p>
+                <ul>
+                    <li>智能剪辑，一键生成高质量视频</li>
+                    <li>丰富的特效、滤镜和转场效果</li>
+                    <li>海量免费音乐和音效库</li>
+                    <li>支持多轨道编辑和字幕识别</li>
+                    <li>适用于短视频创作、Vlog制作等</li>
+                </ul>
+                <a href="#" class="btn">立即体验</a>
+            </div>
+        </div>
+
+        <!-- Photoshop免费安装和使用 -->
+        <div class="card card-2">
+            <div class="card-header">
+                <i class="fas fa-paint-brush"></i>
+                <h3>Photoshop免费安装</h3>
+            </div>
+            <div class="card-body">
+                <p>通过Adobe官方免费试用计划获取Photoshop：</p>
+                <ul>
+                    <li>7天免费试用，功能完整无限制</li>
+                    <li>学生和教师可享受大幅折扣</li>
+                    <li>支持Windows和Mac系统</li>
+                    <li>包含图层编辑、滤镜效果等专业功能</li>
+                    <li>适合图像处理、设计创作等用途</li>
+                </ul>
+                <a href="#" class="btn">获取免费版</a>
+            </div>
+        </div>
+
+        <!-- OBS录屏 -->
+        <div class="card card-3">
+            <div class="card-header">
+                <i class="fas fa-record-vinyl"></i>
+                <h3>OBS录屏</h3>
+            </div>
+            <div class="card-body">
+                <p>开源免费的屏幕录制和直播软件：</p>
+                <ul>
+                    <li>完全免费，无功能限制</li>
+                    <li>支持高清录制和多平台直播</li>
+                    <li>可自定义录制区域和参数</li>
+                    <li>支持多种音频和视频源</li>
+                    <li>适用于教学、游戏、会议录制</li>
+                </ul>
+                <a href="#" class="btn">下载使用</a>
+            </div>
+        </div>
+
+        <!-- AiboDrive商务网盘 -->
+        <div class="card card-4">
+            <div class="card-header">
+                <i class="fas fa-cloud"></i>
+                <h3>AiboDrive商务网盘</h3>
+            </div>
+            <div class="card-body">
+                <p>企业级云存储解决方案：</p>
+                <ul>
+                    <li>大容量存储空间</li>
+                    <li>文件同步和共享功能</li>
+                    <li>团队协作和权限管理</li>
+                    <li>数据安全保障</li>
+                    <li>支持多设备访问</li>
+                </ul>
+                <a href="#" class="btn">免费试用</a>
+            </div>
+        </div>
+
+        <!-- Rustdesk -->
+        <div class="card card-5">
+            <div class="card-header">
+                <i class="fas fa-desktop"></i>
+                <h3>Rustdesk</h3>
+            </div>
+            <div class="card-body">
+                <p>开源远程桌面软件，完全免费：</p>
+                <ul>
+                    <li>跨平台支持（Windows/Mac/Linux）</li>
+                    <li>无需配置，开箱即用</li>
+                    <li>端到端加密，安全可靠</li>
+                    <li>支持文件传输和远程控制</li>
+                    <li>可自建服务器，保护隐私</li>
+                </ul>
+                <a href="#" class="btn">立即下载</a>
+            </div>
+        </div>
+
+        <!-- ZoomIt -->
+        <div class="card card-6">
+            <div class="card-header">
+                <i class="fas fa-search-plus"></i>
+                <h3>ZoomIt</h3>
+            </div>
+            <div class="card-body">
+                <p>微软官方屏幕放大和标注工具：</p>
+                <ul>
+                    <li>实时屏幕放大和缩小</li>
+                    <li>屏幕标注和绘图功能</li>
+                    <li>轻量级，无广告</li>
+                    <li>适用于演示和教学场景</li>
+                    <li>快捷键操作，使用便捷</li>
+                </ul>
+                <a href="#" class="btn">获取工具</a>
+            </div>
+        </div>
+
+        <!-- 国际中文教师教材资料下载 -->
+        <div class="card card-7">
+            <div class="card-header">
+                <i class="fas fa-book"></i>
+                <h3>中文教师教材资料</h3>
+            </div>
+            <div class="card-body">
+                <p>丰富的国际中文教学资源：</p>
+                <ul>
+                    <li>免费教材和课件下载</li>
+                    <li>教学视频和音频资源</li>
+                    <li>汉字练习和测试题库</li>
+                    <li>文化背景介绍资料</li>
+                    <li>适用于线上线下教学</li>
+                </ul>
+                <a href="#" class="btn">资料下载</a>
+            </div>
+        </div>
+
+        <!-- Capcut -->
+        <div class="card card-8">
+            <div class="card-header">
+                <i class="fas fa-film"></i>
+                <h3>Capcut</h3>
+            </div>
+            <div class="card-body">
+                <p>免费的专业视频编辑应用：</p>
+                <ul>
+                    <li>移动端和桌面端全平台支持</li>
+                    <li>丰富的模板和特效</li>
+                    <li>一键生成热门短视频</li>
+                    <li>支持高清导出</li>
+                    <li>适合社交媒体内容创作</li>
+                </ul>
+                <a href="#" class="btn">开始创作</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer">
+        <p>&copy; 2025 免费资源宝库. 所有资源均来源于官方渠道，确保安全可靠.</p>
+    </div>
+</body>
+</html>

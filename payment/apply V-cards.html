@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>虚拟信用卡组件</title>
+</head>
+<body>
+    <div id="virtual-card-widget"></div>
+    
+    <script>
+        (function() {
+            // 创建Shadow DOM实现样式隔离
+            const container = document.getElementById('virtual-card-widget');
+            const shadowRoot = container.attachShadow({ mode: 'open' });
+            
+            // 创建样式
+            const style = document.createElement('style');
+            style.textContent = `
+                * {
+                    margin: 0;
+                    padding: 0;
+                    box-sizing: border-box;
+                }
+
+                :host {
+                    display: block;
+                    width: 100%;
+                }
+
+                .widget-container {
+                    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif;
+                    line-height: 1.6;
+                    color: #333;
+                    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+                    width: 100%;
+                    padding: 20px 0;
+                }
+
+                .content-wrapper {
+                    width: 100%;
+                    background: white;
+                }
+
+                header {
+                    background: #FFFF00;
+                    color: black;
+                    padding: 40px 30px;
+                    text-align: center;
+                    position: relative;
+                }
+
+                h1 {
+                    font-size: 2.5em;
+                    margin-bottom: 10px;
+                    font-weight: bold;
+                    color: black;
+                }
+
+                .subtitle {
+                    font-size: 1.2em;
+                    color: blue;
+                }
+
+                .announcement {
+                    background: #fff3cd;
+                    border-left: 4px solid #ffc107;
+                    padding: 15px 30px;
+                    margin: 0;
+                    overflow: hidden;
+                    position: relative;
+                    height: 50px;
+                }
+
+                .announcement-content {
+                    display: flex;
+                    align-items: center;
+                    animation: scroll 20s linear infinite;
+                    white-space: nowrap;
+                }
+
+                .announcement-icon {
+                    margin-right: 10px;
+                    font-weight: bold;
+                    color: #ff6b6b;
+                }
+
+                @keyframes scroll {
+                    0% { transform: translateX(100%); }
+                    100% { transform: translateX(-100%); }
+                }
+
+                section {
+                    padding: 50px 30px;
+                }
+
+                .section-title {
+                    text-align: center;
+                    font-size: 2em;
+                    margin-bottom: 40px;
+                    color: #667eea;
+                    position: relative;
+                    padding-bottom: 15px;
+                }
+
+                .section-title::after {
+                    content: '';
+                    position: absolute;
+                    bottom: 0;
+                    left: 50%;
+                    transform: translateX(-50%);
+                    width: 60px;
+                    height: 4px;
+                    background: linear-gradient(90deg, #667eea, #764ba2);
+                    border-radius: 2px;
+                }
+
+                .cards-grid {
+                    display: grid;
+                    grid-template-columns: repeat(3, 1fr);
+                    gap: 30px;
+                    margin-bottom: 20px;
+                }
+
+                .card {
+                    background: white;
+                    border-radius: 15px;
+                    overflow: hidden;
+                    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+                    transition: transform 0.3s ease, box-shadow 0.3s ease;
+                }
+
+                .card:hover {
+                    transform: translateY(-10px);
+                    box-shadow: 0 20px 40px rgba(102, 126, 234, 0.3);
+                }
+
+                .card img {
+                    width: 100%;
+                    height: 200px;
+                    object-fit: cover;
+                    display: block;
+                }
+
+                .card-content {
+                    padding: 25px;
+                }
+
+                .card-title {
+                    font-size: 1.4em;
+                    margin-bottom: 10px;
+                    color: #333;
+                    font-weight: 600;
+                }
+
+                .card-title a {
+                    color: red;
+                    text-decoration: none;
+                }
+
+                .card-title a:hover {
+                    text-decoration: underline;
+                }
+
+                .card-description {
+                    color: #666;
+                    line-height: 1.8;
+                }
+
+                .advantages {
+                    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+                }
+
+                .advantages-grid {
+                    display: grid;
+                    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+                    gap: 25px;
+                }
+
+                .advantage-item {
+                    background: white;
+                    padding: 30px;
+                    border-radius: 12px;
+                    text-align: center;
+                    transition: transform 0.3s ease;
+                    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+                }
+
+                .advantage-item:hover {
+                    transform: scale(1.05);
+                }
+
+                .advantage-icon {
+                    font-size: 3em;
+                    margin-bottom: 15px;
+                }
+
+                .advantage-title {
+                    font-size: 1.2em;
+                    font-weight: 600;
+                    margin-bottom: 10px;
+                    color: #667eea;
+                }
+
+                .services-grid {
+                    display: grid;
+                    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+                    gap: 30px;
+                }
+
+                .service-card {
+                    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+                    color: white;
+                    padding: 35px;
+                    border-radius: 15px;
+                    box-shadow: 0 10px 30px rgba(102, 126, 234, 0.3);
+                    transition: transform 0.3s ease;
+                }
+
+                .service-card:hover {
+                    transform: translateY(-8px);
+                }
+
+                .service-icon {
+                    font-size: 3em;
+                    margin-bottom: 15px;
+                }
+
+                .service-title {
+                    font-size: 1.5em;
+                    margin-bottom: 15px;
+                    font-weight: 600;
+                }
+
+                .service-title a {
+                    color: #fff;
+                    text-decoration: none;
+                }
+
+                .service-title a:hover {
+                    text-decoration: underline;
+                }
+
+                .service-description {
+                    line-height: 1.8;
+                    opacity: 0.95;
+                }
+
+                footer {
+                    background: #2d3748;
+                    color: white;
+                    text-align: center;
+                    padding: 30px;
+                }
+
+                @media (max-width: 768px) {
+                    h1 {
+                        font-size: 1.8em;
+                    }
+
+                    .subtitle {
+                        font-size: 1em;
+                    }
+
+                    .section-title {
+                        font-size: 1.5em;
+                    }
+
+                    section {
+                        padding: 30px 20px;
+                    }
+
+                    .cards-grid {
+                        grid-template-columns: 1fr;
+                    }
+
+                    .advantages-grid,
+                    .services-grid {
+                        grid-template-columns: 1fr;
+                    }
+                }
+
+                @media (min-width: 769px) and (max-width: 1024px) {
+                    .cards-grid {
+                        grid-template-columns: repeat(2, 1fr);
+                    }
+                }
+            `;
+            
+            // 创建HTML内容
+            const content = document.createElement('div');
+            content.className = 'widget-container';
+            content.innerHTML = `
+                <div class="content-wrapper">
+                    <header>
+                        <h1>💳 VCC-Visa|万事达卡</h1>
+                        <p class="subtitle">安全·便捷的全球收付款方案-最优解</p>
+                    </header>
+
+                    <div class="announcement">
+                        <div class="announcement-content">
+                            <span class="announcement-icon">📢</span>
+                            <span>首推Roogoo万事达卡，受邀注册免开卡费，无年费，适用更丰富的消费场景，7x24小时在线客服为您服务！</span>
+                        </div>
+                    </div>
+
+                    <section id="channels">
+                        <h2 class="section-title">开卡福利-如下渠道享有</h2>
+                        <div class="cards-grid">
+                            <div class="card">
+                                <a href="https://blog.aibochinese.com/archives/roogoo-mastercard/" target="_blank">
+                                    <img src="https://blog.aibochinese.com/wp-content/uploads/10%E6%9C%8812%E6%97%A5.gif" alt="Roogoo尊享卡" />
+                                </a>
+                                <div class="card-content">
+                                    <h3 class="card-title">
+                                        <a href="https://blog.aibochinese.com/archives/roogoo-mastercard/" target="_blank" rel="noopener noreferrer">Roogoo尊享卡</a>
+                                    </h3>
+                                    <p class="card-description">免开卡费，0🈷️费，0费率消费 另赠$1，可申请实体卡，多币种钱包功能，适用丰富的国内外消费场景</p>
+                                </div>
+                            </div>
+
+                            <div class="card">
+                                <a href="https://blog.aibochinese.com/archives/safepal/" target="_blank">
+                                    <img src="https://cf.aibochinese.com/%E6%96%87%E7%AB%A0%E5%B0%81%E9%9D%A2/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20251025223717_27_15.png" alt="SafePal-万事达卡" />
+                                </a>
+                                <div class="card-content">
+                                    <h3 class="card-title">
+                                        <a href="https://blog.aibochinese.com/archives/safepal/" target="_blank" rel="noopener noreferrer">SafePal-万事达卡</a>
+                                    </h3>
+                                    <p class="card-description">瑞士Fiat24银行联名MasterCard，0开卡费；用大陆身份证即可开通银行账户，0管理费；币种齐全功能完善的数字货币钱包</p>
+                                </div>
+                            </div>
+
+                        </div>
+                    </section>
+
+                    <section id="services">
+                        <h2 class="section-title">我们的服务</h2>
+                        <div class="services-grid">
+                            <div class="service-card">
+                                <div class="service-icon">📚</div>
+                                <h3 class="service-title">
+                                    <a href="https://blog.aibochinese.com/forum-post/1208.html/" target="_blank" rel="noopener noreferrer">卡充值教程</a>
+                                </h3>
+                                <p class="service-description">提供详细的图文教程和视频指导，从开卡到使用，手把手教您操作，让您快速上手。</p>
+                            </div>
+
+                            <div class="service-card">
+                                <div class="service-icon">📥</div>
+                                <h3 class="service-title">资源下载</h3>
+                                <p class="service-description">提供各类工具和资源下载，包括APP安装包、操作指南、常见问题解答等实用资料。</p>
+                            </div>
+
+                            <div class="service-card">
+                                <div class="service-icon">💵</div>
+                                <h3 class="service-title">
+                                    <a href="https://blog.aibochinese.com/forum-post/1334.html/" target="_blank" rel="noopener noreferrer">代充与代换RMB</a>
+                                </h3>
+                                <p class="service-description">支持美元和USDT代充服务，同时提供便捷的提现【到账¥人民币】服务，每笔仅💲1人工费，到账快速。</p>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section class="advantages">
+                        <h2 class="section-title">产品优势</h2>
+                        <div class="advantages-grid">
+                            <div class="advantage-item">
+                                <div class="advantage-icon">🔒</div>
+                                <h3 class="advantage-title">安全可靠</h3>
+                                <p>持牌监管；多重加密保护，交易安全无忧</p>
+                            </div>
+
+                            <div class="advantage-item">
+                                <div class="advantage-icon">⚡</div>
+                                <h3 class="advantage-title">即时开通</h3>
+                                <p>在线申请，实时审核，快速开卡</p>
+                            </div>
+
+                            <div class="advantage-item">
+                                <div class="advantage-icon">🌐</div>
+                                <h3 class="advantage-title">全球通用</h3>
+                                <p>支持全球网站购物和订阅服务，多币种钱包功能畅享跨境收款</p>
+                            </div>
+                        </div>
+                    </section>
+
+                    <footer>
+                        <p>© 2025 AIBO国际虚拟信用卡服务平台 | 安全 · 便捷 · 专业</p>
+                        <p style="margin-top: 10px; opacity: 0.8;">7x24小时在线客服 | 全方位支持服务</p>
+                    </footer>
+                </div>
+            `;
+            
+            // 添加到Shadow DOM
+            shadowRoot.appendChild(style);
+            shadowRoot.appendChild(content);
+        })();
+    </script>
+</body>
+</html>
