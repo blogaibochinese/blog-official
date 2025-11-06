@@ -95,6 +95,52 @@
 <title>OBS 下载与资源</title>
 <style>
   body { font-family: Arial, sans-serif; line-height:1.6; padding: 20px;}
+  .navbar {
+    background: linear-gradient(135deg, #3498db, #2980b9);
+    color: white;
+    padding: 0;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;  /* 使用 left 和 right 代替 width: 100% */
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.15);
+}
+
+.nav-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.8rem 20px;
+}
+
+.logo img {
+    height: 40px;
+    width: auto;
+    display: block;
+}
+
+.nav-menu {
+    display: flex;
+    list-style: none;
+    gap: 2rem;
+    margin: 0;
+    padding: 0;  /* 添加 padding: 0 以移除默认内边距 */
+}
+
+.nav-link {
+    color: white;
+    text-decoration: none;
+    transition: all 0.3s;
+    font-size: 0.95rem;
+    font-weight: 500;
+}
+
+.nav-link:hover {
+    color: #ffcc2f;
+}
   .container { display: flex; gap: 20px; flex-wrap: wrap; }
   .column { flex: 1; min-width: 280px; }
   .link-block p { margin: 8px 0; }
