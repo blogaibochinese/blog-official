@@ -153,8 +153,62 @@
 }
 
 .nav-link:hover {
-    color: #ffcc2f;
-}  
+            color: #ffcc2f;
+        }
+        
+        /* 汉堡菜单样式 */
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            gap: 5px;
+            z-index: 1001;
+        }
+
+        .hamburger .line {
+            width: 30px;
+            height: 3px;
+            background: white;
+            border-radius: 3px;
+            transition: 0.3s;
+        }
+
+        /* 响应式设计 */
+        @media screen and (max-width: 768px) {
+            .hamburger {
+                display: flex;
+            }
+
+            .nav-menu {
+                position: fixed;
+                left: -100%;
+                top: 70px;
+                flex-direction: column;
+                background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+                width: 100%;
+                text-align: center;
+                transition: left 0.3s ease-in-out;
+                box-shadow: 0 10px 27px rgba(0, 0, 0, 0.05);
+                padding: 20px 0;
+                z-index: 999;
+            }
+
+            .nav-menu.active {
+                left: 0;
+            }
+
+            .hamburger.active .line:nth-child(1) {
+                transform: translateY(8px) rotate(45deg);
+            }
+
+            .hamburger.active .line:nth-child(2) {
+                opacity: 0;
+            }
+
+            .hamburger.active .line:nth-child(3) {
+                transform: translateY(-8px) rotate(-45deg);
+            }
+        }  
         .container {
             max-width: 1200px;
             margin: 0 auto;
@@ -467,12 +521,10 @@
 <nav class="navbar">
     <div class="nav-container">
         <div class="logo">
-            <h2><a href="https://blog.aibochinese.com/" target="_blank"><img src="https://cf.aibochinese.com/%E7%88%B1%E5%8D%9A%C2%B7%E5%AE%A2%E5%9B%BE%E7%89%87%E5%BA%93/%E5%B8%B8%E7%94%A8%E6%A8%A1%E6%9D%BF%E5%9B%BE%E7%89%87/50-50%20%E7%88%B1%E5%8D%9A%E5%AE%A2logo.png" alt="网站Logo"></a></h2>
+            <h2><a href="https://blog.aibochinese.com/" target="_blank"><img src="https://cf.aibochinese.com/%E7%88%B1%E5%8D%9A%C2%B7%E5%AE%A2%E5%9B%BE%E7%89%87%E5%BA%93/%E5%B8%B8%E7%94%A8%E6%A8%A1%E6%9D%BF%E5%9B%BE%E7%89%87/%E5%88%86%E4%BA%AB%E7%BB%8F%E9%AA%8C%EF%BC%8C%E8%BD%BB%E6%9D%BE%E7%BA%BF%E4%B8%8A%E8%87%B4%E5%AF%8C320x50.png" alt="网站Logo"></a></h2>
         </div>
         <ul class="nav-menu">
-            <li class="nav-item">
-                <a href="https://blog.aibochinese.com/" class="nav-link">首页</a>
-            </li>
+
              <li class="nav-item">
                 <a href="https://blog.aibochinese.com/Rescous/free%20rs" class="nav-link">免费资源</a>
             </li>
@@ -499,9 +551,9 @@
             </li>
         </ul>
         <div class="hamburger">
-            <span class="bar"></span>
-            <span class="bar"></span>
-            <span class="bar"></span>
+            <span class="line"></span>
+            <span class="line"></span>
+            <span class="line"></span>
         </div>
     </div>
 </nav>
@@ -552,7 +604,7 @@
             <div class="video-section">
                 <h2>Cloudflare R2 使用经验</h2>
                 <div class="video-placeholder">
-<video controls width="640" height="360">
+<video controls width="450" height="250">
   <source src="https://cf.aibochinese.com/%E8%A7%86%E9%A2%91%E7%A8%BF%E4%BB%B6/%E5%A6%82%E4%BD%95%E7%94%B3%E8%AF%B7%E4%BD%BF%E7%94%A8Cloudflare%20R2%E5%AF%B9%E8%B1%A1%E5%AD%98%E5%82%A8%EF%BC%8C%E5%B8%AE%E6%82%A8%E8%8A%82%E7%9C%81%E4%B8%80%E5%A4%A7%E7%AC%94%E8%B4%B9%E7%94%A8/%E5%A6%82%E4%BD%95%E7%94%B3%E8%AF%B7%E4%BD%BF%E7%94%A8Cloudflare%20R2%E5%AF%B9%E8%B1%A1%E5%AD%98%E5%82%A8%EF%BC%8C%E5%B8%AE%E6%82%A8%E8%8A%82%E7%9C%81%E4%B8%80%E5%A4%A7%E7%AC%94%E8%B4%B9%E7%94%A8.mp4" type="video/mp4">
 </video>
                 </div>
@@ -575,5 +627,25 @@
     </div>
     </footer>
     </div>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const hamburger = document.querySelector('.hamburger');
+            const navMenu = document.querySelector('.nav-menu');
+            const navLinks = document.querySelectorAll('.nav-link');
+
+            hamburger.addEventListener('click', function() {
+                hamburger.classList.toggle('active');
+                navMenu.classList.toggle('active');
+            });
+
+            navLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    hamburger.classList.remove('active');
+                    navMenu.classList.remove('active');
+                });
+            });
+        });
+    </script>
 </body>
 </html>

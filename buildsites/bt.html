@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-             <style>
+    #人工客服
+         <style>
 /* 人工客服按钮样式 */
 #canCustomerServerBtn, .can-customer-server-btn {
   right: 20px !important;
@@ -107,54 +108,130 @@
             color: #333;
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             padding: 20px;
+            padding-top: 90px; /* 为固定导航栏留出空间 */
             min-height: 100vh;
         }
-       .navbar {
-    background: linear-gradient(135deg, #3498db, #2980b9);
-    color: white;
-    padding: 0;
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;  /* 使用 left 和 right 代替 width: 100% */
-    z-index: 1000;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.15);
-}
+        
+        .navbar {
+            background: linear-gradient(135deg, #3498db, #2980b9);
+            color: white;
+            padding: 0;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.15);
+        }
 
-.nav-container {
-    max-width: 1200px;
-    margin: 0 auto;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0.8rem 20px;
-}
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.8rem 20px;
+        }
 
-.logo img {
-    height: 40px;
-    width: auto;
-    display: block;
-}
+        .logo img {
+            height: 40px;
+            width: auto;
+            display: block;
+        }
 
-.nav-menu {
-    display: flex;
-    list-style: none;
-    gap: 2rem;
-    margin: 0;
-    padding: 0;  /* 添加 padding: 0 以移除默认内边距 */
-}
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+            margin: 0;
+            padding: 0;
+        }
 
-.nav-link {
-    color: white;
-    text-decoration: none;
-    transition: all 0.3s;
-    font-size: 0.95rem;
-    font-weight: 500;
-}
+        .nav-link {
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s;
+            font-size: 0.95rem;
+            font-weight: 500;
+        }
 
-.nav-link:hover {
-    color: #ffcc2f;
-} 
+        .nav-link:hover {
+            color: #ffcc2f;
+        }
+
+        /* 汉堡菜单样式 */
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            gap: 5px;
+            z-index: 1001;
+        }
+
+        .hamburger .line {
+            width: 30px;
+            height: 3px;
+            background: white; /* 修改为白色以在蓝色背景上可见 */
+            border-radius: 3px;
+            transition: 0.3s;
+        }
+
+        /* 响应式设计 */
+        @media screen and (max-width: 768px) {
+            body {
+                padding-top: 70px; /* 移动端调整 */
+            }
+
+            .nav-menu {
+                position: fixed;
+                left: -100%;
+                top: 60px; /* 调整到与导航栏底部对齐 */
+                flex-direction: column;
+                background: linear-gradient(135deg, #3498db, #2980b9); /* 与导航栏颜色一致 */
+                width: 100%;
+                text-align: center;
+                transition: left 0.3s ease-in-out;
+                box-shadow: 0 10px 27px rgba(0, 0, 0, 0.3);
+                padding: 20px 0;
+                z-index: 999;
+                gap: 0.5rem; /* 减小间距 */
+            }
+
+            .nav-menu li {
+                padding: 10px 0;
+            }
+
+            .nav-menu.active {
+                left: 0;
+            }
+
+            .hamburger {
+                display: flex;
+            }
+
+            .hamburger.active .line:nth-child(1) {
+                transform: translateY(8px) rotate(45deg);
+            }
+
+            .hamburger.active .line:nth-child(2) {
+                opacity: 0;
+            }
+
+            .hamburger.active .line:nth-child(3) {
+                transform: translateY(-8px) rotate(-45deg);
+            }
+        }
+
+        /* 人工客服按钮样式 */
+        #canCustomerServerBtn, .can-customer-server-btn {
+            right: 20px !important;
+            top: 200px !important;
+            left: auto !important;
+            bottom: auto !important;
+            position: fixed !important;
+            z-index: 9997 !important;
+        }
+        
         .container {
             max-width: 1200px;
             margin: 0 auto;
@@ -378,6 +455,7 @@
         @media (max-width: 768px) {
             body {
                 padding: 10px;
+                padding-top: 70px;
             }
             
             header h1 {
@@ -405,53 +483,51 @@
     </style>
 </head>
 <body>
-    <!-- 标准导航菜单 -->
-<!-- 标准导航菜单 -->
-<nav class="navbar">
-    <div class="nav-container">
-        <div class="logo">
-            <h2><a href="https://blog.aibochinese.com/" target="_blank"><img src="https://cf.aibochinese.com/%E7%88%B1%E5%8D%9A%C2%B7%E5%AE%A2%E5%9B%BE%E7%89%87%E5%BA%93/%E5%B8%B8%E7%94%A8%E6%A8%A1%E6%9D%BF%E5%9B%BE%E7%89%87/50-50%20%E7%88%B1%E5%8D%9A%E5%AE%A2logo.png" alt="网站Logo"></a></h2>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <a href="https://blog.aibochinese.com/" target="_blank">
+                    <img src="https://cf.aibochinese.com/%E7%88%B1%E5%8D%9A%C2%B7%E5%AE%A2%E5%9B%BE%E7%89%87%E5%BA%93/%E5%B8%B8%E7%94%A8%E6%A8%A1%E6%9D%BF%E5%9B%BE%E7%89%87/%E5%88%86%E4%BA%AB%E7%BB%8F%E9%AA%8C%EF%BC%8C%E8%BD%BB%E6%9D%BE%E7%BA%BF%E4%B8%8A%E8%87%B4%E5%AF%8C320x50.png" alt="网站Logo">
+                </a>
+            </div>
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a href="https://blog.aibochinese.com/Rescous/free%20rs" class="nav-link">免费资源</a>
+                </li>
+                <li class="nav-item">
+                    <a href="https://blog.aibochinese.com/education/tutor%20guide" class="nav-link">汉语教学</a>
+                </li>
+                <li class="nav-item">
+                    <a href="https://blog.aibochinese.com/sitesbuild" class="nav-link">建站</a>
+                </li>
+                <li class="nav-item">
+                    <a href="https://blog.aibochinese.com/payment/pay" class="nav-link">跨境收付</a>
+                </li>
+                <li class="nav-item">
+                    <a href="https://blog.aibochinese.com/SMC/sm%20maketing" class="nav-link">自媒体营销</a>
+                </li>
+                <li class="nav-item">
+                    <a href="https://blog.aibochinese.com/earn%20online" class="nav-link">项目推荐</a>
+                </li>
+                <li class="nav-item">
+                    <a href="https://blog.aibochinese.com/tools/drive" class="nav-link">商务网盘</a>
+                </li>
+                <li class="nav-item">
+                    <a href="https://blog.aibochinese.com/client" class="nav-link">客户端</a>
+                </li>
+            </ul>
+            <div class="hamburger">
+                <span class="line"></span>
+                <span class="line"></span>
+                <span class="line"></span>
+            </div>
         </div>
-        <ul class="nav-menu">
-            <li class="nav-item">
-                <a href="https://blog.aibochinese.com/" class="nav-link">首页</a>
-            </li>
-             <li class="nav-item">
-                <a href="https://blog.aibochinese.com/Rescous/free%20rs" class="nav-link">免费资源</a>
-            </li>
-            <li class="nav-item">
-                <a href="https://blog.aibochinese.com/education/tutor%20guide" class="nav-link">汉语教学</a>
-            </li>
-            <li class="nav-item">
-                <a href="https://blog.aibochinese.com/sitesbuild" class="nav-link">建站</a>
-            </li>
-            <li class="nav-item">
-                <a href="https://blog.aibochinese.com/payment/pay" class="nav-link">跨境收付</a>
-            </li>
-            <li class="nav-item">
-                <a href="https://blog.aibochinese.com/SMC/sm%20maketing" class="nav-link">自媒体营销</a>
-            </li>
-             <li class="nav-item">
-                <a href="https://blog.aibochinese.com/earn%20online" class="nav-link">项目推荐</a>
-            </li>
-             <li class="nav-item">
-                <a href="https://blog.aibochinese.com/tools/drive" class="nav-link">商务网盘</a>
-            </li>
-            <li class="nav-item">
-                <a href="https://blog.aibochinese.com/client" class="nav-link">客户端</a>
-            </li>
-        </ul>
-        <div class="hamburger">
-            <span class="bar"></span>
-            <span class="bar"></span>
-            <span class="bar"></span>
-        </div>
-    </div>
-</nav>
+    </nav>
+
     <div class="container">
         <header>
             <h1>🚀 宝塔面板搭建教程</h1>
-            <p>从零开始，快速部署Web服务器环境</p>
+            <p>从零开始,快速部署Web服务器环境</p>
         </header>
         
         <div class="content">
@@ -465,28 +541,28 @@
             
             <!-- 步骤一 -->
             <div class="step-section">
-                <div class="step-header">📍 步骤一：准备域名</div>
+                <div class="step-header">📍 步骤一:准备域名</div>
                 <div class="step-content">
                     <p>首先需要注册并配置一个域名用于访问您的网站</p>
                     <div class="info-box">
-                        <strong>教程资源：</strong><a href="https://blog.aibochinese.com/archives/buy-domain/" target="_blank">域名注册解析教程 &gt;&gt;</a>
+                        <strong>教程资源:</strong><a href="https://blog.aibochinese.com/archives/buy-domain/" target="_blank">域名注册解析教程 &gt;&gt;</a>
                     </div>
                 </div>
             </div>
             
             <!-- 步骤二 -->
             <div class="step-section">
-                <div class="step-header">☁️ 步骤二：准备云服务器</div>
+                <div class="step-header">☁️ 步骤二:准备云服务器</div>
                 <div class="step-content">
-                    <p>选择合适的云服务器供应商，购买服务器实例</p>
+                    <p>选择合适的云服务器供应商,购买服务器实例</p>
                     <div class="info-box">
-                        <strong>推荐资源：</strong><a href="https://blog.aibochinese.com/buy-sas/" target="_blank">服务器推荐和折扣 &gt;&gt;</a>
+                        <strong>推荐资源:</strong><a href="https://blog.aibochinese.com/buy-sas/" target="_blank">服务器推荐和折扣 &gt;&gt;</a>
                     </div>
                     
                     <div class="system-recommend">
-                        <strong>🖥️ 建议系统版本（按推荐程度排序）：</strong>
+                        <strong>🖥️ 建议系统版本(按推荐程度排序):</strong>
                         <ul style="margin-top: 10px; padding-left: 20px;">
-                            <li>Centos 7.x（最推荐）</li>
+                            <li>Centos 7.x(最推荐)</li>
                             <li>Debian 10</li>
                             <li>Ubuntu 20.04</li>
                             <li>Centos 8 stream</li>
@@ -495,7 +571,7 @@
                     </div>
                     
                     <div class="note">
-                        <strong>💡 重要提示：</strong><br>
+                        <strong>💡 重要提示:</strong><br>
                         <a href="https://blog.aibochinese.com/archives/buy-and-ssh-connection/" target="_blank">购买云服务器的注意事项以及SSH连接的详解</a>
                     </div>
                 </div>
@@ -503,7 +579,7 @@
             
             <!-- 步骤三 -->
             <div class="step-section">
-                <div class="step-header">⚙️ 步骤三：开始搭建宝塔面板</div>
+                <div class="step-header">⚙️ 步骤三:开始搭建宝塔面板</div>
                 <div class="step-content">
                     
                     <!-- Centos -->
@@ -519,8 +595,8 @@
                     <pre><code>wget -O install.sh https://download.bt.cn/install/install-ubuntu_6.0.sh && bash install.sh ed8484bec</code></pre>
                     
                     <div class="info-box">
-                        <strong>📝 安装完成后显示信息：</strong>
-                        <p style="margin-top: 10px;">安装完成后，系统界面会显示宝塔面板的登录地址、账号及密码，格式如下：</p>
+                        <strong>📝 安装完成后显示信息:</strong>
+                        <p style="margin-top: 10px;">安装完成后,系统界面会显示宝塔面板的登录地址、账号及密码,格式如下:</p>
                     </div>
                     
                     <pre><code>Bt-Panel: http://[密文IP地址]:[端口号]/[安全入口字符串]
@@ -528,24 +604,24 @@ username: xxxx
 password: xxxxx</code></pre>
                     
                     <div class="warning-box">
-                        <strong>⚠️ 重要：</strong>请妥善保存登录信息，使用外网地址即可访问宝塔面板并登录
+                        <strong>⚠️ 重要:</strong>请妥善保存登录信息,使用外网地址即可访问宝塔面板并登录
                     </div>
                     
                     <img src="https://cf.aiboculture.com/CTEP/%E5%9B%BE%E7%89%87%E5%BA%93/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202025-10-05%20112429.png" alt="宝塔面板登录界面" class="screenshot">
                     
                     <h3 style="color: #20bf55; margin-top: 30px; margin-bottom: 15px;">🔧 安装LNMP套件</h3>
-                    <p>登录宝塔面板后，系统会弹出安装推荐的LNMP套件，请按以下配置选择：</p>
+                    <p>登录宝塔面板后,系统会弹出安装推荐的LNMP套件,请按以下配置选择:</p>
                     
                     <div class="system-recommend">
-                        <strong>推荐配置：</strong>
+                        <strong>推荐配置:</strong>
                         <pre style="background: white; color: #333; box-shadow: none; margin-top: 10px;"><code>Mysql 选择 5.6
 PHP 选择 7.2 以上或次新版本
 phpMyAdmin 选择 4.7</code></pre>
-                        <p style="margin-top: 10px; color: #666;">其他选项保持默认即可，然后选择<span class="highlight">极速安装</span></p>
+                        <p style="margin-top: 10px; color: #666;">其他选项保持默认即可,然后选择<span class="highlight">极速安装</span></p>
                     </div>
                     
-                    <h3 style="color: #f5576c; margin-top: 30px; margin-bottom: 15px;">🔓 端口放行（如果无法打开宝塔面板）</h3>
-                    <p>如果不能打开宝塔面板，请执行以下命令放行端口：</p>
+                    <h3 style="color: #f5576c; margin-top: 30px; margin-bottom: 15px;">🔓 端口放行(如果无法打开宝塔面板)</h3>
+                    <p>如果不能打开宝塔面板,请执行以下命令放行端口:</p>
                     
                     <div class="code-label">🔸 放行端口命令</div>
                     <pre><code># 放行8888端口
@@ -570,9 +646,29 @@ systemctl disable firewalld.service</code></pre>
          style="max-width: 100%; height: auto;" /></a>  <a href="https://xhslink.com/m/5it26wH34Zd" style="color:white" rel="noopener noreferrer"><img src="https://cf.aibochinese.com/%E7%B4%A0%E6%9D%90%E7%AB%99/rednote.png" 
          style="max-width: 100%; height: auto;" /></a>
         </p>
-        <p style="font-size: 12px; color: #888;">© 2025 <a href="https://blog.aibochinese.com/" style="color:white" target="_blank" rel="noopener noreferrer">爱博·客</a> - 所有权利保留</p>
+        <p style="font-size: 12px; color: #888;">© 2025 <a href="https://blog.aibochinese.com/" style="color:red" target="_blank" rel="noopener noreferrer">爱博·客</a> - 所有权利保留</p>
     </div>
     </footer>
     </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const hamburger = document.querySelector('.hamburger');
+            const navMenu = document.querySelector('.nav-menu');
+            const navLinks = document.querySelectorAll('.nav-link');
+
+            hamburger.addEventListener('click', function() {
+                hamburger.classList.toggle('active');
+                navMenu.classList.toggle('active');
+            });
+
+            navLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    hamburger.classList.remove('active');
+                    navMenu.classList.remove('active');
+                });
+            });
+        });
+    </script>
 </body>
 </html>

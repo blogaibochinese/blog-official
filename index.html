@@ -11,6 +11,101 @@
   position: fixed !important;
   z-index: 9997 !important; /* 低于AI客服按钮，避免覆盖 */
 }
+
+/* 四大功能板块样式 */
+.features {
+  margin: 40px 0;
+}
+
+.features .blocks-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 30px;
+  padding: 40px;
+}
+
+.features .block {
+  width: 300px;
+  height: 200px;
+  border-radius: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 24px;
+  color: white;
+  font-weight: bold;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.features .block:hover {
+  transform: translateY(-5px);
+}
+
+.features .block a {
+  color: white;
+  text-decoration: none;
+}
+
+.features .block1 {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+.features .block2 {
+  background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+}
+
+.features .block3 {
+  background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+}
+
+.features .block4 {
+  background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
+}
+
+/* 手机端响应式设计 */
+@media (max-width: 768px) {
+  .features .blocks-container {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+    padding: 20px;
+    max-width: 620px;
+    margin: 0 auto;
+  }
+  
+  .features .block {
+    width: 140px;
+    height: 140px;
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .features .blocks-container {
+    gap: 10px;
+    padding: 15px;
+    max-width: 300px;
+  }
+  
+  .features .block {
+    width: 140px;
+    height: 140px;
+    font-size: 14px;
+  }
+}
+
+/* 超小屏幕适配 */
+@media (max-width: 320px) {
+  .features .blocks-container {
+    max-width: 220px;
+  }
+  
+  .features .block {
+    width: 100px;
+    height: 100px;
+    font-size: 12px;
+  }
+}
 </style>
 
 <!-- 人工客服脚本 -->
@@ -103,12 +198,9 @@
 <nav class="navbar">
     <div class="nav-container">
         <div class="logo">
-            <h2><a href="https://blog.aibochinese.com/" target="_blank"><img src="https://cf.aibochinese.com/%E7%88%B1%E5%8D%9A%C2%B7%E5%AE%A2%E5%9B%BE%E7%89%87%E5%BA%93/%E5%B8%B8%E7%94%A8%E6%A8%A1%E6%9D%BF%E5%9B%BE%E7%89%87/50-50%20%E7%88%B1%E5%8D%9A%E5%AE%A2logo.png" alt="网站Logo"></a></h2>
+            <h2><a href="https://blog.aibochinese.com/" target="_blank"><img src="https://cf.aibochinese.com/%E7%88%B1%E5%8D%9A%C2%B7%E5%AE%A2%E5%9B%BE%E7%89%87%E5%BA%93/%E5%B8%B8%E7%94%A8%E6%A8%A1%E6%9D%BF%E5%9B%BE%E7%89%87/%E5%88%86%E4%BA%AB%E7%BB%8F%E9%AA%8C%EF%BC%8C%E8%BD%BB%E6%9D%BE%E7%BA%BF%E4%B8%8A%E8%87%B4%E5%AF%8C320x50.png" alt="网站Logo"></a></h2>
         </div>
         <ul class="nav-menu">
-            <li class="nav-item">
-                <a href="https://blog.aibochinese.com/" class="nav-link">首页</a>
-            </li>
              <li class="nav-item">
                 <a href="https://blog.aibochinese.com/Rescous/free%20rs" class="nav-link">免费资源</a>
             </li>
@@ -148,34 +240,18 @@
         <section class="features">
             <div class="container">
                 <h2 class="section-title">我们的核心服务</h2>
-                <div class="cards-container">
-                    <div class="card card-blue">
-                        <div class="card-icon">
-                            <i class="fas fa-tools"></i>
-                        </div>
-                        <h3><a href="Rescous/free rs.html" target="_blank">免费资源</a></h3>
-                        <p>提供各类实用工具和资源下载，助您提高工作效率</p>
+                <div class="blocks-container">
+                    <div class="block block1">
+                        <h3><a href="https://blog.aibochinese.com/Rescous/free%20rs" target="_blank">免费资源</a></h3>
                     </div>
-                    <div class="card card-green">
-                        <div class="card-icon">
-                            <i class="fas fa-bullhorn"></i>
-                        </div>
-                        <h3><a href="SMC/sm maketing.html" target="_blank">自媒体营销</a></h3>
-                        <p>专业的自媒体营销策略，提升品牌影响力</p>
+                    <div class="block block2">
+                        <h3><a href="https://blog.aibochinese.com/SMC/sm%20maketing" target="_blank">自媒体营销</a></h3>
                     </div>
-                    <div class="card card-orange">
-                        <div class="card-icon">
-                            <i class="fas fa-download"></i>
-                        </div>
-                        <h3><a href="payment/pay.html" target="_blank">跨境收付</a></h3>
-                        <p>介绍跨境支付工具和渠道，助您海外订阅和收款提现无忧</p>
+                    <div class="block block3">
+                        <h3><a href="https://blog.aibochinese.com/payment/pay" target="_blank">跨境收付</a></h3>
                     </div>
-                    <div class="card card-purple">
-                        <div class="card-icon">
-                            <i class="fas fa-coins"></i>
-                        </div>
-                        <h3><a href="earn online.html" target="_blank">线上淘金</a></h3>
-                        <p>分享如何通过互联网实现财富增长</p>
+                    <div class="block block4">
+                        <h3><a href="https://blog.aibochinese.com/earn%20online" target="_blank">线上淘金</a></h3>
                     </div>
                 </div>
             </div>

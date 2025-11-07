@@ -154,6 +154,20 @@
 .nav-link:hover {
     color: #ffcc2f;
 }
+
+.hamburger {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+}
+
+.bar {
+    width: 25px;
+    height: 3px;
+    background-color: white;
+    margin: 3px 0;
+    transition: 0.3s;
+}
         .header {
             text-align: center;
             margin-bottom: 40px;
@@ -278,6 +292,43 @@
         }
 
         @media (max-width: 768px) {
+            .nav-menu {
+                position: fixed;
+                left: -100%;
+                top: 70px;
+                flex-direction: column;
+                background-color: #3498db;
+                width: 100%;
+                text-align: center;
+                transition: 0.3s;
+                box-shadow: 0 10px 27px rgba(0,0,0,0.05);
+                padding: 2rem 0;
+            }
+
+            .nav-menu.active {
+                left: 0;
+            }
+
+            .nav-item {
+                margin: 1rem 0;
+            }
+
+            .hamburger {
+                display: flex;
+            }
+
+            .hamburger.active .bar:nth-child(2) {
+                opacity: 0;
+            }
+
+            .hamburger.active .bar:nth-child(1) {
+                transform: translateY(8px) rotate(45deg);
+            }
+
+            .hamburger.active .bar:nth-child(3) {
+                transform: translateY(-8px) rotate(-45deg);
+            }
+            
             .cards-container {
                 grid-template-columns: 1fr;
             }
@@ -294,12 +345,10 @@
 <nav class="navbar">
     <div class="nav-container">
         <div class="logo">
-            <h2><a href="https://blog.aibochinese.com/" target="_blank"><img src="https://cf.aibochinese.com/%E7%88%B1%E5%8D%9A%C2%B7%E5%AE%A2%E5%9B%BE%E7%89%87%E5%BA%93/%E5%B8%B8%E7%94%A8%E6%A8%A1%E6%9D%BF%E5%9B%BE%E7%89%87/50-50%20%E7%88%B1%E5%8D%9A%E5%AE%A2logo.png" alt="网站Logo"></a></h2>
+            <h2><a href="https://blog.aibochinese.com/" target="_blank"><img src="https://cf.aibochinese.com/%E7%88%B1%E5%8D%9A%C2%B7%E5%AE%A2%E5%9B%BE%E7%89%87%E5%BA%93/%E5%B8%B8%E7%94%A8%E6%A8%A1%E6%9D%BF%E5%9B%BE%E7%89%87/%E5%88%86%E4%BA%AB%E7%BB%8F%E9%AA%8C%EF%BC%8C%E8%BD%BB%E6%9D%BE%E7%BA%BF%E4%B8%8A%E8%87%B4%E5%AF%8C320x50.png" alt="网站Logo"></a></h2>
         </div>
         <ul class="nav-menu">
-            <li class="nav-item">
-                <a href="https://blog.aibochinese.com/" class="nav-link">首页</a>
-            </li>
+
              <li class="nav-item">
                 <a href="https://blog.aibochinese.com/Rescous/free%20rs" class="nav-link">免费资源</a>
             </li>
@@ -333,6 +382,7 @@
     </div>
 </nav>
     <div class="header">
+        <p>_</p>
         <h1><i class="fas fa-gift"></i> 免费资源宝库</h1>
         <p>精选各种实用免费工具和资源，助您提升工作效率和生活质量</p>
     </div>
@@ -342,13 +392,13 @@
         <div class="card card-1">
             <div class="card-header">
                 <i class="fas fa-video"></i>
-                <h3>剪映免费使用</h3>
+                <h3>剪映9.0.0内测版-免费使用</h3>
             </div>
             <div class="card-body">
                 <p>剪映是抖音官方推出的专业视频编辑工具，功能强大且完全免费：</p>
                 <ul>
-                    <li>智能剪辑，一键生成高质量视频</li>
-                    <li>丰富的特效、滤镜和转场效果</li>
+                    <li>提供Windows版|Mac版免费下载</li>
+                    <li>如何免费使用SVIP功能</li>
                     <li>海量免费音乐和音效库</li>
                     <li>支持多轨道编辑和字幕识别</li>
                     <li>适用于短视频创作、Vlog制作等</li>
@@ -455,39 +505,19 @@
         <div class="card card-7">
             <div class="card-header">
                 <i class="fas fa-book"></i>
-                <h3>中文教师教材资料</h3>
+                <h3>国际中文教师从业指南</h3>
             </div>
             <div class="card-body">
-                <p>丰富的国际中文教学资源：</p>
+                <p>涵盖：课件下载|海外拓客|跨境收款等</p>
                 <ul>
                     <li>免费教材和课件下载</li>
                     <li>教学视频和音频资源</li>
                     <li>汉字练习和测试题库</li>
-                    <li>文化背景介绍资料</li>
-                    <li>适用于线上线下教学</li>
                 </ul>
-                <a href="#" class="btn">资料下载</a>
+                <a href="https://blog.aibochinese.com/education/tutor%20guide" class="btn">资料下载</a>
             </div>
         </div>
 
-        <!-- Capcut -->
-        <div class="card card-8">
-            <div class="card-header">
-                <i class="fas fa-film"></i>
-                <h3>Capcut</h3>
-            </div>
-            <div class="card-body">
-                <p>免费的专业视频编辑应用：</p>
-                <ul>
-                    <li>移动端和桌面端全平台支持</li>
-                    <li>丰富的模板和特效</li>
-                    <li>一键生成热门短视频</li>
-                    <li>支持高清导出</li>
-                    <li>适合社交媒体内容创作</li>
-                </ul>
-                <a href="#" class="btn">开始创作</a>
-            </div>
-        </div>
     </div>
 
      <footer>
@@ -505,5 +535,6 @@
         <p style="font-size: 12px; color: #888;">© 2025 <a href="https://blog.aibochinese.com/" style="color:white" target="_blank" rel="noopener noreferrer">爱博·客</a> - 所有权利保留</p>
     </div>
     </footer>
+    <script src="../js/script.js"></script>
 </body>
 </html>

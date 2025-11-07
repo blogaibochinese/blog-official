@@ -154,6 +154,20 @@
 .nav-link:hover {
     color: #ffcc2f;
 }
+
+.hamburger {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+}
+
+.bar {
+    width: 25px;
+    height: 3px;
+    background-color: white;
+    margin: 3px 0;
+    transition: 0.3s;
+}
         .container {
             max-width: 900px;
             margin: 0 auto;
@@ -319,6 +333,43 @@
         }
         
         @media (max-width: 768px) {
+            .nav-menu {
+                position: fixed;
+                left: -100%;
+                top: 70px;
+                flex-direction: column;
+                background-color: #3498db;
+                width: 100%;
+                text-align: center;
+                transition: 0.3s;
+                box-shadow: 0 10px 27px rgba(0,0,0,0.05);
+                padding: 2rem 0;
+            }
+
+            .nav-menu.active {
+                left: 0;
+            }
+
+            .nav-item {
+                margin: 1rem 0;
+            }
+
+            .hamburger {
+                display: flex;
+            }
+
+            .hamburger.active .bar:nth-child(2) {
+                opacity: 0;
+            }
+
+            .hamburger.active .bar:nth-child(1) {
+                transform: translateY(8px) rotate(45deg);
+            }
+
+            .hamburger.active .bar:nth-child(3) {
+                transform: translateY(-8px) rotate(-45deg);
+            }
+            
             header h1 {
                 font-size: 1.8em;
             }
@@ -339,12 +390,10 @@
 <nav class="navbar">
     <div class="nav-container">
         <div class="logo">
-            <h2><a href="https://blog.aibochinese.com/" target="_blank"><img src="https://cf.aibochinese.com/%E7%88%B1%E5%8D%9A%C2%B7%E5%AE%A2%E5%9B%BE%E7%89%87%E5%BA%93/%E5%B8%B8%E7%94%A8%E6%A8%A1%E6%9D%BF%E5%9B%BE%E7%89%87/50-50%20%E7%88%B1%E5%8D%9A%E5%AE%A2logo.png" alt="网站Logo"></a></h2>
+            <h2><a href="https://blog.aibochinese.com/" target="_blank"><img src="https://cf.aibochinese.com/%E7%88%B1%E5%8D%9A%C2%B7%E5%AE%A2%E5%9B%BE%E7%89%87%E5%BA%93/%E5%B8%B8%E7%94%A8%E6%A8%A1%E6%9D%BF%E5%9B%BE%E7%89%87/%E5%88%86%E4%BA%AB%E7%BB%8F%E9%AA%8C%EF%BC%8C%E8%BD%BB%E6%9D%BE%E7%BA%BF%E4%B8%8A%E8%87%B4%E5%AF%8C320x50.png" alt="网站Logo"></a></h2>
         </div>
         <ul class="nav-menu">
-            <li class="nav-item">
-                <a href="https://blog.aibochinese.com/" class="nav-link">首页</a>
-            </li>
+
              <li class="nav-item">
                 <a href="https://blog.aibochinese.com/Rescous/free%20rs" class="nav-link">免费资源</a>
             </li>
@@ -414,13 +463,13 @@
                 <div class="resource-list">
                     <div class="resource-item">
                         <strong>教材下载中心</strong>
-                        <a href="https://aibochinese.com/download-center" target="_blank">https://aibochinese.com/download-center</a>
+                        <a href="https://www.aibochinese.com/library" target="_blank">https://aibochinese.com/download-center</a>
                         <p style="margin-top: 5px; font-size: 0.9em; color: #666;">（部分资源需要海外网络下载）</p>
                     </div>
                     
                     <div class="resource-item">
                         <strong>国际中文教师PPT课件库（免费）</strong>
-                        <a href="https://blog.aibochinese.com/archives/ct-ppt-base/" target="_blank">点击下载 ⏬</a>
+                        <a href="https://blog.aibochinese.com/Rescous/CT-ppt" target="_blank">点击下载 ⏬</a>
                     </div>
                     
                     <div class="resource-item">
@@ -486,5 +535,6 @@
     </div>
     </footer>
     </div>
+    <script src="../js/script.js"></script>
 </body>
 </html>

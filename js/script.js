@@ -55,9 +55,12 @@ window.addEventListener('scroll', () => {
 });
 
 // CTA按钮点击事件
-document.querySelector('.cta-button').addEventListener('click', () => {
-    alert('感谢您的关注！更多功能即将推出。');
-});
+const ctaButton = document.querySelector('.cta-button');
+if (ctaButton) {
+    ctaButton.addEventListener('click', () => {
+        alert('感谢您的关注！更多功能即将推出。');
+    });
+}
 
 // 卡片悬停效果增强
 const cards = document.querySelectorAll('.card');
