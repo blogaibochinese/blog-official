@@ -1,17 +1,276 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-           <style>
-/* 人工客服按钮样式 */
-#canCustomerServerBtn, .can-customer-server-btn {
-  right: 20px !important;
-  top: 20px !important;
-  left: auto !important;
-  bottom: auto !important;
-  position: fixed !important;
-  z-index: 9997 !important; /* 低于AI客服按钮，避免覆盖 */
-}
+<meta charset="UTF-8" />
+<title>OBS 下载与资源</title>
+<!-- 引入Font Awesome图标库 -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+<style>
+  body { 
+    font-family: Arial, sans-serif; 
+    line-height: 1.6; 
+    padding: 20px;
+    margin: 0;
+    padding-top: 80px;
+  }
+  
+  .navbar {
+    background: linear-gradient(135deg, #3498db, #2980b9);
+    color: white;
+    padding: 0;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.15);
+  }
+
+  .nav-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.8rem 20px;
+  }
+
+  .logo img {
+    height: 40px;
+    width: auto;
+    display: block;
+  }
+
+  .nav-menu {
+    display: flex;
+    list-style: none;
+    gap: 0;
+    margin: 0;
+    padding: 0;
+    align-items: center;
+  }
+
+  .nav-item {
+    margin: 0;
+    padding: 0;
+  }
+
+  .nav-link {
+    color: white;
+    text-decoration: none;
+    transition: all 0.3s;
+    font-size: 0.95rem;
+    font-weight: 500;
+    padding: 10px 15px;
+    display: block;
+    white-space: nowrap;
+  }
+
+  .nav-link:hover {
+    color: #ffcc2f;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 4px;
+  }
+
+  /* 汉堡菜单样式 */
+  .hamburger {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+  }
+
+  .bar {
+    width: 25px;
+    height: 3px;
+    margin: 3px 0;
+    transition: 0.3s;
+    background-color: white;
+  }
+  
+  /* 移动端底部导航 */
+  .mobile-nav {
+    display: none;
+  }
+  
+  /* 响应式设计 */
+  @media screen and (max-width: 768px) {
+    body {
+      padding-top: 70px;
+      padding-bottom: 80px;
+    }
+
+    .nav-menu {
+      position: fixed;
+      left: -100%;
+      top: 70px;
+      flex-direction: column;
+      background-color: #3498db;
+      width: 100%;
+      text-align: center;
+      transition: 0.3s;
+      box-shadow: 0 10px 27px rgba(0,0,0,0.05);
+      padding: 2rem 0;
+      gap: 0;
+    }
+
+    .nav-menu.active {
+      left: 0;
+    }
+
+    .nav-item {
+      margin: 1rem 0;
+      width: 100%;
+    }
+
+    .nav-link {
+      padding: 15px 20px;
+    }
+
+    .hamburger {
+      display: flex;
+    }
+
+    .hamburger.active .bar:nth-child(2) {
+      opacity: 0;
+    }
+
+    .hamburger.active .bar:nth-child(1) {
+      transform: translateY(8px) rotate(45deg);
+    }
+
+    .hamburger.active .bar:nth-child(3) {
+      transform: translateY(-8px) rotate(-45deg);
+    }
+    
+    .mobile-nav {
+      display: block;
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: #ffffff;
+      box-shadow: 0 -2px 10px rgba(0,0,0,0.1);
+      z-index: 1000;
+      padding: 10px 0;
+    }
+    
+    .mobile-nav .nav-container {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      max-width: 600px;
+      margin: 0 auto;
+      padding: 0 10px;
+    }
+    
+    .mobile-nav .nav-item {
+      flex: 1;
+      text-align: center;
+      padding: 8px 0;
+      color: #999;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      font-size: 12px;
+      text-decoration: none;
+      margin: 0;
+    }
+    
+    .mobile-nav .nav-item i {
+      display: block;
+      font-size: 18px;
+      margin-bottom: 4px;
+    }
+    
+    .mobile-nav .nav-item.active {
+      color: #007bff;
+    }
+    
+    .mobile-nav .nav-item.center {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      border-radius: 50%;
+      width: 50px;
+      height: 50px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      margin-top: -20px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    }
+    
+    .mobile-nav .nav-item.center i {
+      font-size: 20px;
+      margin-bottom: 0;
+    }
+    
+    .mobile-nav .nav-item.center.active {
+      color: white;
+    }
+    
+    .mobile-nav .nav-item.center:hover {
+      transform: scale(1.1);
+    }
+  }
+  
+  .container { 
+    display: flex; 
+    gap: 20px; 
+    flex-wrap: wrap;
+    max-width: 1200px;
+    margin: 20px auto;
+  }
+  
+  .column { 
+    flex: 1; 
+    min-width: 280px; 
+  }
+  
+  .link-block p { 
+    margin: 8px 0; 
+  }
+  
+  figure { 
+    text-align: center; 
+    margin: 0; 
+  }
+  
+  figcaption { 
+    font-size: 14px; 
+    color: #666; 
+    margin-top: 4px; 
+  }
+
+  .footer {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 30px 20px;
+    text-align: center;
+    margin-top: 50px;
+  }
+
+  .footer a {
+    color: white;
+    text-decoration: none;
+    margin: 0 5px;
+  }
+
+  .footer img {
+    vertical-align: middle;
+  }
+
+  /* 人工客服按钮样式 */
+  #canCustomerServerBtn, .can-customer-server-btn {
+    right: 20px !important;
+    top: 20px !important;
+    left: auto !important;
+    bottom: auto !important;
+    position: fixed !important;
+    z-index: 9997 !important;
+  }
 </style>
+</head>
+<body>
 
 <!-- 人工客服脚本 -->
 <script>
@@ -33,7 +292,6 @@
     var canCustomerServer = new initCustomerServer(option);
     canCustomerServer.init();
     
-    // 检查按钮是否生成并设置位置
     var checkInterval = setInterval(function() {
       var btn = document.querySelector('#canCustomerServerBtn') || 
                 document.querySelector('.can-customer-server-btn') ||
@@ -42,14 +300,12 @@
       
       if (btn) {
         clearInterval(checkInterval);
-        // 强制设置位置和层级
         btn.style.position = 'fixed';
         btn.style.right = '20px';
         btn.style.top = '200px';
         btn.style.left = 'auto';
         btn.style.bottom = 'auto';
-        btn.style.zIndex = '9997'; // 与样式保持一致
-        // 添加拖拽功能
+        btn.style.zIndex = '9997';
         makeDraggable(btn);
       }
     }, 300);
@@ -57,7 +313,6 @@
   
   document.head.appendChild(_s);
   
-  // 拖拽功能实现
   function makeDraggable(element) {
     let pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
     element.style.cursor = 'move';
@@ -91,65 +346,7 @@
   }
 })();
 </script>
-<meta charset="UTF-8" />
-<title>OBS 下载与资源</title>
-<style>
-  body { font-family: Arial, sans-serif; line-height:1.6; padding: 20px;}
-  .navbar {
-    background: linear-gradient(135deg, #3498db, #2980b9);
-    color: white;
-    padding: 0;
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;  /* 使用 left 和 right 代替 width: 100% */
-    z-index: 1000;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.15);
-}
 
-.nav-container {
-    max-width: 1200px;
-    margin: 0 auto;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0.8rem 20px;
-}
-
-.logo img {
-    height: 40px;
-    width: auto;
-    display: block;
-}
-
-.nav-menu {
-    display: flex;
-    list-style: none;
-    gap: 2rem;
-    margin: 0;
-    padding: 0;  /* 添加 padding: 0 以移除默认内边距 */
-}
-
-.nav-link {
-    color: white;
-    text-decoration: none;
-    transition: all 0.3s;
-    font-size: 0.95rem;
-    font-weight: 500;
-}
-
-.nav-link:hover {
-    color: #ffcc2f;
-}
-  .container { display: flex; gap: 20px; flex-wrap: wrap; }
-  .column { flex: 1; min-width: 280px; }
-  .link-block p { margin: 8px 0; }
-  figure { text-align: center; margin: 0; }
-  figcaption { font-size: 14px; color: #666; margin-top: 4px; }
-</style>
-</head>
-<body>
- <!-- 标准导航菜单 -->
 <!-- 标准导航菜单 -->
 <nav class="navbar">
     <div class="nav-container">
@@ -157,8 +354,7 @@
             <h2><a href="https://blog.aibochinese.com/" target="_blank"><img src="https://cf.aibochinese.com/%E7%88%B1%E5%8D%9A%C2%B7%E5%AE%A2%E5%9B%BE%E7%89%87%E5%BA%93/%E5%B8%B8%E7%94%A8%E6%A8%A1%E6%9D%BF%E5%9B%BE%E7%89%87/%E5%88%86%E4%BA%AB%E7%BB%8F%E9%AA%8C%EF%BC%8C%E8%BD%BB%E6%9D%BE%E7%BA%BF%E4%B8%8A%E8%87%B4%E5%AF%8C320x50.png" alt="网站Logo"></a></h2>
         </div>
         <ul class="nav-menu">
-
-             <li class="nav-item">
+            <li class="nav-item">
                 <a href="https://blog.aibochinese.com/Rescous/free%20rs" class="nav-link">免费资源</a>
             </li>
             <li class="nav-item">
@@ -173,10 +369,10 @@
             <li class="nav-item">
                 <a href="https://blog.aibochinese.com/SMC/sm%20maketing" class="nav-link">自媒体营销</a>
             </li>
-             <li class="nav-item">
+            <li class="nav-item">
                 <a href="https://blog.aibochinese.com/earn%20online" class="nav-link">项目推荐</a>
             </li>
-             <li class="nav-item">
+            <li class="nav-item">
                 <a href="https://blog.aibochinese.com/tools/drive" class="nav-link">商务网盘</a>
             </li>
             <li class="nav-item">
@@ -190,11 +386,7 @@
         </div>
     </div>
 </nav>
-    
-    <!-- 引用标准的CSS和JS文件 -->
-    <link rel="stylesheet" href="../css/style.css">
-    <script src="../js/script.js"></script>
-    
+
 <div class="container">
   <div class="column link-block">
     <p>_</p>
@@ -221,24 +413,85 @@
 </div>
 
 <!-- 视频播放列表 -->
-<div style="margin-top: 20px;">
+<div style="margin-top: 20px; max-width: 1200px; margin-left: auto; margin-right: auto;">
   <h3>OBS 直播 / 录屏教程</h3>
   <p>视频播放列表嵌入占位（mine-cloudvod / video-playlist）</p>
 </div>
-     <footer>
-<div class="footer">
-        <p style="margin-bottom: 10px;">感谢🙏订阅我的频道：<a href="https://www.youtube.com/@blog.aibochinese" style="color:white" target="_blank" rel="noopener noreferrer"><img src="https://cf.aibochinese.com/%E7%88%B1%E5%8D%9A%C2%B7%E5%AE%A2%E5%9B%BE%E7%89%87%E5%BA%93/%E5%B8%B8%E7%94%A8%E6%A8%A1%E6%9D%BF%E5%9B%BE%E7%89%87/youtube%20logo%2030.png" 
-         style="max-width: 100%; height: auto;" /></a>  <a href="https://x.com/blogaibochinese" style="color:white" target="_blank" rel="noopener noreferrer"><img src="https://cf.aibochinese.com/%E7%88%B1%E5%8D%9A%C2%B7%E5%AE%A2%E5%9B%BE%E7%89%87%E5%BA%93/%E5%B8%B8%E7%94%A8%E6%A8%A1%E6%9D%BF%E5%9B%BE%E7%89%87/x%20logo30f1.png" 
-         style="max-width: 100%; height: auto;" /></a>  <a href="https://www.facebook.com/blog.aibochinese" style="color:white" target="_blank" rel="noopener noreferrer"><img src="https://cf.aibochinese.com/%E7%88%B1%E5%8D%9A%C2%B7%E5%AE%A2%E5%9B%BE%E7%89%87%E5%BA%93/%E5%B8%B8%E7%94%A8%E6%A8%A1%E6%9D%BF%E5%9B%BE%E7%89%87/facebook%20log0%2030.png" 
-         style="max-width: 100%; height: auto;" /></a>  <a href="https://wa.me/message/QXYAFEGTDWIBE1" style="color:white" target="_blank" rel="noopener noreferrer"><img src="https://cf.aibochinese.com/%E7%B4%A0%E6%9D%90%E7%AB%99/whatsapp-48.png" 
-         style="max-width: 100%; height: auto;" /></a>  <a href="https://cf.aibochinese.com/%E7%B4%A0%E6%9D%90%E7%AB%99/%E6%B7%BB%E5%8A%A0%E5%BE%AE%E4%BF%A1.png" style="color:white" rel="noopener noreferrer"><img src="https://cf.aibochinese.com/%E7%B4%A0%E6%9D%90%E7%AB%99/icons8-%E5%BE%AE%E4%BF%A1-30.png" 
-         style="max-width: 100%; height: auto;" /></a>  <a href="https://space.bilibili.com/1014631395?spm_id_from=333.1387.0.0" style="color:white" rel="noopener noreferrer"><img src="https://cf.aibochinese.com/%E7%B4%A0%E6%9D%90%E7%AB%99/icons8-%E8%83%86%E6%B1%81-30.png" 
-         style="max-width: 100%; height: auto;" /></a>  <a href="https://v.douyin.com/7UArd_7AX6o/" style="color:white" rel="noopener noreferrer"><img src="https://cf.aibochinese.com/%E7%B4%A0%E6%9D%90%E7%AB%99/icons8-%E7%9A%84tiktok-30.png" 
-         style="max-width: 100%; height: auto;" /></a>  <a href="https://xhslink.com/m/5it26wH34Zd" style="color:white" rel="noopener noreferrer"><img src="https://cf.aibochinese.com/%E7%B4%A0%E6%9D%90%E7%AB%99/rednote.png" 
-         style="max-width: 100%; height: auto;" /></a>
+
+<footer>
+    <div class="footer">
+        <p style="margin-bottom: 10px;">感谢🙏订阅我的频道：
+            <a href="https://www.youtube.com/@blog.aibochinese" target="_blank" rel="noopener noreferrer"><img src="https://cf.aibochinese.com/%E7%88%B1%E5%8D%9A%C2%B7%E5%AE%A2%E5%9B%BE%E7%89%87%E5%BA%93/%E5%B8%B8%E7%94%A8%E6%A8%A1%E6%9D%BF%E5%9B%BE%E7%89%87/youtube%20logo%2030.png" style="max-width: 100%; height: auto;" /></a>
+            <a href="https://x.com/blogaibochinese" target="_blank" rel="noopener noreferrer"><img src="https://cf.aibochinese.com/%E7%88%B1%E5%8D%9A%E6%B1%89%E8%AF%AD%E5%AE%A2%E6%88%B7%E7%AB%AF/icons8-x-30.png" style="max-width: 100%; height: auto;" /></a>
+            <a href="https://www.facebook.com/blog.aibochinese" target="_blank" rel="noopener noreferrer"><img src="https://cf.aibochinese.com/%E7%88%B1%E5%8D%9A%C2%B7%E5%AE%A2%E5%9B%BE%E7%89%87%E5%BA%93/%E5%B8%B8%E7%94%A8%E6%A8%A1%E6%9D%BF%E5%9B%BE%E7%89%87/facebook%20log0%2030.png" style="max-width: 100%; height: auto;" /></a>
+            <a href="https://wa.me/message/QXYAFEGTDWIBE1" target="_blank" rel="noopener noreferrer"><img src="https://cf.aibochinese.com/%E7%B4%A0%E6%9D%90%E7%AB%99/whatsapp-48.png" style="max-width: 100%; height: auto;" /></a>
+            <a href="https://cf.aibochinese.com/%E7%B4%A0%E6%9D%90%E7%AB%99/%E6%B7%BB%E5%8A%A0%E5%BE%AE%E4%BF%A1.png" rel="noopener noreferrer"><img src="https://cf.aibochinese.com/%E7%B4%A0%E6%9D%90%E7%AB%99/icons8-%E5%BE%AE%E4%BF%A1-30.png" style="max-width: 100%; height: auto;" /></a>
+            <a href="https://space.bilibili.com/1014631395?spm_id_from=333.1387.0.0" rel="noopener noreferrer"><img src="https://cf.aibochinese.com/%E7%B4%A0%E6%9D%90%E7%AB%99/icons8-%E8%83%86%E6%B1%81-30.png" style="max-width: 100%; height: auto;" /></a>
+            <a href="https://v.douyin.com/7UArd_7AX6o/" rel="noopener noreferrer"><img src="https://cf.aibochinese.com/%E7%B4%A0%E6%9D%90%E7%AB%99/icons8-%E7%9A%84tiktok-30.png" style="max-width: 100%; height: auto;" /></a>
+            <a href="https://xhslink.com/m/5it26wH34Zd" rel="noopener noreferrer"><img src="https://cf.aibochinese.com/%E7%88%B1%E5%8D%9A%E6%B1%89%E8%AF%AD%E5%AE%A2%E6%88%B7%E7%AB%AF/ODFrednote.png" style="max-width: 100%; height: auto;" /></a>
         </p>
-        <p style="font-size: 12px; color: #888;">© 2025 <a href="https://blog.aibochinese.com/" style="color:white" target="_blank" rel="noopener noreferrer">爱博·客</a> - 所有权利保留</p>
+        <p style="font-size: 12px; color: #888;">© 2025 <a href="https://blog.aibochinese.com/" target="_blank" rel="noopener noreferrer">爱博·客</a> - 所有权利保留</p>
     </div>
-    </footer>
+</footer>
+
+<!-- 移动端底部导航 -->
+<div class="mobile-nav">
+    <div class="nav-container">
+        <a href="https://blog.aibochinese.com/" class="nav-item active">
+            <i class="fa fa-home icon"></i>
+            <span class="text">首页</span>
+        </a>
+        
+        <a href="https://blog.aibochinese.com/Rescous/free%20rs" class="nav-item">
+            <i class="fa fa-cloud-download icon"></i>
+            <span class="text">资源</span>
+        </a>
+
+        <a href="https://blog.aibochinese.com/newest" class="nav-item center">
+            <i class="fa fa-refresh icon"></i>
+            <span class="text">最新</span>
+        </a>
+
+        <a href="https://blog.aibochinese.com/sitesbuild" class="nav-item">
+            <i class="fa fa-code icon"></i>
+            <span class="text">建站</span>
+        </a>
+
+        <a href="https://blog.aibochinese.com/earn%20online" class="nav-item">
+            <i class="fa fa-usd icon"></i>
+            <span class="text">淘金</span>
+        </a>
+    </div>
+</div>
+
+<!-- 汉堡菜单交互 -->
+<script>
+const hamburger = document.querySelector('.hamburger');
+const navMenu = document.querySelector('.nav-menu');
+
+hamburger.addEventListener('click', () => {
+    hamburger.classList.toggle('active');
+    navMenu.classList.toggle('active');
+});
+
+// 点击导航链接后关闭菜单
+document.querySelectorAll('.nav-link').forEach(n => n.addEventListener('click', () => {
+    hamburger.classList.remove('active');
+    navMenu.classList.remove('active');
+}));
+
+// 移动端底部导航交互
+document.addEventListener('DOMContentLoaded', function() {
+    const navItems = document.querySelectorAll('.mobile-nav .nav-item');
+    
+    navItems.forEach(item => {
+        item.addEventListener('click', function() {
+            navItems.forEach(navItem => navItem.classList.remove('active'));
+            this.classList.add('active');
+        });
+    });
+});
+</script>
+
 </body>
 </html>

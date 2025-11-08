@@ -638,7 +638,7 @@
                             <img src="https://cf.aibochinese.com/%E7%88%B1%E5%8D%9A%C2%B7%E5%AE%A2%E5%9B%BE%E7%89%87%E5%BA%93/%E5%B8%B8%E7%94%A8%E6%A8%A1%E6%9D%BF%E5%9B%BE%E7%89%87/youtube%20logo%2030.png" style="max-width: 100%; height: auto;" />
                         </a>
                         <a href="https://x.com/blogaibochinese" style="color:white" target="_blank" rel="noopener noreferrer">
-                            <img src="https://cf.aibochinese.com/%E7%88%B1%E5%8D%9A%C2%B7%E5%AE%A2%E5%9B%BE%E7%89%87%E5%BA%93/%E5%B8%B8%E7%94%A8%E6%A8%A1%E6%9D%BF%E5%9B%BE%E7%89%87/x%20logo30f1.png" style="max-width: 100%; height: auto;" />
+                            <img src="https://cf.aibochinese.com/%E7%88%B1%E5%8D%9A%E6%B1%89%E8%AF%AD%E5%AE%A2%E6%88%B7%E7%AB%AF/icons8-x-30.png" style="max-width: 100%; height: auto;" />
                         </a>
                         <a href="https://www.facebook.com/blog.aibochinese" style="color:white" target="_blank" rel="noopener noreferrer">
                             <img src="https://cf.aibochinese.com/%E7%88%B1%E5%8D%9A%C2%B7%E5%AE%A2%E5%9B%BE%E7%89%87%E5%BA%93/%E5%B8%B8%E7%94%A8%E6%A8%A1%E6%9D%BF%E5%9B%BE%E7%89%87/facebook%20log0%2030.png" style="max-width: 100%; height: auto;" />
@@ -656,7 +656,7 @@
                             <img src="https://cf.aibochinese.com/%E7%B4%A0%E6%9D%90%E7%AB%99/icons8-%E7%9A%84tiktok-30.png" style="max-width: 100%; height: auto;" />
                         </a>
                         <a href="https://xhslink.com/m/5it26wH34Zd" style="color:white" rel="noopener noreferrer">
-                            <img src="https://cf.aibochinese.com/%E7%B4%A0%E6%9D%90%E7%AB%99/rednote.png" style="max-width: 100%; height: auto;" />
+                            <img src="https://cf.aibochinese.com/%E7%88%B1%E5%8D%9A%E6%B1%89%E8%AF%AD%E5%AE%A2%E6%88%B7%E7%AB%AF/ODFrednote.png" style="max-width: 100%; height: auto;" />
                         </a>
                     </p>
                     <p style="font-size: 12px; color: #888;">© 2025 <a href="https://blog.aibochinese.com/" style="color:white" target="_blank" rel="noopener noreferrer">爱博·客</a> - 所有权利保留</p>
@@ -664,6 +664,112 @@
             </footer>
         </div>
     </div>
+
+    <!-- 移动端底部导航按钮 - 仅在移动端显示 -->
+    <div class="mobile-nav">
+        <div class="nav-container">
+            <!-- 首页按钮 -->
+            <a href="https://blog.aibochinese.com/" class="nav-item active">
+                <i class="fa fa-home icon"></i>
+                <span class="text">首页</span>
+            </a>
+            
+            <!-- 资源按钮 -->
+            <a href="https://blog.aibochinese.com/Rescous/free%20rs" class="nav-item">
+                <i class="fa fa-cloud-download icon"></i>
+                <span class="text">资源</span>
+            </a>
+
+            <!-- 最新 - 突出显示 -->
+            <a href="https://blog.aibochinese.com/newest" class="nav-item center">
+                <i class="fa fa-refresh icon"></i>
+                <span class="text">最新</span>
+            </a>
+
+            <!-- 建站按钮 -->
+            <a href="https://blog.aibochinese.com/sitesbuild" class="nav-item">
+                <i class="fa fa-code icon"></i>
+                <span class="text">建站</span>
+            </a>
+
+            <!-- 淘金按钮 -->
+            <a href="https://blog.aibochinese.com/earn%20online" class="nav-item">
+                <i class="fa fa-usd icon"></i>
+                <span class="text">淘金</span>
+            </a>
+        </div>
+    </div>
+
+    <!-- 移动端底部导航按钮样式 -->
+    <style>
+        .mobile-nav {
+            display: none;
+        }
+        
+        @media (max-width: 768px) {
+            .mobile-nav {
+                display: block;
+                position: fixed;
+                bottom: 0;
+                left: 0;
+                right: 0;
+                background: white;
+                box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+                z-index: 50;
+            }
+            
+            .nav-container {
+                display: flex;
+                justify-content: space-around;
+                align-items: center;
+                padding: 12px 0;
+            }
+            
+            .nav-item {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                text-decoration: none;
+                color: #666;
+                transition: all 0.3s ease;
+                position: relative;
+            }
+            
+            .nav-item.active {
+                color: #3B82F6;
+                transform: scale(1.1);
+            }
+            
+            .nav-item.center {
+                margin-top: -20px;
+            }
+            
+            .icon {
+                font-size: 20px;
+                margin-bottom: 4px;
+            }
+            
+            .text {
+                font-size: 12px;
+            }
+            
+            .center .icon {
+                font-size: 24px;
+                background: #3B82F6;
+                color: white;
+                width: 40px;
+                height: 40px;
+                border-radius: 50%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                box-shadow: 0 2px 10px rgba(59, 130, 246, 0.3);
+            }
+        }
+    </style>
+
+    <!-- 引入Font Awesome图标库 -->
+    <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
 
     <!-- 人工客服脚本 -->
     <script>
@@ -758,6 +864,29 @@
                 });
             });
         }
+        
+        // 移动端底部导航按钮交互
+        const navItems = document.querySelectorAll('.nav-item');
+        
+        navItems.forEach(item => {
+            item.addEventListener('click', function(e) {
+                // 阻止默认跳转行为，以便查看动画效果
+                // e.preventDefault();
+                
+                // 移除所有按钮的激活状态
+                navItems.forEach(navItem => {
+                    navItem.classList.remove('active');
+                });
+                
+                // 为当前点击的按钮添加激活状态
+                this.classList.add('active');
+                
+                // 如果需要页面跳转，可以取消下面的注释并调整逻辑
+                // setTimeout(() => {
+                //     window.location.href = this.getAttribute('href');
+                // }, 300);
+            });
+        });
     });
     </script>
 </body>
