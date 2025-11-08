@@ -320,113 +320,122 @@
                     </div>
                 </div>
             </div>
-        </section>
-<p>————广告位招租————</p>
-<!-- ✅ 两图并列（响应式）- 全部完整代码 -->
-<style>
-  /* 修正：将最大宽度从 1200px 调整为 900px，限制图片组的整体大小，使其居中显示 */
-  .two-up {
-    display: flex;
-    gap: 16px;
-    align-items: center;
-    justify-content: flex-start;
-    flex-wrap: wrap;
-    max-width: 900px; /* 限制最大宽度，避免图片过大 */
-    margin: 0 auto 22px auto;
-    padding: 8px 0;
-  }
-  .two-up .item {
-    flex: 1 1 48%;
-    box-sizing: border-box;
-    min-width: 200px;
-  }
-  .two-up .item a {
-    display: block;
-    text-decoration: none;
-  }
-  .two-up .item img {
-    width: 100%;
-    height: auto;
-    display: block;
-    border-radius: 6px;
-    box-shadow: 0 1px 4px rgba(0,0,0,0.08);
-  }
-  @media (max-width: 620px) {
-    .two-up .item { flex: 1 1 100%; }
-  }
-</style>
+  <section>
+    <p style="text-align: center; font-weight: bold; margin: 16px 0;">————广告位招租————</p>
 
-<!-- 第二组 -->
-<div class="two-up">
-  <div class="item">
-    <a href="payment/SafePal.html" target="_blank" rel="noopener">
-      <img src="https://cf.aibomart.com/%E5%9B%BE%E5%BA%93/Safepal%20%E5%B9%BF%E5%91%8A%E4%BD%8D.png" alt="SafePal" loading="lazy">
-    </a>
-  </div>
-  <div class="item">
-    <a href="payment/roogoo.html" target="_blank" rel="noopener">
-      <img src="https://cf.aibomart.com/%E5%9B%BE%E5%BA%93/roogoo%E5%8D%A1%E5%B9%BF%E5%91%8A%E4%BD%8D.png" alt="Roogoo Mastercard" loading="lazy">
-    </a>
-  </div>
-</div>
+    <!-- ✅ 两图并列（响应式）- 固定图片尺寸 300×50 -->
+    <style>
+      .two-up {
+        display: flex;
+        gap: 16px;
+        align-items: center;
+        justify-content: center;
+        flex-wrap: wrap;
+        max-width: 900px;
+        margin: 0 auto 22px auto;
+        padding: 8px 0;
+      }
+      .two-up .item {
+        flex: 0 0 auto;
+        box-sizing: border-box;
+      }
+      .two-up .item a {
+        display: block;
+        text-decoration: none;
+      }
+      .two-up .item img {
+        width: 300px;
+        height: 50px;
+        display: block;
+        border-radius: 6px;
+        box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+        object-fit: cover;
+      }
+      @media (max-width: 660px) {
+        .two-up {
+          flex-direction: column;
+          align-items: center;
+        }
+        .two-up .item {
+          width: 100%;
+          max-width: 300px;
+        }
+      }
+    </style>
 
-<!-- 第三组 -->
-<div class="two-up">
-  <div class="item">
-    <a href="tools/drive.html" target="_blank" rel="noopener">
-      <img src="https://cf.aibomart.com/%E5%9B%BE%E5%BA%93/%E5%95%86%E5%8A%A1%E7%BD%91%E7%9B%98%E5%B9%BF%E5%91%8A.png" alt="商务网盘" loading="lazy">
-    </a>
-  </div>
-  <div class="item">
-    <a href="tools/capcut.html" target="_blank" rel="noopener">
-      <img src="https://cf.aibomart.com/%E5%9B%BE%E5%BA%93/%E6%B0%B8%E4%B9%85%E5%85%8D%E8%B4%B9%E5%BB%BA%E7%AB%99%E5%B9%BF%E5%91%8A.png" alt="永久免费建站" loading="lazy">
-    </a>
-  </div>
-</div>
+    <!-- 第二组 -->
+    <div class="two-up">
+      <div class="item">
+        <a href="payment/SafePal.html" target="_blank" rel="noopener">
+          <img src="https://cf.aibomart.com/%E5%9B%BE%E5%BA%93/Safepal%20%E5%B9%BF%E5%91%8A%E4%BD%8D.png" alt="SafePal" loading="lazy">
+        </a>
+      </div>
+      <div class="item">
+        <a href="payment/roogoo.html" target="_blank" rel="noopener">
+          <img src="https://cf.aibomart.com/%E5%9B%BE%E5%BA%93/roogoo%E5%8D%A1%E5%B9%BF%E5%91%8A%E4%BD%8D.png" alt="Roogoo Mastercard" loading="lazy">
+        </a>
+      </div>
+    </div>
 
-<!-- 第四组 -->
-<div class="two-up">
-  <div class="item">
-    <a href="https://accounts.maxweb.red/register?ref=569491541" target="_blank" rel="noopener">
-      <img src="https://cf.aibomart.com/%E5%9B%BE%E5%BA%93/%E5%B8%81%E5%AE%89%20%E5%B9%BF%E5%91%8A.png" alt="Binance" loading="lazy">
-    </a>
-  </div>
-  <div class="item">
-    <a href="payment/pay.html" target="_blank" rel="noopener">
-      <img src="https://cf.aibomart.com/%E5%9B%BE%E5%BA%93/%E4%BB%A3%E5%85%85%E4%BB%A3%E6%94%B6.png" alt="AiboPay" loading="lazy">
-    </a>
-  </div>
-</div>
+    <!-- 第三组 -->
+    <div class="two-up">
+      <div class="item">
+        <a href="tools/drive.html" target="_blank" rel="noopener">
+          <img src="https://cf.aibomart.com/%E5%9B%BE%E5%BA%93/%E5%95%86%E5%8A%A1%E7%BD%91%E7%9B%98%E5%B9%BF%E5%91%8A.png" alt="商务网盘" loading="lazy">
+        </a>
+      </div>
+      <div class="item">
+        <a href="tools/capcut.html" target="_blank" rel="noopener">
+          <img src="https://cf.aibomart.com/%E5%9B%BE%E5%BA%93/%E6%B0%B8%E4%B9%85%E5%85%8D%E8%B4%B9%E5%BB%BA%E7%AB%99%E5%B9%BF%E5%91%8A.png" alt="永久免费建站" loading="lazy">
+        </a>
+      </div>
+    </div>
 
-<!-- 第一组 -->
-<div class="two-up">
-  <div class="item">
-    <a href="buildsites/RackNerd-Host.html" target="_blank" rel="noopener">
-      <img src="https://cf.aibochinese.com/%E7%88%B1%E5%8D%9A%C2%B7%E5%AE%A2%E5%9B%BE%E7%89%87%E5%BA%93/%E5%B8%B8%E7%94%A8%E6%A8%A1%E6%9D%BF%E5%9B%BE%E7%89%87/RackNerd%20%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%BF%83%E9%94%80.png" alt="RackNerd" loading="lazy">
-    </a>
-  </div>
-  <div class="item">
-    <a href="https://dedicatedlines.top?ref=13" target="_blank" rel="noopener">
-      <img src="https://cf.aibomart.com/%E5%9B%BE%E5%BA%93/%E5%87%80%E8%BF%9E%E4%B8%93%E7%BA%BF%E5%B9%BF%E5%91%8A%E4%BD%8D.png" alt="净连专线" loading="lazy">
-    </a>
-  </div>
-</div>
-<p>📢欢迎来与我们洽谈合作！</p>
-<p>按推广效果付费（佣金）|指定文章或页面嵌入广告，按天数计费，商务热线：19179215243</p>
+    <!-- 第四组 -->
+    <div class="two-up">
+      <div class="item">
+        <a href="https://accounts.maxweb.red/register?ref=569491541" target="_blank" rel="noopener">
+          <img src="https://cf.aibomart.com/%E5%9B%BE%E5%BA%93/%E5%B8%81%E5%AE%89%20%E5%B9%BF%E5%91%8A.png" alt="Binance" loading="lazy">
+        </a>
+      </div>
+      <div class="item">
+        <a href="payment/pay.html" target="_blank" rel="noopener">
+          <img src="https://cf.aibomart.com/%E5%9B%BE%E5%BA%93/%E4%BB%A3%E5%85%85%E4%BB%A3%E6%94%B6.png" alt="AiboPay" loading="lazy">
+        </a>
+      </div>
+    </div>
 
+    <!-- 第一组 -->
+    <div class="two-up">
+        <div class="item">
+        <a href="https://dedicatedlines.top?ref=13" target="_blank" rel="noopener">
+          <img src="https://cf.aibochinese.com/%E7%88%B1%E5%8D%9A%C2%B7%E5%AE%A2%E5%9B%BE%E7%89%87%E5%BA%93/%E6%96%87%E7%AB%A0%E5%B0%81%E9%9D%A2%E5%9B%BE/%E5%87%80%E8%BF%9E%E4%B8%93%E7%BA%BFads-1.png" alt="净连专线" loading="lazy">
+        </a>
+      </div>
+      <div class="item">
+        <a href="buildsites/RackNerd-Host.html" target="_blank" rel="noopener">
+          <img src="https://cf.aibochinese.com/%E7%88%B1%E5%8D%9A%C2%B7%E5%AE%A2%E5%9B%BE%E7%89%87%E5%BA%93/%E6%96%87%E7%AB%A0%E5%B0%81%E9%9D%A2%E5%9B%BE/RackNerd%20%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%BF%83%E9%94%801.png" alt="RackNerd" loading="lazy">
+        </a>
+      </div>
+    </div>
+
+    <p style="text-align: center; margin: 16px 0;">📢欢迎来与我们洽谈合作!</p>
+    <p style="text-align: center; margin: 8px 0; font-size: 0.9em; color: #666;">
+      按推广效果付费(佣金)|指定文章或页面嵌入广告，按天数计费，商务热线：19179215243
+    </p>
     </main>
 
     <!-- 页脚 -->
 <footer>
 <div class="footer">
         <p style="margin-bottom: 10px;">感谢🙏订阅我的频道:<a href="https://www.youtube.com/@blog.aibochinese" style="color:white; display:inline-block; vertical-align:middle;" target="_blank" rel="noopener noreferrer"><img src="https://cf.aibochinese.com/%E7%88%B1%E5%8D%9A%C2%B7%E5%AE%A2%E5%9B%BE%E7%89%87%E5%BA%93/%E5%B8%B8%E7%94%A8%E6%A8%A1%E6%9D%BF%E5%9B%BE%E7%89%87/youtube%20logo%2030.png" 
-         style="width: 30px; height: 30px; display:block;" /></a>  <a href="https://x.com/blogaibochinese" style="color:white; display:inline-block; vertical-align:middle;" target="_blank" rel="noopener noreferrer"><img src="https://cf.aibochinese.com/%E7%88%B1%E5%8D%9A%C2%B7%E5%AE%A2%E5%9B%BE%E7%89%87%E5%BA%93/%E5%B8%B8%E7%94%A8%E6%A8%A1%E6%9D%BF%E5%9B%BE%E7%89%87/x%20logo30f1.png" 
+         style="width: 30px; height: 30px; display:block;" /></a>  <a href="https://x.com/blogaibochinese" style="color:white; display:inline-block; vertical-align:middle;" target="_blank" rel="noopener noreferrer"><img src="https://cf.aibochinese.com/%E7%88%B1%E5%8D%9A%E6%B1%89%E8%AF%AD%E5%AE%A2%E6%88%B7%E7%AB%AF/icons8-x-30.png" 
          style="width: 30px; height: 30px; display:block;" /></a>  <a href="https://www.facebook.com/blog.aibochinese" style="color:white; display:inline-block; vertical-align:middle;" target="_blank" rel="noopener noreferrer"><img src="https://cf.aibochinese.com/%E7%88%B1%E5%8D%9A%C2%B7%E5%AE%A2%E5%9B%BE%E7%89%87%E5%BA%93/%E5%B8%B8%E7%94%A8%E6%A8%A1%E6%9D%BF%E5%9B%BE%E7%89%87/facebook%20log0%2030.png" 
          style="width: 30px; height: 30px; display:block;" /></a>  <a href="https://wa.me/message/QXYAFEGTDWIBE1" style="color:white; display:inline-block; vertical-align:middle;" target="_blank" rel="noopener noreferrer"><img src="https://cf.aibochinese.com/%E7%B4%A0%E6%9D%90%E7%AB%99/whatsapp-48.png" 
          style="width: 30px; height: 30px; display:block;" /></a>  <a href="https://cf.aibochinese.com/%E7%B4%A0%E6%9D%90%E7%AB%99/%E6%B7%BB%E5%8A%A0%E5%BE%AE%E4%BF%A1.png" style="color:white; display:inline-block; vertical-align:middle;" rel="noopener noreferrer"><img src="https://cf.aibochinese.com/%E7%B4%A0%E6%9D%90%E7%AB%99/icons8-%E5%BE%AE%E4%BF%A1-30.png" 
          style="width: 30px; height: 30px; display:block;" /></a>  <a href="https://space.bilibili.com/1014631395?spm_id_from=333.1387.0.0" style="color:white; display:inline-block; vertical-align:middle;" rel="noopener noreferrer"><img src="https://cf.aibochinese.com/%E7%B4%A0%E6%9D%90%E7%AB%99/icons8-%E8%83%86%E6%B1%81-30.png" 
          style="width: 30px; height: 30px; display:block;" /></a>  <a href="https://v.douyin.com/7UArd_7AX6o/" style="color:white; display:inline-block; vertical-align:middle;" rel="noopener noreferrer"><img src="https://cf.aibochinese.com/%E7%B4%A0%E6%9D%90%E7%AB%99/icons8-%E7%9A%84tiktok-30.png" 
-         style="width: 30px; height: 30px; display:block;" /></a>  <a href="https://xhslink.com/m/5it26wH34Zd" style="color:white; display:inline-block; vertical-align:middle;" rel="noopener noreferrer"><img src="https://cf.aibochinese.com/%E7%B4%A0%E6%9D%90%E7%AB%99/rednote.png" 
+         style="width: 30px; height: 30px; display:block;" /></a>  <a href="https://xhslink.com/m/5it26wH34Zd" style="color:white; display:inline-block; vertical-align:middle;" rel="noopener noreferrer"><img src="https://cf.aibochinese.com/%E7%88%B1%E5%8D%9A%E6%B1%89%E8%AF%AD%E5%AE%A2%E6%88%B7%E7%AB%AF/ODFrednote.png" 
          style="width: 30px; height: 30px; display:block;" /></a>
         </p>
         <p style="font-size: 12px; color: #888;">© 2025 <a href="https://blog.aibochinese.com/" style="color:red " target="_blank" rel="noopener noreferrer">爱博·客</a> - 所有权利保留</p>
