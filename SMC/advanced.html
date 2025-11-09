@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>自媒体人精修 - 爱博·客</title>
+    <!-- 引入Font Awesome图标 - 移动到head以确保加载 -->
+    <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -93,6 +95,7 @@
             right: 0;
             z-index: 1000;
             box-shadow: 0 2px 10px rgba(0,0,0,0.15);
+            height: 60px; /* 修复：固定 navbar 高度，确保一致性 */
         }
 
         .nav-container {
@@ -101,9 +104,16 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 0.8rem 20px;
-            /* 修复: 允许导航条横向滚动，以应对超长导航项 */
-            overflow-x: auto; 
+            height: 100%;
+            padding: 0 20px; /* 修复：调整 padding 以匹配固定高度 */
+        }
+
+        .logo {
+            /* 修复：移除 h2 的默认 margin/padding，确保布局紧凑 */
+        }
+
+        .logo a {
+            display: inline-block;
         }
 
         .logo img {
@@ -168,7 +178,7 @@
             .nav-menu {
                 position: fixed;
                 left: -100%;
-                top: 70px;
+                top: 60px; /* 修复：匹配 navbar 固定高度 */
                 flex-direction: column;
                 background: linear-gradient(135deg, #3498db, #2980b9);
                 width: 100%;
@@ -176,10 +186,11 @@
                 transition: 0.3s;
                 box-shadow: 0 10px 27px rgba(0, 0, 0, 0.05);
                 padding: 20px 0;
-                /* 移动端菜单间距设置 */
                 gap: 0; 
-                height: 100vh; /* 修复：让移动端菜单占据整个屏幕高度 */
+                height: calc(100vh - 60px); /* 修复：调整高度以匹配 navbar */
                 overflow-y: auto;
+                /* 修复：添加 z-index 确保菜单在汉堡按钮上方，不被其他元素覆盖 */
+                z-index: 1001;
             }
 
             .nav-menu.active {
@@ -216,8 +227,7 @@
             max-width: 1200px;
             margin: 0 auto;
             padding: 20px;
-            /* 修正：为固定导航栏留出空间 */
-            padding-top: 80px; 
+            padding-top: 80px; /* 修正：为固定导航栏留出空间，调整为 60px + 额外缓冲 */
         }
 
         header {
@@ -429,7 +439,8 @@
      <nav class="navbar">
          <div class="nav-container">
              <div class="logo">
-                 <h2><a href="https://blog.aibochinese.com/" target="_blank"><img src="https://cf.aibochinese.com/%E7%88%B1%E5%8D%9A%C2%B7%E5%AE%A2%E5%9B%BE%E7%89%87%E5%BA%93/%E5%B8%B8%E7%94%A8%E6%A8%A1%E6%9D%BF%E5%9B%BE%E7%89%87/%E5%88%86%E4%BA%AB%E7%BB%8F%E9%AA%8C%EF%BC%8C%E8%BD%BB%E6%9D%BE%E7%BA%BF%E4%B8%8A%E8%87%B4%E5%AF%8C320x50.png" alt="网站Logo"></a></h2>
+                 <!-- 修复：移除 h2 标签，避免默认 margin 导致布局异常，直接使用 a 包裹 img -->
+                 <a href="https://blog.aibochinese.com/" target="_blank"><img src="https://cf.aibochinese.com/%E7%88%B1%E5%8D%9A%C2%B7%E5%AE%A2%E5%9B%BE%E7%89%87%E5%BA%93/%E5%B8%B8%E7%94%A8%E6%A8%A1%E6%9D%BF%E5%9B%BE%E7%89%87/%E5%88%86%E4%BA%AB%E7%BB%8F%E9%AA%8C%EF%BC%8C%E8%BD%BB%E6%9D%BE%E7%BA%BF%E4%B8%8A%E8%87%B4%E5%AF%8C320x50.png" alt="网站Logo"></a>
              </div>
              <ul class="nav-menu">
                  <li class="nav-item">
@@ -466,59 +477,33 @@
      </nav>
      
      <div class="container">
-        <header>
-            <h1>自媒体人精修</h1>
-        </header>
-        
         <section>
-            <h2 class="section-title">核心技能板块</h2>
+            <h2 class="section-title">国内外自媒体平台运营策略</h2>
             <div class="skills-grid">
-                <!-- 图片处理板块 -->
+                <!-- 国内自媒体平台 -->
                 <div class="skill-card">
-                    <h3>图片处理</h3>
+                    <h3>国内自媒体平台</h3>
                     <ul>
-                        <li>基础修图技巧（调色、构图、光影处理）</li>
-                        <li>高级合成技术（抠图、蒙版、混合模式）</li>
-                        <li>批量处理与自动化操作</li>
-                        <li>不同平台图片规格适配</li>
-                        <li>封面设计与视觉冲击力打造</li>
+                        <li><strong>微信公众号</strong>：适合深度内容，用户粘性高，变现渠道多样</li>
+                        <li><strong>抖音</strong>：短视频为主，算法推荐，适合创意内容和快速传播</li>
+                        <li><strong>小红书</strong>：生活方式分享，用户以年轻女性为主，适合种草内容</li>
+                        <li><strong>哔哩哔哩</strong>：长视频平台，用户互动性强，适合知识分享和深度内容</li>
+                        <li><strong>微博</strong>：社交媒体属性强，适合热点追踪和话题营销</li>
                     </ul>
+                    <button style="background-color: #4a6fa5; color: white; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer;">使用方法演示</button>
                 </div>
                 
-                <!-- 视频剪辑板块 -->
+                <!-- 海外自媒体平台 -->
                 <div class="skill-card">
-                    <h3>视频剪辑</h3>
+                    <h3>海外自媒体平台</h3>
                     <ul>
-                        <li>剪辑软件基础操作（Premiere、Final Cut Pro）</li>
-                        <li>节奏把控与转场技巧</li>
-                        <li>音频处理与配乐选择</li>
-                        <li>字幕设计与动态效果</li>
-                        <li>短视频平台剪辑特性适配</li>
+                        <li><strong>YouTube</strong>：全球最大的视频平台，适合长视频内容，广告分成收益稳定</li>
+                        <li><strong>Instagram</strong>：图片和短视频为主，适合视觉创意内容，购物功能完善</li>
+                        <li><strong>Facebook</strong>：用户覆盖面广，社群功能强大，适合品牌建设和用户互动</li>
+                        <li><strong>TikTok</strong>：短视频平台，全球用户增长迅速，算法推荐机制相似于抖音</li>
+                        <li><strong>Twitter</strong>：实时性强，适合新闻热点和观点表达，互动性高</li>
                     </ul>
-                </div>
-                
-                <!-- AI提效板块 -->
-                <div class="skill-card">
-                    <h3>AI提效</h3>
-                    <ul>
-                        <li>AI文案生成与优化</li>
-                        <li>AI图像生成与处理</li>
-                        <li>AI视频制作与编辑</li>
-                        <li>AI数据分析与用户洞察</li>
-                        <li>AI工具组合应用提升效率</li>
-                    </ul>
-                </div>
-                
-                <!-- 自媒体平台运营板块 -->
-                <div class="skill-card">
-                    <h3>自媒体平台运营</h3>
-                    <ul>
-                        <li>平台算法机制深度解析</li>
-                        <li>内容定位与差异化策略</li>
-                        <li>用户画像分析与精准触达</li>
-                        <li>互动运营与粉丝增长</li>
-                        <li>数据监控与优化调整</li>
-                    </ul>
+                    <button style="background-color: #4a6fa5; color: white; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer;">使用方法演示</button>
                 </div>
             </div>
         </section>
@@ -537,6 +522,7 @@
          style="width: 30px; height: 30px; display:block;" /></a>
         </p>
         <p style="font-size: 12px; color: #888;">© 2025 <a href="https://blog.aibochinese.com/" style="color:red " target="_blank" rel="noopener noreferrer">爱博·客</a> - 所有权利保留</p>
+    <p>_</p>
     <p>_</p>
     </div>
     </footer>
@@ -576,27 +562,47 @@
         </div>
     </div>
     
-    <!-- 引入Font Awesome图标 -->
-    <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
-    
-    <!-- 汉堡菜单JavaScript -->
+    <!-- 汉堡菜单JavaScript - 增强事件绑定，确保点击响应 -->
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             const hamburger = document.querySelector('.hamburger');
             const navMenu = document.querySelector('.nav-menu');
             const navLinks = document.querySelectorAll('.nav-link');
 
-            hamburger.addEventListener('click', function() {
-                hamburger.classList.toggle('active');
-                navMenu.classList.toggle('active');
-            });
-
-            navLinks.forEach(link => {
-                link.addEventListener('click', () => {
-                    hamburger.classList.remove('active');
-                    navMenu.classList.remove('active');
+            // 添加安全检查，确保元素存在
+            if (hamburger && navMenu) {
+                hamburger.addEventListener('click', function(e) {
+                    // 修复：移除 preventDefault() 因为 hamburger 是 div，不是链接；添加 stopPropagation 以防冒泡
+                    e.stopPropagation();
+                    hamburger.classList.toggle('active');
+                    navMenu.classList.toggle('active');
+                    // 可选：添加 body overflow 控制以防止滚动（移动端优化）
+                    document.body.style.overflow = navMenu.classList.contains('active') ? 'hidden' : '';
                 });
-            });
+
+                // 点击菜单外部关闭（增强用户体验）
+                document.addEventListener('click', function(e) {
+                    if (!hamburger.contains(e.target) && !navMenu.contains(e.target)) {
+                        hamburger.classList.remove('active');
+                        navMenu.classList.remove('active');
+                        document.body.style.overflow = '';
+                    }
+                });
+            }
+
+            // 为每个导航链接添加点击事件
+            if (navLinks) {
+                navLinks.forEach(link => {
+                    link.addEventListener('click', () => {
+                        // 添加安全检查
+                        if (hamburger && navMenu) {
+                            hamburger.classList.remove('active');
+                            navMenu.classList.remove('active');
+                            document.body.style.overflow = '';
+                        }
+                    });
+                });
+            }
         });
     </script>
     

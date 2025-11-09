@@ -93,6 +93,7 @@
             right: 0;
             z-index: 1000;
             box-shadow: 0 2px 10px rgba(0,0,0,0.15);
+            height: 60px; /* 修复：固定 navbar 高度，确保一致性 */
         }
 
         .nav-container {
@@ -101,9 +102,8 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 0.8rem 20px;
-            /* 修复: 允许导航条横向滚动，以应对超长导航项 */
-            overflow-x: auto; 
+            height: 100%;
+            padding: 0 20px; /* 修复：调整 padding 以匹配固定高度 */
         }
 
         .logo img {
@@ -115,17 +115,13 @@
         .nav-menu {
             display: flex;
             list-style: none;
-            /* 修复: 移除固定间距 */
-            /* gap: 2rem; */
             margin: 0;
             padding: 0;
-            /* 修复: 允许换行，但更倾向于不换行（通过nav-item实现）*/
             flex-wrap: wrap; 
-            justify-content: flex-end; /* 靠右对齐 */
+            justify-content: flex-end;
         }
 
         .nav-item {
-            /* 修复: 添加左右间距，且不限制宽度 */
             margin: 0 10px; 
         }
 
@@ -135,10 +131,9 @@
             transition: all 0.3s;
             font-size: 0.95rem;
             font-weight: 500;
-            /* 修复: 确保导航项文字不换行，保持在一行显示 */
             white-space: nowrap; 
-            display: block; /* 确保 padding/margin 等应用于整个链接区域 */
-            padding: 5px 0; /* 垂直方向略微填充 */
+            display: block;
+            padding: 5px 0;
         }
 
         .nav-link:hover {
@@ -150,7 +145,6 @@
             display: none;
             flex-direction: column;
             cursor: pointer;
-            /* 修复：确保在汉堡菜单出现时有一个较高的层级 */
             z-index: 1001; 
         }
 
@@ -163,12 +157,12 @@
             border-radius: 2px;
         }
 
-        /* 响应式设计 */
+        /* 响应式设计 - 顶部导航 */
         @media (max-width: 768px) {
             .nav-menu {
                 position: fixed;
                 left: -100%;
-                top: 70px;
+                top: 60px; /* 修复：匹配 navbar 固定高度 */
                 flex-direction: column;
                 background: linear-gradient(135deg, #3498db, #2980b9);
                 width: 100%;
@@ -176,9 +170,8 @@
                 transition: 0.3s;
                 box-shadow: 0 10px 27px rgba(0, 0, 0, 0.05);
                 padding: 20px 0;
-                /* 移动端菜单间距设置 */
                 gap: 0; 
-                height: 100vh; /* 修复：让移动端菜单占据整个屏幕高度 */
+                height: calc(100vh - 60px); /* 修复：调整高度以匹配 navbar */
                 overflow-y: auto;
             }
 
@@ -187,12 +180,12 @@
             }
 
             .nav-item {
-                margin: 10px 0; /* 移动端垂直间距 */
+                margin: 10px 0;
             }
             
             .nav-link {
-                padding: 10px 0; /* 移动端更大的点击区域 */
-                white-space: normal; /* 移动端允许换行 */
+                padding: 10px 0;
+                white-space: normal;
             }
 
             .hamburger {
@@ -216,8 +209,7 @@
             max-width: 1200px;
             margin: 0 auto;
             padding: 20px;
-            /* 修正：为固定导航栏留出空间 */
-            padding-top: 80px; 
+            padding-top: 80px; /* 修正：为固定导航栏留出空间，调整为 60px + 额外缓冲 */
         }
 
         header {
@@ -340,6 +332,7 @@
             display: none;
         }
         
+        /* 响应式设计 - 底部移动导航（修复：添加 .mobile-nav 前缀以避免与顶部 nav-container 冲突） */
         @media (max-width: 768px) {
             .mobile-nav {
                 display: block;
@@ -349,17 +342,17 @@
                 right: 0;
                 background: white;
                 box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
-                z-index: 1000;
+                z-index: 999; /* 修复：z-index 低于 hamburger 以避免覆盖 */
             }
             
-            .nav-container {
+            .mobile-nav .nav-container {
                 display: flex;
                 justify-content: space-around;
                 align-items: center;
                 padding: 12px 0;
             }
             
-            .nav-item {
+            .mobile-nav .nav-item {
                 display: flex;
                 flex-direction: column;
                 align-items: center;
@@ -370,12 +363,12 @@
                 border-radius: 8px;
             }
             
-            .nav-item.active {
+            .mobile-nav .nav-item.active {
                 color: #3498db;
                 transform: scale(1.1);
             }
             
-            .nav-item.center {
+            .mobile-nav .nav-item.center {
                 background: #3498db;
                 color: white;
                 border-radius: 50%;
@@ -388,12 +381,12 @@
                 box-shadow: 0 2px 10px rgba(52, 152, 219, 0.4);
             }
             
-            .nav-item.center:hover {
+            .mobile-nav .nav-item.center:hover {
                 background: #2980b9;
                 transform: scale(1.1);
             }
             
-            .nav-item.center .text {
+            .mobile-nav .nav-item.center .text {
                 font-size: 12px;
                 margin-top: 2px;
             }
@@ -409,8 +402,7 @@
             
             .container {
                 padding: 10px;
-                 /* 修正：为固定导航栏留出空间 */
-                padding-top: 80px; 
+                padding-top: 80px; /* 保持一致 */
             }
             
             h1 {
@@ -422,6 +414,8 @@
             }
         }
     </style>
+    <!-- 引入Font Awesome图标 -->
+    <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
 </head>
 <body>
      <nav class="navbar">
@@ -509,7 +503,7 @@
                 
                 <!-- 自媒体平台运营板块 -->
                 <div class="skill-card">
-                    <h3>自媒体平台运营</h3>
+                    <h3>自媒体平台运营：<a href="https://blog.aibochinese.com/SMC/advanced" style="color:red" target="_blank" rel="noopener noreferrer">查看</a></h3>
                     <ul>
                         <li>平台算法机制深度解析</li>
                         <li>内容定位与差异化策略</li>
@@ -535,6 +529,7 @@
          style="width: 30px; height: 30px; display:block;" /></a>
         </p>
         <p style="font-size: 12px; color: #888;">© 2025 <a href="https://blog.aibochinese.com/" style="color:red " target="_blank" rel="noopener noreferrer">爱博·客</a> - 所有权利保留</p>
+    <p>_</p>
     <p>_</p>
     </div>
     </footer>
@@ -574,9 +569,6 @@
         </div>
     </div>
       
-    <!-- 引入Font Awesome图标 -->
-    <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
-    
     <!-- 汉堡菜单JavaScript -->
     <script>
         document.addEventListener('DOMContentLoaded', function() {
@@ -584,17 +576,27 @@
             const navMenu = document.querySelector('.nav-menu');
             const navLinks = document.querySelectorAll('.nav-link');
 
-            hamburger.addEventListener('click', function() {
-                hamburger.classList.toggle('active');
-                navMenu.classList.toggle('active');
-            });
-
-            navLinks.forEach(link => {
-                link.addEventListener('click', () => {
-                    hamburger.classList.remove('active');
-                    navMenu.classList.remove('active');
+            // 添加安全检查，确保元素存在
+            if (hamburger && navMenu) {
+                hamburger.addEventListener('click', function(e) {
+                    e.preventDefault(); // 修复：防止默认行为干扰
+                    hamburger.classList.toggle('active');
+                    navMenu.classList.toggle('active');
                 });
-            });
+            }
+
+            // 为每个导航链接添加点击事件
+            if (navLinks) {
+                navLinks.forEach(link => {
+                    link.addEventListener('click', () => {
+                        // 添加安全检查
+                        if (hamburger && navMenu) {
+                            hamburger.classList.remove('active');
+                            navMenu.classList.remove('active');
+                        }
+                    });
+                });
+            }
         });
     </script>
     
