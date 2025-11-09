@@ -104,7 +104,7 @@ style.textContent = `
     #scrollToTopBtn {
         display: none;
         position: fixed;
-        bottom: 30px;
+        bottom: 80px;
         right: 30px;
         z-index: 99;
         border: none;
