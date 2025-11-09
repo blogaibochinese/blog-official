@@ -219,101 +219,118 @@
             }
         }
         .container {
-            max-width: 900px;
+            max-width: 1000px;
             margin: 0 auto;
             background: white;
-            padding: 40px;
-            border-radius: 16px;
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+            padding: 45px;
+            border-radius: 20px;
+            box-shadow: 0 15px 50px rgba(0, 0, 0, 0.12);
+            position: relative;
+            top: 80px;
+            margin-bottom: 40px; /* 为主体内容和footer之间添加间距 */
         }
 
         h1 {
             color: #2c3e50;
-            font-size: 2.2em;
-            margin-bottom: 30px;
+            font-size: 2.4em;
+            margin-bottom: 35px;
             text-align: center;
-            border-bottom: 3px solid #3498db;
-            padding-bottom: 15px;
+            border-bottom: 4px solid #3498db;
+            padding-bottom: 20px;
+            font-weight: 700;
         }
 
         h2 {
             color: #34495e;
-            font-size: 1.5em;
-            margin: 30px 0 20px;
-            padding-left: 15px;
-            border-left: 4px solid #3498db;
+            font-size: 1.7em;
+            margin: 35px 0 25px;
+            padding-left: 20px;
+            border-left: 5px solid #3498db;
+            font-weight: 600;
         }
 
         p {
-            margin-bottom: 20px;
-            font-size: 1.05em;
+            margin-bottom: 22px;
+            font-size: 1.1em;
+            line-height: 1.8;
+            color: #444;
         }
 
         strong {
             color: #2980b9;
-            font-weight: 600;
+            font-weight: 700;
         }
 
         .intro {
-            background: #ecf0f1;
-            padding: 25px;
-            border-radius: 10px;
-            margin-bottom: 30px;
-            border-left: 5px solid #3498db;
+            background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
+            padding: 30px;
+            border-radius: 12px;
+            margin-bottom: 35px;
+            border-left: 6px solid #2196f3;
+            box-shadow: 0 5px 15px rgba(33, 150, 243, 0.1);
         }
 
         .features {
-            background: #fff9e6;
-            padding: 20px;
-            border-radius: 10px;
-            margin-bottom: 25px;
+            background: linear-gradient(135deg, #fff8e1 0%, #ffecb3 100%);
+            padding: 25px;
+            border-radius: 12px;
+            margin-bottom: 30px;
+            box-shadow: 0 5px 15px rgba(255, 235, 59, 0.1);
         }
 
         .feature-item {
-            margin-bottom: 15px;
-            padding: 15px;
+            margin-bottom: 20px;
+            padding: 20px;
             background: white;
-            border-radius: 8px;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+            border-radius: 10px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .feature-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
         }
 
         .feature-title {
-            font-weight: 600;
-            color: #2c3e50;
-            margin-bottom: 8px;
+            font-weight: 700;
+            color: #1976d2;
+            margin-bottom: 12px;
+            font-size: 1.3em;
         }
 
         .feature-details {
             color: #555;
-            font-size: 0.95em;
+            font-size: 1.05em;
+            line-height: 1.7;
         }
 
         table {
             width: 100%;
             border-collapse: collapse;
-            margin: 30px 0;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-            border-radius: 10px;
+            margin: 35px 0;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+            border-radius: 12px;
             overflow: hidden;
         }
 
         th {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, #2196f3 0%, #1976d2 100%);
             color: white;
-            padding: 18px;
+            padding: 20px;
             text-align: left;
             font-weight: 600;
-            font-size: 1.1em;
+            font-size: 1.2em;
         }
 
         td {
-            padding: 18px;
-            border-bottom: 1px solid #e0e0e0;
+            padding: 20px;
+            border-bottom: 1px solid #e8e8e8;
             background: white;
         }
 
         tr:hover td {
-            background: #f8f9fa;
+            background: #f5f9ff;
             transition: background 0.3s ease;
         }
 
@@ -322,58 +339,68 @@
         }
 
         .price {
-            color: #e74c3c;
+            color: #e91e63;
             font-weight: 700;
-            font-size: 1.2em;
+            font-size: 1.3em;
         }
 
         .free-trial {
-            color: #27ae60;
+            color: #2e7d32;
             font-weight: 600;
-            background: #d5f4e6;
-            padding: 8px 12px;
-            border-radius: 5px;
+            background: #e8f5e9;
+            padding: 10px 15px;
+            border-radius: 8px;
             display: inline-block;
+            box-shadow: 0 3px 8px rgba(46, 125, 50, 0.1);
         }
 
         .warning {
-            background: #fff3cd;
-            border: 2px solid #ffc107;
-            border-radius: 10px;
-            padding: 20px;
-            margin: 25px 0;
+            background: linear-gradient(135deg, #fff3e0 0%, #ffe0b2 100%);
+            border: 2px solid #ff9800;
+            border-radius: 12px;
+            padding: 25px;
+            margin: 30px 0;
+            box-shadow: 0 5px 15px rgba(255, 152, 0, 0.1);
         }
 
         .warning::before {
             content: "⚠️ ";
-            font-size: 1.3em;
-            margin-right: 8px;
+            font-size: 1.5em;
+            margin-right: 10px;
         }
 
         .value-proposition {
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: white;
-            padding: 25px;
-            border-radius: 10px;
-            margin: 30px 0;
+            padding: 30px;
+            border-radius: 12px;
+            margin: 35px 0;
+            box-shadow: 0 8px 25px rgba(102, 126, 234, 0.2);
         }
 
         .value-proposition strong {
             color: #ffd700;
+            font-weight: 700;
         }
 
         .value-proposition a {
             color: #ffd700;
             text-decoration: underline;
+            font-weight: 600;
         }
 
         .value-proposition a:hover {
             color: #fff;
+            text-decoration: none;
         }
 
         .video-container {
-            margin: 30px 0;
+            margin: 40px 0;
             text-align: center;
+        }
+
+        .video-container h2 {
+            margin-bottom: 25px;
         }
 
         .video-wrapper {
@@ -381,8 +408,10 @@
             padding-bottom: 56.25%;
             height: 0;
             overflow: hidden;
-            border-radius: 10px;
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+            border-radius: 15px;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+            max-width: 900px;
+            margin: 0 auto;
         }
 
         .video-wrapper iframe {
@@ -395,8 +424,14 @@
         }
 
         a {
-            color: #3498db;
+            color: #2196f3;
             text-decoration: none;
+            font-weight: 500;
+        }
+
+        a:hover {
+            color: #1976d2;
+            text-decoration: underline;
         }
 
         a:hover {
@@ -420,6 +455,19 @@
             th, td {
                 padding: 12px 8px;
             }
+        }
+            footer {
+            margin-top: 20px;
+            padding: 20px 0;
+            clear: both;
+        }
+        
+        .footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #f8f9fa;
+            border-radius: 10px;
+            margin-top: 20px;
         }
     </style>
 </head>
@@ -465,11 +513,10 @@
     </div>
 </nav>
     <div class="container">
-       <p> 留白</p>
         <h1>客服系统服务介绍</h1>
 
         <div class="intro">
-            <p><strong>在线人工客服</strong>,保护了客户的隐私,在网站上点开客服图标即可咨询,大幅提升付费转化率;<strong>AI智能客服</strong>,是提升网站功能和用户体验的宝器,基于网站内容或外部知识库,能更有针对性,更专业地解决客户的问题,7×24小时随时回应。</p>
+            <p><strong>在线人工客服</strong>保护了客户的隐私，在网站上点开客服图标即可咨询，大幅提升付费转化率。我们的客服系统功能强大，易于集成，能有效提升用户体验和转化效果。</p>
         </div>
 
         <h2>功能介绍</h2>
@@ -478,11 +525,6 @@
             <div class="feature-item">
                 <div class="feature-title">人工在线客服</div>
                 <div class="feature-details">超链接 | 嵌入网站 | 管理后台 | 客服手机客户端 | 历史消息 | 多客服+转接 | 发图片 | 自动回复 | 话术库</div>
-            </div>
-
-            <div class="feature-item">
-                <div class="feature-title">AI智能客服</div>
-                <div class="feature-details">基于知识库回答 | 可接入各类大语言模型 | 超链接 | 嵌入网站 | Tokens用量🔍</div>
             </div>
         </div>
 
@@ -499,13 +541,8 @@
             <tbody>
                 <tr>
                     <td>人工客服系统</td>
-                    <td class="price">¥200/年</td>
-                    <td><span class="free-trial">可免费试用3天</span></td>
-                </tr>
-                <tr>
-                    <td>AI智能客服</td>
-                    <td class="price">¥350/年<br><span style="font-size: 0.85em; color: #666;">(Tokens消耗另算)</span></td>
-                    <td><span class="free-trial">可免费试用3天使用</span></td>
+                    <td class="price">¥199/年</td>
+                    <td><span class="free-trial">有服务器采购成本，不支持退款</span></td>
                 </tr>
             </tbody>
         </table>
@@ -514,18 +551,18 @@
             <p><strong>自有服务器搭建服务</strong></p>
             <p>如果您自有服务器,我们可以协助搭建,人工技术费用¥50。</p>
             <p style="margin-top: 10px;">
-                • 人工客服系统基础配置:2核2G内存云服务器<br>
-                • AI智能客服(基于Dify)基础配置:2核8G内存云服务器
+                • 人工客服系统-服务器基础配置:2核2G内存
+                <a href="https://blog.aibochinese.com/RackNerd-Host.html" target="_blank"><img src="https://cf.aibochinese.com/%E7%88%B1%E5%8D%9A%C2%B7%E5%AE%A2%E5%9B%BE%E7%89%87%E5%BA%93/%E6%96%87%E7%AB%A0%E5%B0%81%E9%9D%A2%E5%9B%BE/RackNerd%20%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%BF%83%E9%94%801.png" style="max-width: 300px; height: 50px;" alt="RackNerd"></a>
             </p>
         </div>
 
         <div class="value-proposition">
             <h2 style="color: white; border: none; padding: 0; margin-bottom: 15px;">业务价值</h2>
-            <p>两套客服系统,稍有技术基础或按教程即可搭建,主要是服务器成本,而共享服务器,<a href="https://blog.aibochinese.com/serverless-website-building/" target="_blank" rel="noopener noreferrer">搭建网站</a>或其它项目,则不需要每位有需求的客户都购买服务器,从而<strong>节省了80%的成本</strong>,更轻松地去创造收益!</p>
+            <p>客服系统稍有技术基础或按教程即可搭建,主要是服务器成本,推荐<a href="https://blog.aibochinese.com/buildsites/RackNerd-Host" target="_blank" rel="noopener noreferrer">RackNerd专属优惠</a>，获得服务器后可查看部署教程<strong><a href="https://blog.aibochinese.com/Rescous/code/crmchat" target="_blank" rel="noopener noreferrer">点击</a></strong>!</p>
         </div>
 
         <div class="video-container">
-            <h2>演示视频</h2>
+            <h2>解说视频</h2>
             <div class="video-wrapper">
                 <iframe src="https://www.youtube.com/embed/a4QCXu67_lU" allowfullscreen></iframe>
             </div>
@@ -543,7 +580,7 @@
          style="max-width: 100%; height: auto;" /></a>  <a href="https://xhslink.com/m/5it26wH34Zd" style="color:white" rel="noopener noreferrer"><img src="https://cf.aibochinese.com/%E7%88%B1%E5%8D%9A%E6%B1%89%E8%AF%AD%E5%AE%A2%E6%88%B7%E7%AB%AF/ODFrednote.png" 
          style="max-width: 100%; height: auto;" /></a>
         </p>
-        <p style="font-size: 12px; color: #888;">© 2025 <a href="https://blog.aibochinese.com/" style="color:white" target="_blank" rel="noopener noreferrer">爱博·客</a> - 所有权利保留</p>
+        <p style="font-size: 12px; color: #888;">© 2025 <a href="https://blog.aibochinese.com/" style="color:red" target="_blank" rel="noopener noreferrer">爱博·客</a> - 所有权利保留</p>
     </div>
     </footer>
 
