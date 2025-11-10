@@ -1,6 +1,96 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
+             <style>
+/* 人工客服按钮样式 */
+#canCustomerServerBtn, .can-customer-server-btn {
+  right: 20px !important;
+  top: 20px !important;
+  left: auto !important;
+  bottom: auto !important;
+  position: fixed !important;
+  z-index: 9997 !important; /* 低于AI客服按钮，避免覆盖 */
+}
+</style>
+
+<!-- 人工客服脚本 -->
+<script>
+(function() {
+  _s = document.createElement('script');
+  _s.src = "https://kefu.aibochinese.com/customerServer.js";
+  _s.onload = function() {
+    var option = {
+      "authInit": true,
+      openUrl: 'https://kefu.aibochinese.com',
+      token: '7fecd3ce216cc26ebd63bf417c193b41',
+      kefuid: '',
+      isShowTip: true,
+      mobileIcon: '',
+      pcIcon: '',
+      windowStyle: 'center',
+    };
+    
+    var canCustomerServer = new initCustomerServer(option);
+    canCustomerServer.init();
+    
+    // 检查按钮是否生成并设置位置
+    var checkInterval = setInterval(function() {
+      var btn = document.querySelector('#canCustomerServerBtn') || 
+                document.querySelector('.can-customer-server-btn') ||
+                document.querySelector('[class*="customer-service"]') ||
+                document.querySelector('[id*="customer"]');
+      
+      if (btn) {
+        clearInterval(checkInterval);
+        // 强制设置位置和层级
+        btn.style.position = 'fixed';
+        btn.style.right = '20px';
+        btn.style.top = '200px';
+        btn.style.left = 'auto';
+        btn.style.bottom = 'auto';
+        btn.style.zIndex = '9997'; // 与样式保持一致
+        // 添加拖拽功能
+        makeDraggable(btn);
+      }
+    }, 300);
+  };
+  
+  document.head.appendChild(_s);
+  
+  // 拖拽功能实现
+  function makeDraggable(element) {
+    let pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
+    element.style.cursor = 'move';
+    
+    element.onmousedown = dragStart;
+    
+    function dragStart(e) {
+      e = e || window.event;
+      e.preventDefault();
+      pos3 = e.clientX;
+      pos4 = e.clientY;
+      document.onmouseup = dragEnd;
+      document.onmousemove = dragMove;
+    }
+    
+    function dragMove(e) {
+      e = e || window.event;
+      e.preventDefault();
+      pos1 = pos3 - e.clientX;
+      pos2 = pos4 - e.clientY;
+      pos3 = e.clientX;
+      pos4 = e.clientY;
+      element.style.top = (element.offsetTop - pos2) + "px";
+      element.style.left = (element.offsetLeft - pos1) + "px";
+    }
+    
+    function dragEnd() {
+      document.onmouseup = null;
+      document.onmousemove = null;
+    }
+  }
+})();
+</script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cloudflare R2 资源导航</title>
@@ -498,82 +588,9 @@
             }
         }
 
-        /* 人工客服按钮样式 */
-        #canCustomerServerBtn, .can-customer-server-btn {
-            right: 20px !important;
-            top: 200px !important;
-            left: auto !important;
-            bottom: auto !important;
-            position: fixed !important;
-            z-index: 9997 !important;
-        }
     </style>
 </head>
 <body>
-    <!-- 人工客服脚本 -->
-    <script>
-    (function() {
-        _s = document.createElement('script');
-        _s.src = "https://kefu.aibochinese.com/customerServer.js";
-        _s.onload = function() {
-            var option = {
-                "authInit": true,
-                openUrl: 'https://kefu.aibochinese.com',
-                token: '7fecd3ce216cc26ebd63bf417c193b41',
-                kefuid: '',
-                isShowTip: true,
-                mobileIcon: '',
-                pcIcon: '',
-                windowStyle: 'center',
-            };
-            
-            var canCustomerServer = new initCustomerServer(option);
-            canCustomerServer.init();
-            
-            var checkInterval = setInterval(function() {
-                var btn = document.querySelector('#canCustomerServerBtn') || 
-                          document.querySelector('.can-customer-server-btn');
-                
-                if (btn) {
-                    clearInterval(checkInterval);
-                    btn.style.position = 'fixed';
-                    btn.style.right = '20px';
-                    btn.style.top = '200px';
-                    btn.style.left = 'auto';
-                    btn.style.bottom = 'auto';
-                    btn.style.zIndex = '9997';
-                    
-                    // 拖拽功能
-                    let pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
-                    btn.style.cursor = 'move';
-                    
-                    btn.onmousedown = function(e) {
-                        e = e || window.event;
-                        e.preventDefault();
-                        pos3 = e.clientX;
-                        pos4 = e.clientY;
-                        document.onmouseup = function() {
-                            document.onmouseup = null;
-                            document.onmousemove = null;
-                        };
-                        document.onmousemove = function(e) {
-                            e = e || window.event;
-                            e.preventDefault();
-                            pos1 = pos3 - e.clientX;
-                            pos2 = pos4 - e.clientY;
-                            pos3 = e.clientX;
-                            pos4 = e.clientY;
-                            btn.style.top = (btn.offsetTop - pos2) + "px";
-                            btn.style.left = (btn.offsetLeft - pos1) + "px";
-                        };
-                    };
-                }
-            }, 300);
-        };
-        
-        document.head.appendChild(_s);
-    })();
-    </script>
 
     <!-- 标准导航菜单 -->
     <nav class="navbar">
@@ -608,6 +625,15 @@
         </header>
         
         <div class="content">
+                       <!-- 视频播放列表 -->
+            <div class="video-section">
+                <h2>Cloudflare R2 使用经验</h2>
+                <div class="video-placeholder">
+                    <video controls>
+                        <source src="https://cf.aibochinese.com/%E8%A7%86%E9%A2%91%E7%A8%BF%E4%BB%B6/%E5%A6%82%E4%BD%95%E7%94%B3%E8%AF%B7%E4%BD%BF%E7%94%A8Cloudflare%20R2%E5%AF%B9%E8%B1%A1%E5%AD%98%E5%82%A8%EF%BC%8C%E5%B8%AE%E6%82%A8%E8%8A%82%E7%9C%81%E4%B8%80%E5%A4%A7%E7%AC%94%E8%B4%B9%E7%94%A8/%E5%A6%82%E4%BD%95%E7%94%B3%E8%AF%B7%E4%BD%BF%E7%94%A8Cloudflare%20R2%E5%AF%B9%E8%B1%A1%E5%AD%98%E5%82%A8%EF%BC%8C%E5%B8%AE%E6%82%A8%E8%8A%82%E7%9C%81%E4%B8%80%E5%A4%A7%E7%AC%94%E8%B4%B9%E7%94%A8.mp4" type="video/mp4">
+                    </video>
+                </div>
+            </div>
             <!-- 资源卡片 -->
             <div class="resource-grid">
                 <div class="resource-card">
@@ -636,22 +662,22 @@
                     <p>使用 Cloudflare 技术栈，快速搭建无服务器网站</p>
                     <a href="https://blog.aibochinese.com/sitesbuild" target="_blank">了解详情 →</a>
                 </div>
-                <div class="promo-image">
-                    <figure>
-                        <img src="https://cf.aiboculture.com/2025/10/20251022153151949.png" alt="Serverless网站搭建">
-                        <figcaption>专业指导 · 快速上手</figcaption>
-                    </figure>
-                </div>
-            </div>
-            
-            <!-- 视频播放列表 -->
-            <div class="video-section">
-                <h2>Cloudflare R2 使用经验</h2>
-                <div class="video-placeholder">
-                    <video controls>
-                        <source src="https://cf.aibochinese.com/%E8%A7%86%E9%A2%91%E7%A8%BF%E4%BB%B6/%E5%A6%82%E4%BD%95%E7%94%B3%E8%AF%B7%E4%BD%BF%E7%94%A8Cloudflare%20R2%E5%AF%B9%E8%B1%A1%E5%AD%98%E5%82%A8%EF%BC%8C%E5%B8%AE%E6%82%A8%E8%8A%82%E7%9C%81%E4%B8%80%E5%A4%A7%E7%AC%94%E8%B4%B9%E7%94%A8/%E5%A6%82%E4%BD%95%E7%94%B3%E8%AF%B7%E4%BD%BF%E7%94%A8Cloudflare%20R2%E5%AF%B9%E8%B1%A1%E5%AD%98%E5%82%A8%EF%BC%8C%E5%B8%AE%E6%82%A8%E8%8A%82%E7%9C%81%E4%B8%80%E5%A4%A7%E7%AC%94%E8%B4%B9%E7%94%A8.mp4" type="video/mp4">
-                    </video>
-                </div>
+
+<div class="two-up">
+  <a href="https://blog.aibochinese.com/sitesbuild" target="_blank" rel="noopener" class="item">
+    <img src="https://cf.aibochinese.com/%E7%88%B1%E5%8D%9A%C2%B7%E5%AE%A2%E5%9B%BE%E7%89%87%E5%BA%93/%E5%B9%BF%E5%91%8A%E8%81%94%E7%9B%9F/Cloudflare%20Page%20ads-4.png" alt="永久免费建站" loading="lazy">
+  </a>
+  <style>
+    .two-up .item img {
+      width: 300px;
+      height: 50px;
+      display: block;
+      border-radius: 6px;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+      object-fit: cover;
+    }
+  </style>
+</div>
             </div>
         </div>
         
