@@ -35,10 +35,38 @@
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", sans-serif;
             line-height: 1.8;
             color: #333;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, hsl(240, 6%, 93%) 0%, #764ba2 100%);
             padding: 20px;
             padding-top: 90px; /* 为固定导航栏留出空间 */
             min-height: 100vh;
+        }
+        
+        footer {
+            background: linear-gradient(135deg, #dce3e9, #34495e);
+            color: white;
+            padding: 2rem;
+            text-align: center;
+            border-radius: 15px;
+            margin-top: 3rem;
+        }
+
+        .footer p {
+            margin-bottom: 1rem;
+        }
+
+        .footer a {
+            color: #ffcc2f;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer a:hover {
+            color: #f38020;
+        }
+
+        .footer img {
+            margin: 0 5px;
+            vertical-align: middle;
         }
                /* 悬浮微信图标样式 */
         .wechat-float {
@@ -225,108 +253,38 @@
             }
         }
         
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            background: white;
-            border-radius: 20px;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
-            overflow: hidden;
-        }
-        
-        header {
-            background: linear-gradient(135deg, #20bf55 0%, #01baef 100%);
-            color: white;
-            padding: 40px 30px;
-            text-align: center;
-        }
-        
-        header h1 {
-            font-size: 2.5em;
-            margin-bottom: 10px;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
-        }
-        
-        .content {
-            padding: 40px 30px;
-        }
-        
-        .articles-container {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 30px;
-        }
-        
-        .article-card {
-            flex: 1 1 calc(50% - 15px);
-            background: #f8f9fa;
-            border-radius: 10px;
-            padding: 25px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-        
-        .article-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
-        }
-        
-        .article-card h2 {
-            color: #20bf55;
-            margin-bottom: 15px;
-            font-size: 1.5em;
-        }
-        
-        .article-card p {
-            color: #666;
-            margin-bottom: 20px;
-            line-height: 1.6;
-        }
-        
-        .article-card a {
-            display: inline-block;
-            background: linear-gradient(135deg, #3498db, #2980b9);
-            color: white;
-            padding: 10px 20px;
-            border-radius: 5px;
-            text-decoration: none;
-            font-weight: 500;
-            transition: all 0.3s ease;
-        }
-        
-        .article-card a:hover {
-            background: linear-gradient(135deg, #2980b9, #3498db);
-            transform: scale(1.05);
-        }
-        
-        footer {
-            background: #f8f9fa;
-            text-align: center;
+        .article-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr); /* 电脑端一行三个 */
+            gap: 20px; /* 间距 */
+            max-width: 1200px; /* 最大宽度 */
+            margin: 0 auto; /* 居中 */
             padding: 20px;
-            color: #666;
-            font-size: 0.9em;
         }
-        
+        .article-item {
+            text-align: center;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            transition: background-color 0.3s;
+        }
+        .article-item:hover {
+            background-color: #f9f9f9;
+        }
+        .article-link {
+            text-decoration: none;
+            color: #333;
+            font-size: 16px;
+            font-weight: bold;
+            display: block;
+        }
+        .article-link:hover {
+            color: #007bff;
+        }
+        /* 响应式：移动端一行一个 */
         @media (max-width: 768px) {
-            body {
-                padding: 10px;
-                padding-top: 70px;
-            }
-            
-            .articles-container {
-                flex-direction: column;
-            }
-            
-            .article-card {
-                flex: 1 1 100%;
-            }
-            
-            header h1 {
-                font-size: 1.8em;
-            }
-            
-            .content {
-                padding: 20px 15px;
+            .article-grid {
+                grid-template-columns: 1fr;
             }
         }
         
@@ -385,26 +343,27 @@
 
     <div class="container">
         <header>
-            <h1>最新文章列表</h1>
+            <h1>文章更新列表</h1>
         </header>
         
-        <div class="content">
-            <div class="articles-container">
-                <!-- 文章卡片将在这里添加 -->
-                <div class="article-card">
-                    <h2>Cloudflare Pages 自动更新部署</h2>
-                    <p>如何使用Github Desktop上传本地源码至云端，并自动更新部署Cloudflafre Pages,提高建站效率</p>
-                    <a href="https://blog.aibochinese.com/buildsites/github-cfpages">阅读更多</a>
-                </div>
-                
-                <div class="article-card">
-                    <h2>国际中文教师入驻权益·讲解</h2>
-                    <p>资源共享，相互扶持</p>
-                    <a href="https://blog.aibochinese.com/education/tutor%20guide">阅读更多</a>
-                </div>
-                
-            </div>
+    <div class="article-grid">
+        <!-- 前9个文章（3行 x 3列 = 9个） -->
+        <div class="article-item">
+            <a href="https://blog.aibochinese.com/education/tutor%20guide" class="article-link">国际中文教师从业指南</a>
         </div>
+        <div class="article-item">
+            <a href="https://blog.aibochinese.com/payment/roogoo" class="article-link">Roogoo联名万事达卡，免开卡费0年费</a>
+        </div>
+        <div class="article-item">
+            <a href="https://blog.aibochinese.com/tools/capcut" class="article-link">免费使用剪映9.0.0会员功能</a>
+        </div>
+        <div class="article-item">
+            <a href="https://blog.aibochinese.com/tools/photoshop" class="article-link">Photoshop 2025中文破解版 下载⏬使用</a>
+        </div>
+        <div class="article-item">
+            <a href="https://blog.aibochinese.com/sitesbuild" class="article-link">Cloudflare搭建永久免费网站</a>
+        </div>
+    </div>
         
 <footer>
 <div class="footer">
@@ -418,8 +377,7 @@
          style="width: 30px; height: 30px; display:block;" /></a>  <a href="https://xhslink.com/m/5it26wH34Zd" style="color:white; display:inline-block; vertical-align:middle;" rel="noopener noreferrer"><img src="https://cf.aibochinese.com/%E7%B4%A0%E6%9D%90%E7%AB%99/rednote.png" 
          style="width: 30px; height: 30px; display:block;" /></a>
         </p>
-        <p style="font-size: 12px; color: #888;">© 2025 <a href="https://blog.aibochinese.com/" style="color:red " target="_blank" rel="noopener noreferrer">爱博·客</a> - 所有权利保留</p>
-    <p>_</p>
+        <p style="font-size: 12px; color: hsl(0, 0%, 0%);">© 2025 <a href="https://blog.aibochinese.com/" style="color:red " target="_blank" rel="noopener noreferrer">爱博·客</a> - 所有权利保留</p>
     </div>
     </footer>
     </footer>

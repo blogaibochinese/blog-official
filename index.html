@@ -240,6 +240,40 @@
     font-size: 12px;
   }
 }
+        .article-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr); /* 电脑端一行三个 */
+            gap: 20px; /* 间距 */
+            max-width: 1200px; /* 最大宽度 */
+            margin: 0 auto; /* 居中 */
+            padding: 20px;
+        }
+        .article-item {
+            text-align: center;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            transition: background-color 0.3s;
+        }
+        .article-item:hover {
+            background-color: #f9f9f9;
+        }
+        .article-link {
+            text-decoration: none;
+            color: #333;
+            font-size: 16px;
+            font-weight: bold;
+            display: block;
+        }
+        .article-link:hover {
+            color: #007bff;
+        }
+        /* 响应式：移动端一行一个 */
+        @media (max-width: 768px) {
+            .article-grid {
+                grid-template-columns: 1fr;
+            }
+        }
 </style>
 
     <meta charset="UTF-8">
@@ -312,8 +346,29 @@
                 </div>
             </div>
   <section>
-    <p style="text-align: center; font-weight: bold; margin: 16px 0;">————广告位招租————</p>
 
+    <div class="article-grid">
+        <!-- 前9个文章（3行 x 3列 = 9个） -->
+        <div class="article-item">
+            <a href="https://blog.aibochinese.com/newest" class="article-link">最新文章</a>
+        </div>
+        <div class="article-item">
+            <a href="https://blog.aibochinese.com/education/tutor%20guide" class="article-link">国际中文教师从业指南</a>
+        </div>
+        <div class="article-item">
+            <a href="https://blog.aibochinese.com/payment/roogoo" class="article-link">Roogoo联名万事达卡，免开卡费0年费</a>
+        </div>
+        <div class="article-item">
+            <a href="https://blog.aibochinese.com/tools/capcut" class="article-link">免费使用剪映9.0.0会员功能</a>
+        </div>
+        <div class="article-item">
+            <a href="https://blog.aibochinese.com/tools/photoshop" class="article-link">Photoshop 2025中文破解版 下载⏬使用</a>
+        </div>
+        <div class="article-item">
+            <a href="https://blog.aibochinese.com/sitesbuild" class="article-link">Cloudflare搭建永久免费网站</a>
+        </div>
+    </div>
+    <p style="text-align: center; font-weight: bold; margin: 16px 0;">————广告位招租————</p>
   <style>
     /* ✅ 三图并列(电脑端) / 响应式 - 固定图片尺寸 300×50 */
     .three-up {
@@ -440,10 +495,10 @@
          style="width: 30px; height: 30px; display:block;" /></a>  <a href="https://xhslink.com/m/5it26wH34Zd" style="color:white; display:inline-block; vertical-align:middle;" rel="noopener noreferrer"><img src="https://cf.aibochinese.com/%E7%B4%A0%E6%9D%90%E7%AB%99/rednote.png" 
          style="width: 30px; height: 30px; display:block;" /></a>
         </p>
-        <p style="font-size: 12px; color: #888;">© 2025 <a href="https://blog.aibochinese.com/" style="color:red " target="_blank" rel="noopener noreferrer">爱博·客</a> - 所有权利保留</p>
-    <p>_</p>
-    <p>_</p>
-    </div>
+        <p style="font-size: 12px; color: hsl(0, 0%, 3%);">© 2025 <a href="https://blog.aibochinese.com/" style="color:red " target="_blank" rel="noopener noreferrer">爱博·客</a> - 所有权利保留</p>
+        <p>···</p>
+        <p>···</p>
+      </div>
     </footer>
 
     <!-- 移动端底部导航按钮 - 仅在移动端显示 -->
