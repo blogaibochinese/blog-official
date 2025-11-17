@@ -390,7 +390,17 @@
             font-size: 16px;
         }
 
-        /* 响应式设计 */
+        /* 改进的响应式设计 */
+        /* 平板端 - 从1024px开始优化布局 */
+        @media (max-width: 1024px) {
+            .container {
+                gap: 20px;
+                max-width: 100%;
+                padding: 0 20px;
+            }
+        }
+
+        /* 移动端 - 768px以下改为单栏布局 */
         @media (max-width: 768px) {
             body {
                 padding: 10px;
@@ -399,24 +409,68 @@
             .container {
                 flex-direction: column;
                 gap: 20px;
+                padding: 0 10px;
+            }
+
+            .column {
+                width: 100%;
+            }
+
+            .link-block p {
+                font-size: 15px;
+                line-height: 1.5;
             }
 
             .video-section {
                 padding: 15px;
+                margin: 20px 10px;
             }
 
             .video-section h3 {
                 font-size: 20px;
             }
+
+            .video-section p {
+                font-size: 15px;
+            }
+
+            /* 广告图片在移动端调整 */
+            .two-up .item img {
+                width: 100% !important;
+                height: auto !important;
+                max-width: 280px;
+            }
         }
 
+        /* 小屏手机 - 480px以下进一步优化 */
         @media (max-width: 480px) {
+            .container {
+                gap: 15px;
+                padding: 0 5px;
+            }
+
             .link-block p {
                 font-size: 14px;
+                margin-bottom: 12px;
+            }
+
+            .video-section {
+                padding: 12px;
+                margin: 15px 5px;
+            }
+
+            .video-section h3 {
+                font-size: 18px;
             }
 
             .video-section p {
                 font-size: 14px;
+            }
+
+            /* 广告图片在小屏幕上进一步调整 */
+            .two-up .item img {
+                max-width: 100% !important;
+                border-radius: 8px;
             }
         }
 </style>
@@ -465,6 +519,7 @@
 <div class="container">
   <div class="column link-block">
     <p>_</p>
+   <p>_</p>
     <p>OBS 安装程序：
       <a href="https://obsproject.com/download" target="_blank" rel="noopener noreferrer">官网下载 ⏬</a>
     </p>
@@ -492,6 +547,15 @@
       box-shadow: 0 1px 4px rgba(0,0,0,0.08);
       object-fit: cover;
     }
+    
+    /* 确保广告图片在移动端自适应 */
+    @media (max-width: 768px) {
+      .two-up .item img {
+        width: 100% !important;
+        height: auto !important;
+        max-width: 280px;
+      }
+    }
   </style>
   <p>_</p>
 </div>
@@ -508,6 +572,15 @@
       box-shadow: 0 1px 4px rgba(0,0,0,0.08);
       object-fit: cover;
     }
+    
+    /* 确保广告图片在移动端自适应 */
+    @media (max-width: 768px) {
+      .two-up .item img {
+        width: 100% !important;
+        height: auto !important;
+        max-width: 280px;
+      }
+    }
   </style>
     <p>_</p>
 </div>
@@ -523,6 +596,15 @@
       border-radius: 6px;
       box-shadow: 0 1px 4px rgba(0,0,0,0.08);
       object-fit: cover;
+    }
+    
+    /* 确保广告图片在移动端自适应 */
+    @media (max-width: 768px) {
+      .two-up .item img {
+        width: 100% !important;
+        height: auto !important;
+        max-width: 280px;
+      }
     }
   </style>
 </div>
