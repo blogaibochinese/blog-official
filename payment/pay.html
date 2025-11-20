@@ -488,7 +488,6 @@
         <section class="aibopay-hero">
             <div class="aibopay-container">
                 <p>_</p>
-                <p>_</p>
                 <h1 data-i18n="hero.title">AiboPay - 专业的数字收付款解决方案</h1>
                 <p data-i18n="hero.subtitle">为全球商户或个人，提供安全、便捷、高效的支付服务。支持多种支付方式，助力您的业务快速增长。</p>
             </div>
@@ -547,8 +546,7 @@
          style="width: 30px; height: 30px; display:block;" /></a>  <a href="https://xhslink.com/m/5it26wH34Zd" style="color:white; display:inline-block; vertical-align:middle;" rel="noopener noreferrer"><img src="https://cf.aibochinese.com/%E7%B4%A0%E6%9D%90%E7%AB%99/rednote.png" 
          style="width: 30px; height: 30px; display:block;" /></a>
         </p>
-        <p style="font-size: 12px; color: #888;">© 2025 <a href="https://blog.aibochinese.com/" style="color:red " target="_blank" rel="noopener noreferrer">爱博·客</a> - 所有权利保留</p>
-    <p>_</p>
+        <p style="font-size: 15px; color: hsl(0, 0%, 100%);">© 2025 <a href="https://blog.aibochinese.com/" style="color:red " target="_blank" rel="noopener noreferrer">爱博·客</a> - 所有权利保留</p>
     <p>_</p>
     </div>
     </footer>
@@ -569,7 +567,7 @@
         </a>
 
         <!-- 最新按钮 - 突出显示 -->
-        <a href="https://blog.aibochinese.com/newest" class="flex flex-col items-center">
+        <a href="https://blog.aibochinese.com/newest" class="flex flex-col items-center transition-all duration-300">
           <div class="bg-blue-600 text-white rounded-full w-12 h-12 flex items-center justify-center -mt-6 shadow-lg hover:bg-blue-700 transition-all duration-300">
             <i class="fa fa-refresh text-xl"></i>
           </div>
@@ -588,8 +586,6 @@
           <span class="text-xs">淘金</span>
         </a>
       </div>
-    </div>
-
     </div>
 
     <script>
@@ -730,6 +726,9 @@
 
             navItems.forEach(item => {
                 item.addEventListener('click', (e) => {
+                    // 阻止默认行为（如果需要的话）
+                    // e.preventDefault();
+                    
                     // 移除所有激活状态
                     navItems.forEach(i => i.classList.remove('nav-item-active'));
                     // 给当前点击项添加激活状态
