@@ -488,7 +488,6 @@
         <section class="aibopay-hero">
             <div class="aibopay-container">
                 <p>_</p>
-                <p>_</p>
                 <h1 data-i18n="hero.title">AiboPay - 专业的数字收付款解决方案</h1>
                 <p data-i18n="hero.subtitle">为全球商户或个人，提供安全、便捷、高效的支付服务。支持多种支付方式，助力您的业务快速增长。</p>
             </div>
@@ -514,9 +513,9 @@
                     <div class="aibopay-card" id="payment">
                         <div class="aibopay-card-icon"><img src="https://cf.aibochinese.com/%E7%88%B1%E5%8D%9A%C2%B7%E5%AE%A2%E5%9B%BE%E7%89%87%E5%BA%93/%E5%B8%B8%E7%94%A8%E6%A8%A1%E6%9D%BF%E5%9B%BE%E7%89%87/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202025-10-13%20050034.png" style="max-width: 100%; height: auto;" /></div>
                         <h3 data-i18n="payment.title">让您的网站更完美</h3>
-                        <p data-i18n="payment.desc">开通商户后台，并为您的网站接入易支付api，支持微信支付、支付宝和USDT收款，推进网站自动化。</p>
+                        <p data-i18n="payment.desc">定制完善的支付页面，支持国内外各类传统支付方式，并引入新潮的主流加密货币和稳定币，支持多网络</p>
                         <ul>
-                            <li data-i18n="payment.feature1">测试账户：123456@qq.com 密码：aibopay111 <a href="https://pay.aibochinese.com/user/login.php" style="color:red" target="_blank" rel="noopener noreferrer">登录</a></li>
+                            <li data-i18n="payment.feature1">加密货币支付页面 <a href="https://pay.aibochinese.com/user/login.php" style="color:red" target="_blank" rel="noopener noreferrer">样页</a></li>
                             <li data-i18n="payment.feature2">永久免费建站-<a href="https://blog.aibochinese.com/sitesbuild" style="color:red" target="_blank" rel="noopener noreferrer">建站</a></li>
                             <li data-i18n="payment.feature3">费率公开透明</li>
                         </ul>
@@ -547,8 +546,7 @@
          style="width: 30px; height: 30px; display:block;" /></a>  <a href="https://xhslink.com/m/5it26wH34Zd" style="color:white; display:inline-block; vertical-align:middle;" rel="noopener noreferrer"><img src="https://cf.aibochinese.com/%E7%B4%A0%E6%9D%90%E7%AB%99/rednote.png" 
          style="width: 30px; height: 30px; display:block;" /></a>
         </p>
-        <p style="font-size: 12px; color: #888;">© 2025 <a href="https://blog.aibochinese.com/" style="color:red " target="_blank" rel="noopener noreferrer">爱博·客</a> - 所有权利保留</p>
-    <p>_</p>
+        <p style="font-size: 15px; color: hsl(0, 0%, 100%);">© 2025 <a href="https://blog.aibochinese.com/" style="color:red " target="_blank" rel="noopener noreferrer">爱博·客</a> - 所有权利保留</p>
     <p>_</p>
     </div>
     </footer>
@@ -569,7 +567,7 @@
         </a>
 
         <!-- 最新按钮 - 突出显示 -->
-        <a href="https://blog.aibochinese.com/newest" class="flex flex-col items-center">
+        <a href="https://blog.aibochinese.com/newest" class="flex flex-col items-center transition-all duration-300">
           <div class="bg-blue-600 text-white rounded-full w-12 h-12 flex items-center justify-center -mt-6 shadow-lg hover:bg-blue-700 transition-all duration-300">
             <i class="fa fa-refresh text-xl"></i>
           </div>
@@ -588,8 +586,6 @@
           <span class="text-xs">淘金</span>
         </a>
       </div>
-    </div>
-
     </div>
 
     <script>
@@ -730,6 +726,9 @@
 
             navItems.forEach(item => {
                 item.addEventListener('click', (e) => {
+                    // 阻止默认行为（如果需要的话）
+                    // e.preventDefault();
+                    
                     // 移除所有激活状态
                     navItems.forEach(i => i.classList.remove('nav-item-active'));
                     // 给当前点击项添加激活状态
