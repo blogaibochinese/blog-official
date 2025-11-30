@@ -1,0 +1,156 @@
+#样式代码
+        .video-wrapper {
+            position: relative;
+            width: 100%;
+            padding-top: 56.25%; /* 16:9 宽高比 */
+            background: #000;
+        }
+
+        .video-wrapper video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        .video-info {
+            padding: 25px;
+        }
+
+        .video-title {
+            font-size: 24px;
+            font-weight: 700;
+            color: #2d3748;
+            margin-bottom: 15px;
+        }
+
+        .video-description {
+            font-size: 16px;
+            color: #718096;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .video-meta {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+            font-size: 14px;
+            color: #a0aec0;
+        }
+
+        .meta-item {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        /* 手机端样式 */
+        @media (max-width: 768px) {
+
+            .video-wrapper {
+                padding-top: 50%; /* 300px宽度对应150px高度 = 50% */
+                max-height: 150px;
+            }
+
+            .video-info {
+                padding: 15px;
+            }
+
+            .video-title {
+                font-size: 18px;
+                margin-bottom: 10px;
+            }
+
+            .video-description {
+                font-size: 14px;
+                margin-bottom: 15px;
+            }
+
+            .video-meta {
+                font-size: 12px;
+                gap: 15px;
+            }
+        }
+
+        /* 平板端样式 */
+        @media (min-width: 769px) and (max-width: 1024px) {
+            .container {
+                max-width: 800px;
+            }
+        }
+
+        /* 加载动画 */
+        .loading {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 50px;
+            height: 50px;
+            border: 4px solid rgba(255, 255, 255, 0.3);
+            border-top-color: #fff;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            to { transform: translate(-50%, -50%) rotate(360deg); }
+        }
+
+        #页面内容
+               <div class="video-wrapper">
+            <div class="loading" id="loading"></div>
+            <video 
+                id="videoPlayer" 
+                controls 
+                preload="metadata"
+                poster="https://via.placeholder.com/1200x675/667eea/ffffff?text=Video+Placeholder"
+            >
+                <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
+                <source src="https://www.w3schools.com/html/mov_bbb.ogg" type="video/ogg">
+                您的浏览器不支持视频播放。
+            </video>
+        </div>
+        
+        <div class="video-info">
+            <h1 class="video-title">示例视频标题</h1>
+            <p class="video-description">
+                这是一个完全响应式的视频播放页面，支持电脑和手机端自适应。在手机端会自动调整为 300px × 150px 的尺寸，视频居中显示，提供最佳的观看体验。
+            </p>
+            <div class="video-meta">
+                <div class="meta-item">
+                    <span>📅</span>
+                    <span>2024年11月</span>
+                </div>
+                <div class="meta-item">
+                    <span>👁️</span>
+                    <span>1,234 次观看</span>
+                </div>
+                <div class="meta-item">
+                    <span>⏱️</span>
+                    <span>5:30</span>
+                </div>
+            </div>
+        </div>
+
+
+        # script脚本
+
+         <script>
+        const video = document.getElementById('videoPlayer');
+        const loading = document.getElementById('loading');
+
+        // 视频加载完成后隐藏加载动画
+        video.addEventListener('loadeddata', function() {
+            loading.style.display = 'none';
+        });
+
+        // 视频加载错误处理
+        video.addEventListener('error', function() {
+            loading.style.display = 'none';
+            console.error('视频加载失败');
+        });
+    </script>
