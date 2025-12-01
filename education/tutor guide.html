@@ -501,6 +501,106 @@
                 font-size: 1.5em;
             }
         }
+                .video-wrapper {
+            position: relative;
+            width: 100%;
+            padding-top: 56.25%; /* 16:9 宽高比 */
+            background: #000;
+        }
+
+        .video-wrapper video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        .video-info {
+            padding: 25px;
+        }
+
+        .video-title {
+            font-size: 24px;
+            font-weight: 700;
+            color: #2d3748;
+            margin-bottom: 15px;
+        }
+
+        .video-description {
+            font-size: 16px;
+            color: #718096;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .video-meta {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+            font-size: 14px;
+            color: #a0aec0;
+        }
+
+        .meta-item {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        /* 手机端样式 */
+        @media (max-width: 768px) {
+
+            .video-wrapper {
+                padding-top: 50%; /* 300px宽度对应150px高度 = 50% */
+                max-height: 150px;
+            }
+
+            .video-info {
+                padding: 15px;
+            }
+
+            .video-title {
+                font-size: 18px;
+                margin-bottom: 10px;
+            }
+
+            .video-description {
+                font-size: 14px;
+                margin-bottom: 15px;
+            }
+
+            .video-meta {
+                font-size: 12px;
+                gap: 15px;
+            }
+        }
+
+        /* 平板端样式 */
+        @media (min-width: 769px) and (max-width: 1024px) {
+            .container {
+                max-width: 800px;
+            }
+        }
+
+        /* 加载动画 */
+        .loading {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 50px;
+            height: 50px;
+            border: 4px solid rgba(255, 255, 255, 0.3);
+            border-top-color: #fff;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            to { transform: translate(-50%, -50%) rotate(360deg); }
+        }
     </style>
     <!-- 引入Font Awesome图标库 -->
     <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
@@ -553,12 +653,37 @@
             <h1>🎓 教师联盟指南</h1>
             <p>资源共享，相互扶持</p>
         </header>
-
+              <div class="video-wrapper">
+            <div class="loading" id="loading"></div>
+            <video 
+                id="videoPlayer" 
+                controls 
+                preload="metadata"
+                poster="https://cf.aibochinese.com/%E8%A7%86%E9%A2%91%E7%A8%BF%E4%BB%B6/%E5%9B%BD%E9%99%85%E4%B8%AD%E6%96%87%E6%95%99%E5%B8%88%E5%85%8D%E8%B4%B9%E5%85%A5%E9%A9%BB%E6%8C%87%E5%8D%97-%E6%9C%80%E6%96%B0/%E5%9B%BD%E9%99%85%E4%B8%AD%E6%96%87%E6%95%99%E5%B8%88%E5%85%8D%E8%B4%B9%E5%85%A5%E9%A9%BB%E6%8C%87%E5%8D%97-%E6%9C%80%E6%96%B0-%E5%B0%81%E9%9D%A2.jpg"
+            >
+                <source src="https://cf.aibochinese.com/%E8%A7%86%E9%A2%91%E7%A8%BF%E4%BB%B6/2025%E5%B9%B411%E6%9C%88/%E5%9B%BD%E9%99%85%E4%B8%AD%E6%96%87%E6%95%99%E5%B8%88%E5%85%A5%E9%A9%BB%E5%90%8E%E7%9A%84%E6%9D%83%E7%9B%8A%E8%AF%B4%E6%98%8E/%E5%9B%BD%E9%99%85%E4%B8%AD%E6%96%87%E6%95%99%E5%B8%88%E5%85%A5%E9%A9%BB%E5%90%8E%E7%9A%84%E6%9D%83%E7%9B%8A%E8%AF%B4%E6%98%8E.mp4" type="video/mp4">
+            </video>
+        </div>
+        
+        <div class="video-info">
+            <h1 class="video-title">解说视频</h1>
+            <div class="video-meta">
+                <div class="meta-item">
+                    <span>📅</span>
+                    <span>2025年11月</span>
+                </div>
+                <div class="meta-item">
+                    <span>👁️</span>
+                    <span>1,734 次观看</span>
+                </div>
+                <div class="meta-item">
+                    <span>⏱️</span>
+                    <span>4:09</span>
+                </div>
+            </div>
+        </div>
         <main>
             <section>
-                <p><video controls width="300" height="250">
-  <source src="https://cf.aibochinese.com/%E8%A7%86%E9%A2%91%E7%A8%BF%E4%BB%B6/2025%E5%B9%B411%E6%9C%88/%E5%9B%BD%E9%99%85%E4%B8%AD%E6%96%87%E6%95%99%E5%B8%88%E5%85%A5%E9%A9%BB%E5%90%8E%E7%9A%84%E6%9D%83%E7%9B%8A%E8%AF%B4%E6%98%8E/%E5%9B%BD%E9%99%85%E4%B8%AD%E6%96%87%E6%95%99%E5%B8%88%E5%85%A5%E9%A9%BB%E5%90%8E%E7%9A%84%E6%9D%83%E7%9B%8A%E8%AF%B4%E6%98%8E.mp4" type="video/mp4">
-</video></p>
                 <h2>📋 准备工作</h2>
                 <div class="process-steps">
                     <ol>
@@ -855,6 +980,21 @@
             } catch (error) {
                 console.error("Pagefind search initialization failed:", error);
             }
+        });
+    </script>
+             <script>
+        const video = document.getElementById('videoPlayer');
+        const loading = document.getElementById('loading');
+
+        // 视频加载完成后隐藏加载动画
+        video.addEventListener('loadeddata', function() {
+            loading.style.display = 'none';
+        });
+
+        // 视频加载错误处理
+        video.addEventListener('error', function() {
+            loading.style.display = 'none';
+            console.error('视频加载失败');
         });
     </script>
 </body>
