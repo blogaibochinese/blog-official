@@ -2,20 +2,14 @@
 <html lang="zh-CN">
 <head>
              <style>
-/* 人工客服按钮样式 */
        /* 悬浮微信图标样式 */
         .wechat-float {
-            position: fixed;
-            right: 20px;
-            top: 50%;
-            transform: translateY(-50%);
             width: 60px;
             height: 60px;
             background-color: hsl(148, 45%, 88%); /* 微信绿色 */
             border-radius: 50%;
             cursor: pointer;
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-            z-index: 1000;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -23,7 +17,7 @@
         }
 
         .wechat-float:hover {
-            transform: translateY(-50%) scale(1.1);
+            transform: scale(1.1);
         }
 
         .wechat-icon {
@@ -35,6 +29,18 @@
         }
 
         /* 弹出窗样式 */
+        /* 悬浮图标容器 */
+        .float-icons-container {
+            position: fixed;
+            right: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 1000;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
         .wechat-modal {
             display: none;
             position: fixed;
@@ -46,6 +52,53 @@
             z-index: 2000;
             justify-content: center;
             align-items: center;
+        }
+
+        /* 悬浮搜索按钮 */
+        .search-float {
+            width: 60px;
+            height: 60px;
+            background-color: #3B82F6; /* 蓝色 */
+            border-radius: 50%;
+            cursor: pointer;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: transform 0.3s ease;
+        }
+
+        .search-float:hover {
+            transform: scale(1.1);
+        }
+
+        /* 搜索弹出窗 */
+        .search-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 2000;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .search-popup {
+            background-color: white;
+            border-radius: 10px;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+            max-width: 500px;
+            width: 90%;
+        }
+
+        .search-popup h3 {
+            margin-bottom: 15px;
+            color: #333;
         }
 
         .wechat-popup {
@@ -72,12 +125,89 @@
             padding: 8px 16px;
             border-radius: 5px;
             cursor: pointer;
-            margin-top: 10px;
+            margin-top: 15px;
         }
 
         .close-btn:hover {
             background-color: #ff7875;
         }
+
+        /* ==================== 全新 Pagefind 搜索样式（搜索框水平居中版） ==================== */
+.search-container {
+    position: relative;
+    /* 删除 margin-right，改为自动左右 margin 实现居中 */
+    margin: 0 auto;           /* 关键：水平居中 */
+    z-index: 1001;
+    min-width: 200px;
+    max-width: 380px;         /* 建议加上最大宽度，和下拉结果保持一致 */
+    width: 100%;
+    display: flex;
+    justify-content: center;  /* 内部元素水平居中 */
+    align-items: center;
+}
+
+/* 输入框：去掉宽度 100% + focus 扩展的左右晃动问题 */
+#pagefind-search .pagefind-ui__search-input {
+    padding: 10px 16px;
+    border: 2px solid #ddd;
+    border-radius: 25px;
+    font-size: 16px;
+    /* 固定宽度，或者使用 min-width + max-width 防止晃动 */
+    width: 300px;                     /* 固定一个舒适的宽度 */
+    max-width: 100%;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    background: white;
+    color: #333;
+    box-sizing: border-box;
+    outline: none;
+}
+
+#pagefind-search .pagefind-ui__search-input:focus {
+    border-color: #4a6fa5;
+    box-shadow: 0 0 0 4px rgba(74, 111, 165, 0.2);
+    /* focus 时不再改变宽度，避免整个搜索框左右晃动 */
+}
+
+/* 下拉结果：从右对齐改为居中对齐 */
+#pagefind-search .pagefind-ui__results {
+    background: white;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+    position: absolute;
+    top: 100%;
+    left: 50%;                        /* 关键：左边 50% */
+    transform: translateX(-50%);      /* 关键：向左偏移自身宽度的一半 → 完全居中 */
+    right: auto;                      /* 取消原来的 right: 0 */
+    width: 380px;
+    max-height: 70vh;
+    overflow-y: auto;
+    margin-top: 8px;
+    z-index: 1000;
+    padding: 8px 0;
+}
+
+/* 其余样式保持不变 */
+#pagefind-search .pagefind-ui__result {
+    padding: 12px 16px;
+    border-bottom: 1px solid #eee;
+    transition: background-color 0.2s;
+}
+#pagefind-search .pagefind-ui__result:last-child { border-bottom: none; }
+#pagefind-search .pagefind-ui__result:hover { background-color: #f8f9ff; }
+#pagefind-search .pagefind-ui__result-title { font-size: 15px; font-weight: 600; color: #1f2937; margin-bottom: 4px; }
+#pagefind-search .pagefind-ui__result-link { 
+    color: #3B82F6; 
+    text-decoration: none; 
+    display: inline-block;
+    width: 100%;
+    position: relative;
+    z-index: 10;
+}
+#pagefind-search .pagefind-ui__result-link:hover { text-decoration: underline; }
+#pagefind-search .pagefind-ui__result-excerpt { font-size: 13.5px; color: #666; line-height: 1.5; margin-top: 4px; }
+.pagefind-ui__result-excerpt mark { background: #dbeafe; color: #1e40af; padding: 1px 3px; border-radius: 3px; }
+#pagefind-search .pagefind-ui__message { padding: 20px; text-align: center; color: #666; font-size: 14px; }
 </style>
 
 <!-- Font Awesome 图标库 -->
@@ -155,10 +285,12 @@
             padding: 20px;
         }
         
-        .header-image {
-            text-align: center;
-            margin-bottom: 30px;
-        }
+.header-image {
+    display: block;          /* 关键：让 img 变成块级 */
+    margin: 0 auto 30px;     /* 水平居中 + 下边距 */
+    max-width: 100%;         /* 建议加上，响应式友好 */
+    height: auto;            /* 保持比例 */
+}
         
         .header-image img {
             max-width: 900px;
@@ -252,6 +384,25 @@
         
         a:hover {
             text-decoration: underline;
+        }
+        
+        /* Footer 样式 */
+        footer {
+            background: linear-gradient(135deg, #2c3e50, #34495e);
+            color: #ecf0f1;
+            text-align: center;
+            padding: 20px 0;
+            margin-top: 40px;
+        }
+        
+        .footer {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .footer p {
+            margin: 10px 0;
         }
         
         mark {
@@ -371,7 +522,7 @@
     <div class="container">
         <!-- 头部图片 -->
         <div class="header-image">
-            <img src="https://cf.aiboculture.com/2025/10/20251010230305774.png" alt="VCC虚拟卡">
+            <img src="https://cf.aiboculture.com/2025/10/20251010230305774.png" alt="header" class="header-image">
         </div>
         
         <!-- 主要内容区域 -->
@@ -401,7 +552,7 @@
                     <p>注册后进行相关安全设置，可使用微软2FA验证器：<a href="https://drive.aibochinese.com/s/97qUe" target="_blank" rel="noopener">下载⏬</a></p>
                 </div>
                 
-                <p>推荐申请<strong>尊享MasterCard</strong>，更适合多场景国内外收付款！</p>
+                <p>推荐<strong>尊享MasterCard</strong><a href="https://cf.aibochinese.com/%E8%A7%86%E9%A2%91%E7%A8%BF%E4%BB%B6/2025%E5%B9%B411%E6%9C%88/Roogoo%E8%81%94%E5%90%8D%E4%B8%87%E4%BA%8B%E8%BE%BE%E5%8D%A1%EF%BC%8C%E5%85%8D%E8%B4%B9%E5%BC%80%E5%8D%A1%E6%BC%94%E7%A4%BA/Roogoo%E8%81%94%E5%90%8D%E4%B8%87%E4%BA%8B%E8%BE%BE%E5%8D%A1%EF%BC%8C%E5%85%8D%E8%B4%B9%E5%BC%80%E5%8D%A1%E6%BC%94%E7%A4%BA.mp4" target="_blank" rel="noopener"><mark>开卡演示</mark></a>，更适合多场景国内外收付款！</p>
                  <p>
                         <a href="https://blog.aibochinese.com/payment/VCC/mainland" target="_blank" class="button-link">国内使用指南</a> |
                         <a href="https://blog.aibochinese.com/payment/VCC/international" class="button-link">境外使用指南</a>
@@ -414,12 +565,12 @@
                         「<strong>免费<a href="https://dedicatedlines.top?ref=13" target="_blank" rel="noopener"><mark>海外网络流量</mark></a></strong> + 访问<strong><a href="https://accounts.maxweb.red/zh-CN/register?ref=569491541" target="_blank" rel="noopener"><mark>币安 web3</mark></a></strong>」
                     </p>
                     <p class="small-text">
-                        使用 USDT / USDC 稳定币进行充值【<a href="self recharge.html" target="_blank" rel="noopener"><strong>教程</strong></a>】
+                    目前支持BEP20网络，充值USDT可0手续费【<a href="self recharge.html" target="_blank" rel="noopener"><strong>教程</strong></a>】
                     </p>
                 </div>
                 
                 <p>
-                    <a href="Proxy Recharge.html" target="_blank" rel="noopener">代充服务</a>：人工费$1/笔，<a href="https://kefu.aibochinese.com/chat/pc?noCanClose=1&token=7fecd3ce216cc26ebd63bf417c193b41&kefu_id=10" target="_blank" rel="noopener">联系客服</a>
+                    <a href="Proxy Recharge.html" target="_blank" rel="noopener">代充服务</a>：人工费$1/笔
                 </p>
             </div>
         </div>
@@ -517,9 +668,27 @@
       });
     </script>
     
-    <!-- 悬浮微信客服图标 -->
-    <div class="wechat-float" onclick="toggleWechatModal()">
-        <div class="wechat-icon"></div>
+       </script>
+   <!-- 悬浮图标容器 -->
+    <div class="float-icons-container">
+        <!-- 悬浮微信客服图标 -->
+        <div class="wechat-float" onclick="toggleWechatModal()">
+            <div class="wechat-icon"></div>
+        </div>
+        
+        <!-- 悬浮搜索按钮 -->
+        <div class="search-float" onclick="toggleSearchModal()">
+            <i class="fa fa-search text-white text-2xl"></i>
+        </div>
+    </div>
+
+    <!-- 搜索弹出窗 -->
+    <div id="searchModal" class="search-modal" onclick="closeSearchModal(event)">
+        <div class="search-popup" onclick="event.stopPropagation()">
+            <h3>搜索内容</h3>
+            <div id="pagefind-search-popup"></div>
+            <button class="close-btn" onclick="closeSearchModal()">关闭</button>
+        </div>
     </div>
 
     <!-- 微信弹出窗 -->
@@ -533,6 +702,17 @@
     </div>
 
     <script>
+        // 搜索弹窗控制函数
+        function toggleSearchModal() {
+            const modal = document.getElementById('searchModal');
+            modal.style.display = modal.style.display === 'flex' ? 'none' : 'flex';
+        }
+
+        function closeSearchModal(event) {
+            document.getElementById('searchModal').style.display = 'none';
+        }
+
+        // 微信弹窗控制函数
         function toggleWechatModal() {
             const modal = document.getElementById('wechatModal');
             modal.style.display = modal.style.display === 'flex' ? 'none' : 'flex';
@@ -544,11 +724,49 @@
 
         // 点击模态背景关闭
         window.onclick = function(event) {
-            const modal = document.getElementById('wechatModal');
-            if (event.target === modal) {
+            const searchModal = document.getElementById('searchModal');
+            const wechatModal = document.getElementById('wechatModal');
+            
+            if (event.target === searchModal) {
+                closeSearchModal();
+            } else if (event.target === wechatModal) {
                 closeWechatModal();
             }
         };
+    </script>
+       <!-- Pagefind 搜索（已完美修复） -->
+    <script src="/post/pagefind/pagefind-ui.js"></script>
+    <script>
+        window.addEventListener('DOMContentLoaded', function () {
+            console.log("Initializing Pagefind search...");
+            try {
+                // 初始化页面顶部搜索框
+                new PagefindUI({
+                    element: "#pagefind-search",
+                    showImages: false,
+                    showSubResults: true,
+                    resetStyles: false,
+                    translations: {
+                        placeholder: "🔍资源、教程、工具..."
+                    }
+                });
+                
+                // 初始化右侧悬浮搜索弹窗
+                new PagefindUI({
+                    element: "#pagefind-search-popup",
+                    showImages: false,
+                    showSubResults: true,
+                    resetStyles: false,
+                    translations: {
+                        placeholder: "🔍资源、教程、工具..."
+                    }
+                });
+                
+                console.log("Pagefind search initialized successfully");
+            } catch (error) {
+                console.error("Pagefind search initialization failed:", error);
+            }
+        });
     </script>
 </body>
 </html>

@@ -3,8 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>2026静态HTML网站 - SEO优化技巧完整指南</title>
-    <meta name="description" content="掌握静态HTML网站SEO优化的核心技巧，包括结构化数据、关键词策略、网站地图提交等实战方法，3个月快速提升搜索引擎排名。">
+    <title>最新文章列表</title>
     <!-- 引入Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- 引入Font Awesome图标 -->
@@ -69,7 +68,7 @@
             margin: 0 5px;
             vertical-align: middle;
         }
-         /* 悬浮微信图标样式 */
+               /* 悬浮微信图标样式 */
         .wechat-float {
             width: 60px;
             height: 60px;
@@ -198,83 +197,6 @@
         .close-btn:hover {
             background-color: #ff7875;
         }
-
-        /* ==================== 全新 Pagefind 搜索样式（搜索框水平居中版） ==================== */
-.search-container {
-    position: relative;
-    /* 删除 margin-right，改为自动左右 margin 实现居中 */
-    margin: 0 auto;           /* 关键：水平居中 */
-    z-index: 1001;
-    min-width: 200px;
-    max-width: 380px;         /* 建议加上最大宽度，和下拉结果保持一致 */
-    width: 100%;
-    display: flex;
-    justify-content: center;  /* 内部元素水平居中 */
-    align-items: center;
-}
-
-/* 输入框：去掉宽度 100% + focus 扩展的左右晃动问题 */
-#pagefind-search .pagefind-ui__search-input {
-    padding: 10px 16px;
-    border: 2px solid #ddd;
-    border-radius: 25px;
-    font-size: 16px;
-    /* 固定宽度，或者使用 min-width + max-width 防止晃动 */
-    width: 300px;                     /* 固定一个舒适的宽度 */
-    max-width: 100%;
-    transition: border-color 0.3s ease, box-shadow 0.3s ease;
-    background: white;
-    color: #333;
-    box-sizing: border-box;
-    outline: none;
-}
-
-#pagefind-search .pagefind-ui__search-input:focus {
-    border-color: #4a6fa5;
-    box-shadow: 0 0 0 4px rgba(74, 111, 165, 0.2);
-    /* focus 时不再改变宽度，避免整个搜索框左右晃动 */
-}
-
-/* 下拉结果：从右对齐改为居中对齐 */
-#pagefind-search .pagefind-ui__results {
-    background: white;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    box-shadow: 0 8px 24px rgba(0,0,0,0.15);
-    position: absolute;
-    top: 100%;
-    left: 50%;                        /* 关键：左边 50% */
-    transform: translateX(-50%);      /* 关键：向左偏移自身宽度的一半 → 完全居中 */
-    right: auto;                      /* 取消原来的 right: 0 */
-    width: 380px;
-    max-height: 70vh;
-    overflow-y: auto;
-    margin-top: 8px;
-    z-index: 1000;
-    padding: 8px 0;
-}
-
-/* 其余样式保持不变 */
-#pagefind-search .pagefind-ui__result {
-    padding: 12px 16px;
-    border-bottom: 1px solid #eee;
-    transition: background-color 0.2s;
-}
-#pagefind-search .pagefind-ui__result:last-child { border-bottom: none; }
-#pagefind-search .pagefind-ui__result:hover { background-color: #f8f9ff; }
-#pagefind-search .pagefind-ui__result-title { font-size: 15px; font-weight: 600; color: #1f2937; margin-bottom: 4px; }
-#pagefind-search .pagefind-ui__result-link { 
-    color: #3B82F6; 
-    text-decoration: none; 
-    display: inline-block;
-    width: 100%;
-    position: relative;
-    z-index: 10;
-}
-#pagefind-search .pagefind-ui__result-link:hover { text-decoration: underline; }
-#pagefind-search .pagefind-ui__result-excerpt { font-size: 13.5px; color: #666; line-height: 1.5; margin-top: 4px; }
-.pagefind-ui__result-excerpt mark { background: #dbeafe; color: #1e40af; padding: 1px 3px; border-radius: 3px; }
-#pagefind-search .pagefind-ui__message { padding: 20px; text-align: center; color: #666; font-size: 14px; }
         .navbar {
             background: linear-gradient(135deg, #3498db, #2980b9);
             color: white;
@@ -384,192 +306,42 @@
                 transform: translateY(-8px) rotate(-45deg);
             }
         }
-         .container {
-            max-width: 900px;
-            margin: 0 auto;
-            background: white;
-            border-radius: 16px;
-            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
-            overflow: hidden;
+                /* 文章列表 */
+        .article-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr); /* 电脑端一行三个 */
+            gap: 20px; /* 间距 */
+            max-width: 1200px; /* 最大宽度 */
+            margin: 0 auto; /* 居中 */
+            padding: 20px;
         }
-        
-        header {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 50px 40px;
+        .article-item {
             text-align: center;
-        }
-        
-        h1 {
-            font-size: 2.5em;
-            margin-bottom: 15px;
-            font-weight: 700;
-        }
-        
-        .subtitle {
-            font-size: 1.1em;
-            opacity: 0.9;
-        }
-        
-        .content {
-            padding: 40px;
-        }
-        
-        h2 {
-            color: #667eea;
-            font-size: 1.8em;
-            margin: 40px 0 20px 0;
-            padding-bottom: 10px;
-            border-bottom: 3px solid #667eea;
-            display: flex;
-            align-items: center;
-        }
-        
-        h2::before {
-            content: "📌";
-            margin-right: 10px;
-        }
-        
-        h3 {
-            color: #764ba2;
-            font-size: 1.3em;
-            margin: 25px 0 15px 0;
-            padding-left: 15px;
-            border-left: 4px solid #764ba2;
-        }
-        
-        p {
-            margin-bottom: 15px;
-            text-align: justify;
-        }
-        
-        .code-block {
-            background: #f7f9fc;
-            border: 2px solid #e1e8ed;
+            padding: 10px;
+            border: 1px solid #ddd;
             border-radius: 8px;
-            padding: 20px;
-            margin: 20px 0;
-            overflow-x: auto;
-            position: relative;
+            transition: background-color 0.3s;
         }
-        
-        .code-block::before {
-            content: "CODE";
-            position: absolute;
-            top: 8px;
-            right: 8px;
-            background: #667eea;
-            color: white;
-            padding: 2px 10px;
-            border-radius: 4px;
-            font-size: 0.7em;
-            font-weight: bold;
+        .article-item:hover {
+            background-color: #f9f9f9;
         }
-        
-        code {
-            font-family: "Consolas", "Monaco", "Courier New", monospace;
-            font-size: 0.9em;
-            color: #2d3748;
-            display: block;
-            white-space: pre-wrap;
-        }
-        
-        .highlight-box {
-            background: #fff4e6;
-            border-left: 5px solid #ff9800;
-            padding: 20px;
-            margin: 25px 0;
-            border-radius: 0 8px 8px 0;
-        }
-        
-        .highlight-box strong {
-            color: #e65100;
-        }
-        
-        ul {
-            margin: 15px 0 15px 30px;
-        }
-        
-        li {
-            margin-bottom: 12px;
-            line-height: 1.8;
-        }
-        
-        .tip-box {
-            background: #e8f5e9;
-            border: 2px solid #4caf50;
-            border-radius: 8px;
-            padding: 20px;
-            margin: 25px 0;
-        }
-        
-        .tip-box::before {
-            content: "💡 实用技巧";
-            display: block;
-            font-weight: bold;
-            color: #2e7d32;
-            margin-bottom: 10px;
-            font-size: 1.1em;
-        }
-        
-        .steps {
-            background: #f5f5f5;
-            padding: 20px;
-            border-radius: 8px;
-            margin: 15px 0;
-        }
-        
-        .steps li {
-            background: white;
-            padding: 12px;
-            margin-bottom: 10px;
-            border-radius: 6px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
-        }
-        
-        .conclusion {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 30px;
-            border-radius: 12px;
-            margin: 40px 0;
-            text-align: center;
-            font-size: 1.2em;
-            font-weight: bold;
-            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.3);
-        }
-        
-        a {
-            color: #667eea;
+        .article-link {
             text-decoration: none;
-            font-weight: 500;
+            color: #333;
+            font-size: 16px;
+            font-weight: bold;
+            display: block;
         }
-        
-        a:hover {
-            text-decoration: underline;
+        .article-link:hover {
+            color: #007bff;
         }
-        
+        /* 响应式：移动端一行一个 */
         @media (max-width: 768px) {
-            body {
-                padding: 10px;
+            .article-grid {
+                grid-template-columns: 1fr;
             }
-            
-            header {
-                padding: 30px 20px;
-            }
-            
-            h1 {
-                font-size: 1.8em;
-            }
-            
-            .content {
-                padding: 20px;
-            }
-            
-            h2 {
-                font-size: 1.5em;
-            }
-        }       
+        }
+        
         /* 自定义工具类 */
         .nav-shadow {
             box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
@@ -655,105 +427,7 @@
 #pagefind-search .pagefind-ui__result-excerpt { font-size: 13.5px; color: #666; line-height: 1.5; margin-top: 4px; }
 .pagefind-ui__result-excerpt mark { background: #dbeafe; color: #1e40af; padding: 1px 3px; border-radius: 3px; }
 #pagefind-search .pagefind-ui__message { padding: 20px; text-align: center; color: #666; font-size: 14px; }
-           .video-wrapper {
-            position: relative;
-            width: 100%;
-            padding-top: 56.25%; /* 16:9 宽高比 */
-            background: #000;
-        }
-
-        .video-wrapper video {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            object-fit: contain;
-        }
-
-        .video-info {
-            padding: 25px;
-        }
-
-        .video-title {
-            font-size: 24px;
-            font-weight: 700;
-            color: #2d3748;
-            margin-bottom: 15px;
-        }
-
-        .video-description {
-            font-size: 16px;
-            color: #718096;
-            line-height: 1.6;
-            margin-bottom: 20px;
-        }
-
-        .video-meta {
-            display: flex;
-            gap: 20px;
-            flex-wrap: wrap;
-            font-size: 14px;
-            color: #a0aec0;
-        }
-
-        .meta-item {
-            display: flex;
-            align-items: center;
-            gap: 5px;
-        }
-
-        /* 手机端样式 */
-        @media (max-width: 768px) {
-            .video-wrapper {
-                padding-top: 50%; /* 300px宽度对应150px高度 = 50% */
-                max-height: 150px;
-            }
-
-            .video-info {
-                padding: 15px;
-            }
-
-            .video-title {
-                font-size: 18px;
-                margin-bottom: 10px;
-            }
-
-            .video-description {
-                font-size: 14px;
-                margin-bottom: 15px;
-            }
-
-            .video-meta {
-                font-size: 12px;
-                gap: 15px;
-            }
-        }
-
-        /* 平板端样式 */
-        @media (min-width: 769px) and (max-width: 1024px) {
-            .container {
-                max-width: 800px;
-            }
-        }
-
-        /* 加载动画 */
-        .loading {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 50px;
-            height: 50px;
-            border: 4px solid rgba(255, 255, 255, 0.3);
-            border-top-color: #fff;
-            border-radius: 50%;
-            animation: spin 1s linear infinite;
-        }
-
-        @keyframes spin {
-            to { transform: translate(-50%, -50%) rotate(360deg); }
-        }
+   
     </style>
 </head>
 <body class="min-h-screen bg-gray-50 relative">
@@ -798,143 +472,39 @@
         </div>
     </nav>
 
-     <div class="container">
+    <div class="container">
         <header>
-            <h1>2026静态HTML网站</h1>
-            <p class="subtitle">SEO优化技巧完整指南</p>
+            <h1>文章更新列表</h1>
+                        <!-- 修复后的搜索框 -->
+            <div class="search-container">
+                <div id="pagefind-search"></div>
+            </div>
         </header>
-         <div class="video-wrapper">
-            <div class="loading" id="loading"></div>
-            <video 
-                id="videoPlayer" 
-                controls 
-                preload="metadata"
-                poster="https://cf.aibochinese.com/%E8%A7%86%E9%A2%91%E7%A8%BF%E4%BB%B6/2025%E5%B9%B411%E6%9C%88/%E6%90%AD%E5%BB%BA%E6%B0%B8%E4%B9%85%E5%85%8D%E8%B4%B9%E7%BD%91%E7%AB%99%E4%B9%8B%20SEO%E6%90%9C%E7%B4%A2%E4%BC%98%E5%8C%96/%E6%90%AD%E5%BB%BA%E6%B0%B8%E4%B9%85%E5%85%8D%E8%B4%B9%E7%BD%91%E7%AB%99%E4%B9%8B%20SEO%E6%90%9C%E7%B4%A2%E4%BC%98%E5%8C%96-%E5%B0%81%E9%9D%A2.jpg"
-            >
-                <source src="https://cf.aibochinese.com/%E8%A7%86%E9%A2%91%E7%A8%BF%E4%BB%B6/2025%E5%B9%B411%E6%9C%88/%E6%90%AD%E5%BB%BA%E6%B0%B8%E4%B9%85%E5%85%8D%E8%B4%B9%E7%BD%91%E7%AB%99%E4%B9%8B%20SEO%E6%90%9C%E7%B4%A2%E4%BC%98%E5%8C%96/%E6%90%AD%E5%BB%BA%E6%B0%B8%E4%B9%85%E5%85%8D%E8%B4%B9%E7%BD%91%E7%AB%99%E4%B9%8B%20SEO%E6%90%9C%E7%B4%A2%E4%BC%98%E5%8C%96.mp4" type="video/mp4">
-            </video>
-        </div>
         
-        <div class="video-info">
-            <h1 class="video-title">SEO优化-代码模板使用教程</h1>
-            <div class="video-meta">
-                <div class="meta-item">
-                    <span>📅</span>
-                    <span>2025年11月</span>
-                </div>
-                <div class="meta-item">
-                    <span>👁️</span>
-                    <span>1,234 次观看</span>
-                </div>
-                <div class="meta-item">
-                    <span>⏱️</span>
-                    <span>12：27</span>
-                </div>
-            </div>
+    <div class="article-grid">
+        <!-- 前9个文章（3行 x 3列 = 9个） -->
+        <div class="article-item">
+            <a href="https://blog.aibochinese.com/buildsites/jingtai-wangzhan-SEO-youhua" class="article-link">2026静态HTML网站 - SEO优化技巧完整指南</a>
         </div>
-        <div class="content">
-            <h2>一、每个页面唯一的 &lt;title&gt; 和 &lt;meta description&gt;</h2>
-            <p>为每个页面设置独特且精准的标题和描述，这是SEO基础中的基础。搜索引擎通过这些信息理解页面内容，用户也通过它们决定是否点击。</p>
-            
-            <h3>示例代码：</h3>
-            <div class="code-block">
-                <code>&lt;title&gt;AiboChinese - Mandarin language learning platform&lt;/title&gt;
-&lt;meta name="description" content="We offer abundant Chinese-learning resources, including free video courses, downloadable study materials, community exchange platforms for all levels, and one-on-one live classes taught by professional, highly experienced native Chinese teachers. We create personalized spoken Chinese practice sessions to help Chinese enthusiasts worldwide master the language quickly, effectively, and enjoyably!"&gt;</code>
-            </div>
-            
-            <h2>二、结构化数据（Structured Data）——静态网站最大杀手锏</h2>
-            <p>即使是纯HTML也能轻松添加JSON-LD格式的结构化数据。这能帮助搜索引擎更好地理解页面内容，获得富媒体搜索结果展示，极大提升点击率。</p>
-            
-            <div class="highlight-box">
-                <strong>强烈建议：</strong>每个页面都添加适合的结构化数据类型（WebPage、Article、FAQPage、Product等）
-            </div>
-            
-            <h3>示例代码：</h3>
-            <div class="code-block">
-                <code>&lt;script type="application/ld+json"&gt;
-{
-  "@context": "https://schema.org",
-  "@type": "WebPage",  // 或 WebPage、Article、FAQPage、Product等
-  "name": "AiboChinese - Mandarin language learning platform",
-  "keywords": "2026 Chinese language learning platform,2026中文学习平台，1-on-1Live-Chinese-language",
-  "description": "We offer abundant Chinese-learning resources, including free video courses, downloadable study materials, community exchange platforms for all levels, and one-on-one live classes taught by professional, highly experienced native Chinese teachers. We create personalized spoken Chinese practice sessions to help Chinese enthusiasts worldwide master the language quickly, effectively, and enjoyably!",
-  "url": "https://aibochinese.com/",
-  "datePublished": "2025-11-01",
-  "dateModified": "2025-11-28",
-  "author": {
-    "@type": "Person",
-    "name": "AbelZou"
-  },
-  "publisher": {
-    "@type": "Organization",
-    "name": "Aibo Chinese",
-    "logo": {
-      "@type": "ImageObject",
-      "url": "https://cf.aibochinese.com/%E7%88%B1%E5%8D%9A%E6%B1%89%E8%AF%AD%E5%AE%A2%E6%88%B7%E7%AB%AF/aibochines-logo.png"
-    }
-  }
-}
-&lt;/script&gt;</code>
-            </div>
-            
-            <h2>三、关键词策略建议</h2>
-            <p>静态网站的关键词优化需要更加精准和聚焦。以下是几个实战技巧：</p>
-            
-            <div class="tip-box">
-                <h3>1. 用"年份+关键词"制造新词</h3>
-                <p>例如：2025静电拖把推荐、2025最好用的静电拖把</p>
-                <p><strong>优势：</strong>每年自动出新词，竞争极小，容易获得排名</p>
-            </div>
-            
-            <div class="tip-box">
-                <h3>2. 用"疑问句"做独立页面</h3>
-                <ul>
-                    <li><strong>文件名：</strong>jingdian-tuobang-he-putong-tuobang-qubie.html</li>
-                    <li><strong>标题：</strong>静电拖把和普通拖把有什么区别？真实对比测评</li>
-                </ul>
-            </div>
-            
-            <div class="tip-box">
-                <h3>3. 做"对比表"页面</h3>
-                <ul>
-                    <li><strong>URL：</strong>jingdian-tuobang-pinpai-duibi.html</li>
-                    <li><strong>标题：</strong>13款静电拖把品牌对比（宝家洁vs兔力vs美丽雅）</li>
-                </ul>
-            </div>
-            
-            <div class="highlight-box">
-                <strong>关键词密度建议：</strong>控制在 1.5%～2.5%<br>
-                不用刻意堆砌，自然写作即可。Google现在更看重语义关联，比如出现"除尘""干湿两用""一次性拖布"就知道你在写静电拖把相关内容。
-            </div>
-            
-            <div class="conclusion">
-                💎 核心秘诀：静态网站做SEO最狠的招数就是——一个页面死磕一个精准长尾词，把所有优化位置全部写满，3个月内99%能进百度前三、Google前十！
-            </div>
-            
-            <h2>四、网站地图（Sitemap）提交指南</h2>
-            <p>告诉搜索引擎你的网站结构，让所有页面都被快速索引。这是必做的重要步骤！</p>
-            
-            <h3>步骤1：生成Sitemap</h3>
-            <p>使用以下免费工具自动生成：</p>
-            <ul>
-                <li><a href="https://www.xml-sitemaps.com" target="_blank">https://www.xml-sitemaps.com</a></li>
-                <li><a href="https://www.sitemapxml.cn" target="_blank">https://www.sitemapxml.cn</a></li>
-            </ul>
-            <p>操作流程：输入域名 → 自动爬取标题和日期 → 一键生成 sitemap.xml 或 sitemap.html → 上传至网站根目录</p>
-            
-            <h3>步骤2：提交到各大搜索引擎</h3>
-            
-            <div class="steps">
-                <ul>
-                    <li><strong>Google Search Console</strong><br>
-                    登录 → 左侧「索引」→「Sitemaps」→ 输入：https://www.yourdomain.com/sitemap.xml → 提交<br>
-                    几分钟后状态会变成"成功"</li>
-                    
-                    <li><strong>必应 Bing Webmaster Tools</strong><br>
-                    同 Google 操作流程，提交 sitemap.xml 即可</li>
-                </ul>
-            </div>
+        <div class="article-item">
+            <a href="https://blog.aibochinese.com/post/search%20frame" class="article-link">给静态网站配置内容搜索🔍功能</a>
         </div>
+        <div class="article-item">
+            <a href="https://blog.aibochinese.com/education/tutor%20guide" class="article-link">国际中文教师从业指南</a>
+        </div>
+        <div class="article-item">
+            <a href="https://blog.aibochinese.com/payment/roogoo" class="article-link">Roogoo联名万事达卡，免开卡费0年费</a>
+        </div>
+        <div class="article-item">
+            <a href="https://blog.aibochinese.com/tools/capcut" class="article-link">免费使用剪映9.0.0会员功能</a>
+        </div>
+        <div class="article-item">
+            <a href="https://blog.aibochinese.com/tools/photoshop" class="article-link">Photoshop 2025中文破解版 下载⏬使用</a>
+        </div>
+        <div class="article-item">
+            <a href="https://blog.aibochinese.com/sitesbuild" class="article-link">Cloudflare搭建永久免费网站</a>
+        </div>
+    </div>
         
 <footer>
     <div class="footer">
@@ -942,14 +512,12 @@
          style="width: 30px; height: 30px; display:block;" /></a>  <a href="https://x.com/i/communities/1988635370549096727" style="color:white; display:inline-block; vertical-align:middle;" target="_blank" rel="noopener noreferrer"><img src="https://cf.aibochinese.com/%E7%88%B1%E5%8D%9A%E6%B1%89%E8%AF%AD%E5%AE%A2%E6%88%B7%E7%AB%AF/icons8-x-30.png" 
          style="width: 30px; height: 30px; display:block;" /></a>  <a href="https://www.facebook.com/blog.aibochinese" style="color:white; display:inline-block; vertical-align:middle;" target="_blank" rel="noopener noreferrer"><img src="https://cf.aibochinese.com/%E7%88%B1%E5%8D%9A%C2%B7%E5%AE%A2%E5%9B%BE%E7%89%87%E5%BA%93/%E5%B8%B8%E7%94%A8%E6%A8%A1%E6%9D%BF%E5%9B%BE%E7%89%87/facebook%20log0%2030.png" 
          style="width: 30px; height: 30px; display:block;" /></a>  <a href="https://wa.me/message/QXYAFEGTDWIBE1" style="color:white; display:inline-block; vertical-align:middle;" target="_blank" rel="noopener noreferrer"><img src="https://cf.aibochinese.com/%E7%B4%A0%E6%9D%90%E7%AB%99/whatsapp-48.png" 
-         style="width: 30px; height: 30px; display:block;" /></a>  <a href="https://cf.aibochinese.com/%E7%B4%A0%E6%9D%90%E7%AB%99/%E6%B7%BB%E5%8A%A0%E5%BE%AE%E4%BF%A1.png" style="color:white; display:inline-block; vertical-align:middle;" rel="noopener noreferrer"><img src="https://cf.aibochinese.com/%E7%B4%A0%E6%9D%90%E7%AB%99/icons8-%E5%BE%AE%E4%BF%A1-30.png" 
          style="width: 30px; height: 30px; display:block;" /></a>  <a href="https://space.bilibili.com/1014631395?spm_id_from=333.1387.0.0" style="color:white; display:inline-block; vertical-align:middle;" rel="noopener noreferrer"><img src="https://cf.aibochinese.com/%E7%B4%A0%E6%9D%90%E7%AB%99/icons8-%E8%83%86%E6%B1%81-30.png" 
          style="width: 30px; height: 30px; display:block;" /></a>  <a href="https://github.com/blogaibochinese" style="color:white; display:inline-block; vertical-align:middle;" rel="noopener noreferrer"><img src="https://cf.aibochinese.com/%E7%88%B1%E5%8D%9A%C2%B7%E5%AE%A2%E5%9B%BE%E7%89%87%E5%BA%93/%E5%B8%B8%E7%94%A8%E6%A8%A1%E6%9D%BF%E5%9B%BE%E7%89%87/icons8-github-30.png" 
          style="width: 30px; height: 30px; display:block;" /></a>  <a href="https://xhslink.com/m/5it26wH34Zd" style="color:white; display:inline-block; vertical-align:middle;" rel="noopener noreferrer"><img src="https://cf.aibochinese.com/%E7%B4%A0%E6%9D%90%E7%AB%99/rednote.png" 
          style="width: 30px; height: 30px; display:block;" /></a>
         </p>
         <p style="font-size: 15px; color: white;">© 2025 <a href="https://blog.aibochinese.com/" style="color:#ffcc2f " target="_blank" rel="noopener noreferrer">爱博·客</a> - 所有权利保留</p>
-    <p>_</p>
     </div>
 </footer>
     </div>
@@ -1022,7 +590,6 @@
             });
         });
     </script>
-       </script>
    <!-- 悬浮图标容器 -->
     <div class="float-icons-container">
         <!-- 悬浮微信客服图标 -->
@@ -1120,40 +687,6 @@
             } catch (error) {
                 console.error("Pagefind search initialization failed:", error);
             }
-        });
-    </script>
-
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "Article",           // 或 WebPage、Article、FAQPage、Product等
-  "name": "2026静态HTML网站 - SEO优化技巧完整指南",
-  "keywords": "2026静态HTML网站,SEO优化,技巧,完整指南",
-  "description": "分享了纯静态HTML网站最新的SEO优化技巧，包括标题和描述、关键词技巧、结构化数据、网站地图提交等，让搜索引擎爱上你的网站 🚀",
-  "url": "https://blog.aibochinese.com/buildsites/jingtai-wangzhan-SEO-youhua",
-  "datePublished": "2025-11-28",
-  "dateModified": "2025-11-28",
-  "author": {"@type": "Person", "name": "AbelZou"},
-  "publisher": {
-    "@type": "Organization",
-    "name": "Aibo Chinese",
-    "logo": {"@type": "ImageObject", "url": "https://cf.aibochinese.com/%E7%88%B1%E5%8D%9A%C2%B7%E5%AE%A2%E5%9B%BE%E7%89%87%E5%BA%93/%E5%B8%B8%E7%94%A8%E6%A8%A1%E6%9D%BF%E5%9B%BE%E7%89%87/50-50%20%E7%88%B1%E5%8D%9A%E5%AE%A2logo.png"}
-  }
-}
-</script>
-    <script>
-        const video = document.getElementById('videoPlayer');
-        const loading = document.getElementById('loading');
-
-        // 视频加载完成后隐藏加载动画
-        video.addEventListener('loadeddata', function() {
-            loading.style.display = 'none';
-        });
-
-        // 视频加载错误处理
-        video.addEventListener('error', function() {
-            loading.style.display = 'none';
-            console.error('视频加载失败');
         });
     </script>
 </body>
