@@ -269,26 +269,102 @@
 }
 
 /* 其余样式保持不变 */
-#pagefind-search .pagefind-ui__result {
-    padding: 12px 16px;
-    border-bottom: 1px solid #eee;
-    transition: background-color 0.2s;
-}
-#pagefind-search .pagefind-ui__result:last-child { border-bottom: none; }
-#pagefind-search .pagefind-ui__result:hover { background-color: #f8f9ff; }
-#pagefind-search .pagefind-ui__result-title { font-size: 15px; font-weight: 600; color: #1f2937; margin-bottom: 4px; }
-#pagefind-search .pagefind-ui__result-link { 
-    color: #3B82F6; 
-    text-decoration: none; 
-    display: inline-block;
-    width: 100%;
-    position: relative;
-    z-index: 10;
-}
-#pagefind-search .pagefind-ui__result-link:hover { text-decoration: underline; }
-#pagefind-search .pagefind-ui__result-excerpt { font-size: 13.5px; color: #666; line-height: 1.5; margin-top: 4px; }
-.pagefind-ui__result-excerpt mark { background: #dbeafe; color: #1e40af; padding: 1px 3px; border-radius: 3px; }
-#pagefind-search .pagefind-ui__message { padding: 20px; text-align: center; color: #666; font-size: 14px; }
+        #pagefind-search .pagefind-ui__result { padding: 12px 16px; border-bottom: 1px solid #eee; transition: background-color 0.2s; }
+        #pagefind-search .pagefind-ui__result:last-child { border-bottom: none; }
+        #pagefind-search .pagefind-ui__result:hover { background-color: #f8f9ff; }
+        #pagefind-search .pagefind-ui__result-title { font-size: 15px; font-weight: 600; color: #1f2937; margin-bottom: 4px; }
+        #pagefind-search .pagefind-ui__result-link { 
+            color: #3B82F6; 
+            text-decoration: none; 
+            display: inline-block;
+            width: 100%;
+            position: relative;
+            z-index: 10;
+        }
+        #pagefind-search .pagefind-ui__result-link:hover { text-decoration: underline; }
+        #pagefind-search .pagefind-ui__result-excerpt { font-size: 13.5px; color: #666; line-height: 1.5; margin-top: 4px; }
+        .pagefind-ui__result-excerpt mark { background: #dbeafe; color: #1e40af; padding: 1px 3px; border-radius: 3px; }
+        #pagefind-search .pagefind-ui__message { padding: 20px; text-align: center; color: #666; font-size: 14px; }
+        
+        /* 弹窗搜索结果样式优化 */
+        #pagefind-search-popup .pagefind-ui__search-input {
+            padding: 10px 16px;
+            border: 2px solid #ddd;
+            border-radius: 25px;
+            font-size: 16px;
+            width: 100%;
+            max-width: 100%;
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+            background: white;
+            color: #333;
+            box-sizing: border-box;
+            outline: none;
+        }
+        
+        #pagefind-search-popup .pagefind-ui__search-input:focus {
+            border-color: #4a6fa5;
+            box-shadow: 0 0 0 4px rgba(74, 111, 165, 0.2);
+        }
+        
+        /* 关键：为弹窗搜索结果添加高度限制和滚动 */
+        #pagefind-search-popup .pagefind-ui__results {
+            background: white;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+            margin-top: 8px;
+            max-height: 400px; /* 限制最大高度，避免延伸到导航栏 */
+            overflow-y: auto; /* 添加垂直滚动 */
+            padding: 8px 0;
+        }
+        
+        #pagefind-search-popup .pagefind-ui__result {
+            padding: 12px 16px;
+            border-bottom: 1px solid #eee;
+            transition: background-color 0.2s;
+        }
+        
+        #pagefind-search-popup .pagefind-ui__result:last-child {
+            border-bottom: none;
+        }
+        
+        #pagefind-search-popup .pagefind-ui__result:hover {
+            background-color: #f8f9ff;
+        }
+        
+        #pagefind-search-popup .pagefind-ui__result-title {
+            font-size: 15px;
+            font-weight: 600;
+            color: #1f2937;
+            margin-bottom: 4px;
+        }
+        
+        #pagefind-search-popup .pagefind-ui__result-link {
+            color: #3B82F6;
+            text-decoration: none;
+            display: inline-block;
+            width: 100%;
+            position: relative;
+            z-index: 10;
+        }
+        
+        #pagefind-search-popup .pagefind-ui__result-link:hover {
+            text-decoration: underline;
+        }
+        
+        #pagefind-search-popup .pagefind-ui__result-excerpt {
+            font-size: 13.5px;
+            color: #666;
+            line-height: 1.5;
+            margin-top: 4px;
+        }
+        
+        #pagefind-search-popup .pagefind-ui__message {
+            padding: 20px;
+            text-align: center;
+            color: #666;
+            font-size: 14px;
+        }
         /* 页脚样式 */
         footer {
             background: linear-gradient(135deg, #3498db, #2980b9);
