@@ -911,17 +911,7 @@
         window.addEventListener('DOMContentLoaded', function () {
             console.log("Initializing Pagefind search...");
             try {
-                // 初始化页面顶部搜索框
-                new PagefindUI({
-                    element: "#pagefind-search",
-                    showImages: false,
-                    showSubResults: true,
-                    resetStyles: false,
-                    translations: {
-                        placeholder: "🔍资源、教程、工具..."
-                    }
-                });
-                
+    
                 // 初始化右侧悬浮搜索弹窗
                 new PagefindUI({
                     element: "#pagefind-search-popup",
