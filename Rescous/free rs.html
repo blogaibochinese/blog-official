@@ -662,10 +662,7 @@
 </nav>
     <div class="header">
         <p>_</p>
-        <h2><i class="fas fa-gift"></i> 免费资源宝库</h2>
-        <p>            <div class="search-container">
-                <div id="pagefind-search"></div>
-            </div></p>
+        <h2><i class="fas fa-gift"></i> 免费资源宝库</h2
     </div>
 
     <div class="cards-container">
@@ -966,16 +963,6 @@
         window.addEventListener('DOMContentLoaded', function () {
             console.log("Initializing Pagefind search...");
             try {
-                // 初始化页面顶部搜索框
-                new PagefindUI({
-                    element: "#pagefind-search",
-                    showImages: false,
-                    showSubResults: true,
-                    resetStyles: false,
-                    translations: {
-                        placeholder: "🔍资源、教程、工具..."
-                    }
-                });
                 
                 // 初始化右侧悬浮搜索弹窗
                 new PagefindUI({
@@ -986,11 +973,24 @@
                     translations: {
                         placeholder: "🔍资源、教程、工具..."
                     }
+                    
                 });
                 
                 console.log("Pagefind search initialized successfully");
             } catch (error) {
                 console.error("Pagefind search initialization failed:", error);
+            }
+                        // 初始化汉堡菜单
+            const hamburger = document.querySelector('.hamburger');
+            const navMenu = document.querySelector('.nav-menu');
+            
+            if (hamburger && navMenu) {
+                hamburger.addEventListener('click', function() {
+                    // 切换导航菜单的显示/隐藏
+                    navMenu.classList.toggle('active');
+                    // 切换汉堡图标的样式
+                    hamburger.classList.toggle('active');
+                });
             }
         });
     </script>
