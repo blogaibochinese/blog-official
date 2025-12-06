@@ -17,6 +17,7 @@
             padding: 20px;
         }
 
+            /* 课程列表 */
         .container {
             display: flex;
             max-width: 1400px;
@@ -27,8 +28,7 @@
             overflow: hidden;
             height: 80vh;
         }
-
-        .video-section {
+               .video-section {
             width: 70%;
             padding: 20px;
             display: flex;
@@ -38,7 +38,7 @@
 
         .video-title {
             color: #2196F3;
-            font-size: 24px;
+            font-size: 15px;
             margin-bottom: 15px;
             font-weight: bold;
         }
@@ -75,7 +75,7 @@
 
         .playlist-header {
             color: #2196F3;
-            font-size: 20px;
+            font-size: 18px;
             margin-bottom: 15px;
             font-weight: bold;
             border-bottom: 2px solid #2196F3;
@@ -105,7 +105,7 @@
         }
 
         .video-item-title {
-            font-size: 16px;
+            font-size: 10px;
             font-weight: 500;
             margin-bottom: 5px;
         }
@@ -121,7 +121,7 @@
 
         .chapter-title {
             color: #2196F3;
-            font-size: 18px;
+            font-size: 15px;
             font-weight: bold;
             margin: 15px 0 10px 0;
             padding: 8px 10px;
@@ -195,64 +195,44 @@
         </div>
     </div>
 
-    <script>
+      <script>
         const videos = [
             {
-                chapter: "基础教程",
-                title: "第一集：新手入门",
-                url: "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4",
+                chapter: "国际Visa|万事达卡",
+                title: "1.Roogoo U卡真实使用体验 免费开卡，消费0磨损",
+                url: "https://cf.aibochinese.com/%E8%A7%86%E9%A2%91%E7%A8%BF%E4%BB%B6/2025%E5%B9%B411%E6%9C%88/Roogoo%20U%E5%8D%A1%E7%9C%9F%E5%AE%9E%E4%BD%BF%E7%94%A8%E4%BD%93%E9%AA%8C%20%E5%85%8D%E8%B4%B9%E5%BC%80%E5%8D%A1%EF%BC%8C%E6%B6%88%E8%B4%B90%E7%A3%A8%E6%8D%9F/Roogoo%20U%E5%8D%A1%E7%9C%9F%E5%AE%9E%E4%BD%BF%E7%94%A8%E4%BD%93%E9%AA%8C%20%E5%85%8D%E8%B4%B9%E5%BC%80%E5%8D%A1%EF%BC%8C%E6%B6%88%E8%B4%B90%E7%A3%A8%E6%8D%9F.mp4",
                 duration: "10:34",
-                document: "https://example.com/docs/beginner-guide"
+                document: "https://blog.aibochinese.com/payment/roogoo"
             },
             {
-                chapter: "基础教程",
-                title: "第二集：进阶技巧",
-                url: "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4",
-                duration: "15:20",
-                document: "https://example.com/docs/advanced-skills"
+                chapter: "国际Visa|万事达卡",
+                title: "2.2026年 0磨损境外收款美元或USDT回国教程",
+                url: "https://cf.aibochinese.com/%E8%A7%86%E9%A2%91%E7%A8%BF%E4%BB%B6/2025%E5%B9%B412%E6%9C%88/2026%E5%B9%B4%200%E7%A3%A8%E6%8D%9F%E5%A2%83%E5%A4%96%E6%94%B6%E6%AC%BE%E7%BE%8E%E5%85%83%E6%88%96USDT%E5%9B%9E%E5%9B%BD%E6%95%99%E7%A8%8B/2026%E5%B9%B4%200%E7%A3%A8%E6%8D%9F%E5%A2%83%E5%A4%96%E6%94%B6%E6%AC%BE%E7%BE%8E%E5%85%83%E6%88%96USDT%E5%9B%9E%E5%9B%BD%E6%95%99%E7%A8%8B.mp4",
+                duration: "10:20",
+                document: "https://blog.aibochinese.com/payment/pay"
+            },
+           {
+                chapter: "国际Visa|万事达卡",
+                title: "3.代充美元USDT,以及兑换回RMB【CTC服务】",
+                url: "https://cf.aibochinese.com/%E8%A7%86%E9%A2%91%E7%A8%BF%E4%BB%B6/%E4%BB%A3%E5%85%85%E7%BE%8E%E5%85%83USDT%2C%E4%BB%A5%E5%8F%8A%E5%85%91%E6%8D%A2%E5%9B%9ERMB%E3%80%90CTC%E6%9C%8D%E5%8A%A1%E3%80%91/%E4%BB%A3%E5%85%85%E7%BE%8E%E5%85%83USDT%2C%E4%BB%A5%E5%8F%8A%E5%85%91%E6%8D%A2%E5%9B%9ERMB%E3%80%90CTC%E6%9C%8D%E5%8A%A1%E3%80%91.mp4",
+                duration: "4:13",
+                document: "https://blog.aibochinese.com/payment/Proxy%20Recharge"
             },
             {
-                chapter: "基础教程",
-                title: "第三集：高级战术",
-                url: "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4",
-                duration: "12:45",
-                document: "https://example.com/docs/advanced-tactics"
+                chapter: "加密货币收付",
+                title: "1.省钱有招：USDT链上转账怎么选择网络？",
+                url: "https://cf.aibochinese.com/%E8%A7%86%E9%A2%91%E7%A8%BF%E4%BB%B6/%E7%9C%81%E9%92%B1%E6%9C%89%E6%8B%9B%EF%BC%9AUSDT%E9%93%BE%E4%B8%8A%E8%BD%AC%E8%B4%A6%E6%80%8E%E4%B9%88%E9%80%89%E6%8B%A9%E7%BD%91%E7%BB%9C%EF%BC%9F/%E7%9C%81%E9%92%B1%E6%9C%89%E6%8B%9B%EF%BC%9AUSDT%E9%93%BE%E4%B8%8A%E8%BD%AC%E8%B4%A6%E6%80%8E%E4%B9%88%E9%80%89%E6%8B%A9%E7%BD%91%E7%BB%9C%EF%BC%9F.mp4",
+                duration: "4:15",
+                document: "https://blog.aibochinese.com/web3/binance"
             },
             {
-                chapter: "基础教程",
-                title: "第四集：团队配合",
-                url: "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerEscapes.mp4",
-                duration: "18:30",
-                document: "https://example.com/docs/team-cooperation"
-            },
-            {
-                chapter: "进阶教程",
-                title: "第五集：竞技模式",
-                url: "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerFun.mp4",
-                duration: "14:15",
-                document: "https://example.com/docs/competition-mode"
-            },
-            {
-                chapter: "进阶教程",
-                title: "第六集：装备推荐",
-                url: "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerJoyrides.mp4",
-                duration: "11:20",
-                document: "https://example.com/docs/equipment-recommendations"
-            },
-            {
-                chapter: "进阶教程",
-                title: "第七集：地图攻略",
-                url: "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerMeltdowns.mp4",
-                duration: "16:40",
-                document: "https://example.com/docs/map-strategy"
-            },
-            {
-                chapter: "进阶教程",
-                title: "第八集：角色分析",
-                url: "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/Sintel.mp4",
-                duration: "13:25",
-                document: "https://example.com/docs/character-analysis"
+                chapter: "加密货币收付",
+                title: "2.购买USDT|加密货币转账|充值Visa或万事达卡教程",
+                url: "https://cf.aibochinese.com/%E8%A7%86%E9%A2%91%E7%A8%BF%E4%BB%B6/%E6%89%8B%E6%8A%8A%E6%89%8B%E7%BB%99%E6%82%A8%E6%BC%94%E7%A4%BA%EF%BC%9A%E8%99%9A%E6%8B%9F%E4%BF%A1%E7%94%A8%E5%8D%A1%E5%85%85%E5%80%BCUSDT.mp4",
+                duration: "13:15",
+                document: "hhttps://blog.aibochinese.com/payment/self%20recharge"
             }
+
         ];
 
         const playlist = document.getElementById('playlist');
