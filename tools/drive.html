@@ -36,7 +36,7 @@
             background-position: center;
         }
 
-        /* 弹出窗样式 */
+
         /* 悬浮图标容器 */
         .float-icons-container {
             position: fixed;
@@ -217,6 +217,158 @@
 .pagefind-ui__result-excerpt mark { background: #dbeafe; color: #1e40af; padding: 1px 3px; border-radius: 3px; }
 #pagefind-search .pagefind-ui__message { padding: 20px; text-align: center; color: #666; font-size: 14px; }
 
+        /* 文本样式类 */
+        .text-white {
+            color: white;
+        }
+
+        .text-2xl {
+            font-size: 1.5rem;
+        }
+
+        /* 导航栏样式 */
+        .navbar {
+            background: linear-gradient(135deg, #3498db, #2980b9);
+            color: white;
+            padding: 0;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;  /* 使用 left 和 right 代替 width: 100% */
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.15);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.8rem 20px;
+        }
+
+        .logo img {
+            height: 40px;
+            width: auto;
+            display: block;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+            margin: 0;
+            padding: 0;  /* 添加 padding: 0 以移除默认内边距 */
+        }
+
+        .nav-link {
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            font-size: 0.95rem;
+            font-weight: 500;
+            padding: 8px 16px;
+            border-radius: 20px;
+            background: linear-gradient(135deg, #3498db, #2980b9);
+            display: inline-block;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .nav-link:hover {
+            transform: scale(1.05);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        /* 为每个菜单项设置不同的渐变颜色 */
+        .nav-menu li:nth-child(1) .nav-link {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+
+        .nav-menu li:nth-child(2) .nav-link {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+        }
+
+        .nav-menu li:nth-child(3) .nav-link {
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+        }
+
+        .nav-menu li:nth-child(4) .nav-link {
+            background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
+        }
+
+        .nav-menu li:nth-child(5) .nav-link {
+            background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
+        }
+
+        .nav-menu li:nth-child(6) .nav-link {
+            background: linear-gradient(135deg, #ffa751 0%, #ffe259 100%);
+        }
+
+        .nav-menu li:nth-child(7) .nav-link {
+            background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+        }
+
+        .nav-menu li:nth-child(8) .nav-link {
+            background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%);
+        }
+
+        .nav-menu li:nth-child(9) .nav-link {
+            background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+        }
+
+        /* 为每个菜单项添加悬停渐变效果 */
+        .nav-menu li:nth-child(1) .nav-link:hover {
+            background: linear-gradient(135deg, #764ba2 0%, #667eea 100%);
+        }
+
+        .nav-menu li:nth-child(2) .nav-link:hover {
+            background: linear-gradient(135deg, #f5576c 0%, #f093fb 100%);
+        }
+
+        .nav-menu li:nth-child(3) .nav-link:hover {
+            background: linear-gradient(135deg, #00f2fe 0%, #4facfe 100%);
+        }
+
+        .nav-menu li:nth-child(4) .nav-link:hover {
+            background: linear-gradient(135deg, #38f9d7 0%, #43e97b 100%);
+        }
+
+        .nav-menu li:nth-child(5) .nav-link:hover {
+            background: linear-gradient(135deg, #fee140 0%, #fa709a 100%);
+        }
+
+        .nav-menu li:nth-child(6) .nav-link:hover {
+            background: linear-gradient(135deg, #ffe259 0%, #ffa751 100%);
+        }
+
+        .nav-menu li:nth-child(7) .nav-link:hover {
+            background: linear-gradient(135deg, #fed6e3 0%, #a8edea 100%);
+        }
+
+        .nav-menu li:nth-child(8) .nav-link:hover {
+            background: linear-gradient(135deg, #fecfef 0%, #ff9a9e 100%);
+        }
+
+        .nav-menu li:nth-child(9) .nav-link:hover {
+            background: linear-gradient(135deg, #fcb69f 0%, #ffecd2 100%);
+        }
+
+        /* 汉堡菜单样式 */
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+        }
+
+        .bar {
+            width: 25px;
+            height: 3px;
+            background-color: white;
+            margin: 3px 0;
+            transition: 0.3s;
+        }
+
         * {
             margin: 0;
             padding: 0;
@@ -229,7 +381,7 @@
             color: #333;
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             min-height: 100vh;
-            padding: 40px 20px;
+            padding: 100px 20px 40px;
         }
 
         .container {
@@ -494,74 +646,144 @@
                 font-size: 16px;
             }
             
-            /* 移动端底部导航 */
+            /* 移动端底部导航按钮样式 */
             .mobile-nav {
                 display: block;
                 position: fixed;
                 bottom: 0;
                 left: 0;
                 right: 0;
-                background: #ffffff;
-                box-shadow: 0 -2px 10px rgba(0,0,0,0.1);
+                background: white;
+                box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
                 z-index: 1000;
-                padding: 10px 0;
             }
-
-            .nav-container {
+            
+            .mobile-nav .nav-container {
                 display: flex;
                 justify-content: space-around;
                 align-items: center;
-                max-width: 600px;
-                margin: 0 auto;
-                padding: 0 10px;
+                padding: 12px 0;
+                height: auto;
             }
-
-            .nav-item {
-                flex: 1;
-                text-align: center;
-                padding: 8px 0;
-                color: #999;
-                cursor: pointer;
-                transition: all 0.3s ease;
-                font-size: 12px;
+            
+            .mobile-nav .nav-item {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
                 text-decoration: none;
+                color: #666;
+                transition: all 0.3s ease;
+                padding: 8px 12px;
+                border-radius: 8px;
             }
-
-            .nav-item i {
-                display: block;
+            
+            .mobile-nav .nav-item.active {
+                color: #3498db;
+                transform: scale(1.1);
+            }
+            
+            .mobile-nav .nav-item .icon {
                 font-size: 18px;
                 margin-bottom: 4px;
             }
-
-            .nav-item.active {
-                color: #007bff;
+            
+            .mobile-nav .nav-item .text {
+                font-size: 12px;
             }
-
-            .nav-item.center {
-                background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            
+            .mobile-nav .nav-item.center {
+                background: #3498db;
                 color: white;
                 border-radius: 50%;
                 width: 50px;
                 height: 50px;
                 display: flex;
                 flex-direction: column;
-                justify-content: center;
                 align-items: center;
+                justify-content: center;
                 margin-top: -20px;
-                box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+                box-shadow: 0 2px 10px rgba(52, 152, 219, 0.4);
             }
-
-            .nav-item.center i {
-                font-size: 20px;
-                margin-bottom: 0;
-            }
-
-            .nav-item.center.active {
-                color: white;
-            }
-
-            .nav-item.center:hover {
+            
+            .mobile-nav .nav-item.center:hover {
+                background: #2980b9;
                 transform: scale(1.1);
+            }
+            
+            .mobile-nav .nav-item.center .text {
+                font-size: 12px;
+                margin-top: 2px;
+            }
+        }
+
+        /* 响应式设计 - 汉堡菜单 */
+        @media (max-width: 1024px) {
+            .nav-menu {
+                position: fixed;
+                left: -100%;
+                top: 60px;
+                flex-direction: column;
+                background: rgba(0, 0, 0, 0.9);
+                width: 100%;
+                text-align: center;
+                transition: left 0.3s ease-in-out;
+                box-shadow: 0 10px 27px rgba(0, 0, 0, 0.3);
+                padding: 20px 0;
+                z-index: 999;
+                gap: 1rem;
+            }
+
+            .nav-menu li {
+                padding: 5px 0;
+            }
+
+            .nav-link {
+                display: inline-block;
+                width: 80%;
+                max-width: 300px;
+                margin: 0 auto;
+                padding: 10px 20px;
+                border-radius: 25px;
+                font-size: 1rem;
+            }
+
+            .nav-link:hover {
+                transform: none;
+            }
+
+            .nav-menu.active {
+                left: 0;
+            }
+
+            .hamburger {
+                display: flex;
+            }
+
+            .hamburger.active .bar:nth-child(1) {
+                transform: translateY(8px) rotate(45deg);
+            }
+
+            .hamburger.active .bar:nth-child(2) {
+                opacity: 0;
+            }
+
+            .hamburger.active .bar:nth-child(3) {
+                transform: translateY(-8px) rotate(-45deg);
+            }
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding-top: 70px;
+            }
+
+            .nav-container {
+                padding: 0 20px;
+                height: 60px;
+            }
+
+            .main-content {
+                padding: 30px 20px 50px;
             }
         }
 
@@ -580,6 +802,34 @@
                 font-size: 14px;
                 padding: 10px 15px;
             }
+        }
+               /* 页脚样式 */
+        footer {
+            background: linear-gradient(135deg, hsl(210, 87%, 57%), #34495e);
+            color: white;
+            padding: 2rem;
+            text-align: center;
+            border-radius: 15px;
+            margin-top: 3rem;
+        }
+
+        .footer p {
+            margin-bottom: 1rem;
+        }
+
+        .footer a {
+            color: #ffcc2f;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer a:hover {
+            color: #f38020;
+        }
+
+        .footer img {
+            margin: 0 5px;
+            vertical-align: middle;
         }
     </style>
 </head>
@@ -711,7 +961,7 @@
              style="width: 30px; height: 30px; display:block;" /></a>  <a href="https://xhslink.com/m/5it26wH34Zd" style="color:white; display:inline-block; vertical-align:middle;" rel="noopener noreferrer"><img src="https://cf.aibochinese.com/%E7%B4%A0%E6%9D%90%E7%AB%99/rednote.png" 
              style="width: 30px; height: 30px; display:block;" /></a>
             </p>
-             <p style="font-size: 15px; color: hsl(0, 33%, 99%);">© 2025 <a href="https://blog.aibochinese.com/" style="color:red " target="_blank" rel="noopener noreferrer">爱博·客</a> - 所有权利保留</p>
+            <p style="font-size: 13px; color: hsl(0, 25%, 94%);">© 2025 <a href="https://blog.aibochinese.com/" style="color:red " target="_blank" rel="noopener noreferrer">爱博·客</a> - 所有权利保留</p>
             <p>_</p>
         </div>
     </footer>
@@ -751,27 +1001,34 @@
         </div>
     </div>
     
-    <!-- 移动端底部导航交互代码 -->
+    <!-- 移动端导航与汉堡菜单 -->
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            const navItems = document.querySelectorAll('.nav-item');
+            // 添加导航交互效果
+            const navItems = document.querySelectorAll('.mobile-nav .nav-item:not(.center)');
             
             navItems.forEach(item => {
-                item.addEventListener('click', function() {
-                    // 移除所有项的激活状态
-                    navItems.forEach(navItem => navItem.classList.remove('active'));
-                    
-                    // 为当前点击项添加激活状态
+                item.addEventListener('click', function(e) {
+                    // 移除所有激活状态
+                    navItems.forEach(i => i.classList.remove('active'));
+                    // 给当前点击项添加激活状态
                     this.classList.add('active');
                 });
             });
+
+            const hamburger = document.querySelector('.hamburger');
+            const navMenu = document.querySelector('.nav-menu');
+            if (hamburger) {
+                hamburger.addEventListener('click', () => {
+                    hamburger.classList.toggle('active');
+                    navMenu.classList.toggle('active');
+                });
+            }
         });
-    </script>
+      </script>
     
     <!-- 引用标准的script.js文件 -->
     <script src="../js/script.js"></script>
-    
-        </script>
    <!-- 悬浮图标容器 -->
     <div class="float-icons-container">
         <!-- 悬浮微信客服图标 -->
@@ -843,17 +1100,6 @@
         window.addEventListener('DOMContentLoaded', function () {
             console.log("Initializing Pagefind search...");
             try {
-                // 初始化页面顶部搜索框
-                new PagefindUI({
-                    element: "#pagefind-search",
-                    showImages: false,
-                    showSubResults: true,
-                    resetStyles: false,
-                    translations: {
-                        placeholder: "🔍资源、教程、工具..."
-                    }
-                });
-                
                 // 初始化右侧悬浮搜索弹窗
                 new PagefindUI({
                     element: "#pagefind-search-popup",
@@ -861,7 +1107,7 @@
                     showSubResults: true,
                     resetStyles: false,
                     translations: {
-                        placeholder: "🔍资源、教程、工具..."
+                        placeholder: "资源、教程、工具..."
                     }
                 });
                 
@@ -870,6 +1116,112 @@
                 console.error("Pagefind search initialization failed:", error);
             }
         });
+    </script>
+    
+    <!-- 终极链接修复解决方案 -->
+    <script>
+        // 终极链接修复解决方案
+        (function() {
+            'use strict';
+            
+            console.log('启动终极链接修复方案...');
+            
+            // 立即拦截所有链接点击事件
+            document.addEventListener('click', function(event) {
+                let target = event.target;
+                
+                // 找到最近的链接元素
+                while (target && target.tagName !== 'A') {
+                    target = target.parentElement;
+                }
+                
+                if (target && target.tagName === 'A') {
+                    const href = target.getAttribute('href');
+                    
+                    // 检查是否是相对HTML链接且缺少post前缀
+                    if (href && href.endsWith('.html') && 
+                        !href.startsWith('/') && 
+                        !href.startsWith('http') && 
+                        !href.includes('post/')) {
+                        
+                        const newHref = '/post/' + href;
+                        console.log('即时修复链接:', href, '->', newHref);
+                        
+                        // 阻止默认行为
+                        event.preventDefault();
+                        
+                        // 修复链接
+                        target.setAttribute('href', newHref);
+                        
+                        // 立即跳转到修复后的链接
+                        window.location.href = newHref;
+                    }
+                }
+            }, true); // 使用捕获阶段
+            
+            // 监听所有动态生成的链接
+            const observer = new MutationObserver(function(mutations) {
+                mutations.forEach(function(mutation) {
+                    mutation.addedNodes.forEach(function(node) {
+                        if (node.nodeType === 1) {
+                            // 处理新添加的元素
+                            processElement(node);
+                        }
+                    });
+                });
+            });
+            
+            function processElement(element) {
+                // 如果是链接元素，直接处理
+                if (element.tagName === 'A') {
+                    fixLink(element);
+                }
+                
+                // 如果包含子元素，递归处理
+                if (element.querySelectorAll) {
+                    const links = element.querySelectorAll('a[href*=".html"]');
+                    links.forEach(fixLink);
+                }
+            }
+            
+            function fixLink(link) {
+                const href = link.getAttribute('href');
+                if (href && href.endsWith('.html') && 
+                    !href.startsWith('/') && 
+                    !href.startsWith('http') && 
+                    !href.includes('post/')) {
+                    
+                    const newHref = '/post/' + href;
+                    console.log('修复动态链接:', href, '->', newHref);
+                    link.setAttribute('href', newHref);
+                }
+            }
+            
+            // 开始监听DOM变化
+            observer.observe(document.body, {
+                childList: true,
+                subtree: true
+            });
+            
+            // 立即处理现有页面中的所有链接
+            function fixExistingLinks() {
+                const links = document.querySelectorAll('a[href*=".html"]');
+                links.forEach(fixLink);
+                console.log(`已处理 ${links.length} 个现有链接`);
+            }
+            
+            // 页面加载完成后修复现有链接
+            if (document.readyState === 'loading') {
+                document.addEventListener('DOMContentLoaded', fixExistingLinks);
+            } else {
+                fixExistingLinks();
+            }
+            
+            // 定期检查和修复（备用机制）
+            setInterval(fixExistingLinks, 1000);
+            
+            console.log('终极链接修复方案已激活');
+        })();
     </script>
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6203499194676961"
      crossorigin="anonymous"></script>
