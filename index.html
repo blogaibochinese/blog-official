@@ -189,13 +189,93 @@
         .nav-link {
             color: white;
             text-decoration: none;
-            transition: all 0.3s;
+            transition: all 0.3s ease;
             font-size: 0.95rem;
             font-weight: 500;
+            padding: 8px 16px;
+            border-radius: 20px;
+            background: linear-gradient(135deg, #3498db, #2980b9);
+            display: inline-block;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
         }
 
         .nav-link:hover {
-            color: #ffcc2f;
+            transform: scale(1.05);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        /* 为每个菜单项设置不同的渐变颜色 */
+        .nav-menu li:nth-child(1) .nav-link {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+
+        .nav-menu li:nth-child(2) .nav-link {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+        }
+
+        .nav-menu li:nth-child(3) .nav-link {
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+        }
+
+        .nav-menu li:nth-child(4) .nav-link {
+            background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
+        }
+
+        .nav-menu li:nth-child(5) .nav-link {
+            background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
+        }
+
+        .nav-menu li:nth-child(6) .nav-link {
+            background: linear-gradient(135deg, #ffa751 0%, #ffe259 100%);
+        }
+
+        .nav-menu li:nth-child(7) .nav-link {
+            background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+        }
+
+        .nav-menu li:nth-child(8) .nav-link {
+            background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%);
+        }
+
+        .nav-menu li:nth-child(9) .nav-link {
+            background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+        }
+
+        /* 为每个菜单项添加悬停渐变效果 */
+        .nav-menu li:nth-child(1) .nav-link:hover {
+            background: linear-gradient(135deg, #764ba2 0%, #667eea 100%);
+        }
+
+        .nav-menu li:nth-child(2) .nav-link:hover {
+            background: linear-gradient(135deg, #f5576c 0%, #f093fb 100%);
+        }
+
+        .nav-menu li:nth-child(3) .nav-link:hover {
+            background: linear-gradient(135deg, #00f2fe 0%, #4facfe 100%);
+        }
+
+        .nav-menu li:nth-child(4) .nav-link:hover {
+            background: linear-gradient(135deg, #38f9d7 0%, #43e97b 100%);
+        }
+
+        .nav-menu li:nth-child(5) .nav-link:hover {
+            background: linear-gradient(135deg, #fee140 0%, #fa709a 100%);
+        }
+
+        .nav-menu li:nth-child(6) .nav-link:hover {
+            background: linear-gradient(135deg, #ffe259 0%, #ffa751 100%);
+        }
+
+        .nav-menu li:nth-child(7) .nav-link:hover {
+            background: linear-gradient(135deg, #fed6e3 0%, #a8edea 100%);
+        }
+
+        .nav-menu li:nth-child(8) .nav-link:hover {
+            background: linear-gradient(135deg, #fecfef 0%, #ff9a9e 100%);
+        }
+
+        .nav-menu li:nth-child(9) .nav-link:hover {
+            background: linear-gradient(135deg, #fcb69f 0%, #ffecd2 100%);
         }
 
         /* 汉堡菜单样式 */
@@ -367,16 +447,31 @@
         }
         /* 页脚样式 */
         footer {
-            background: linear-gradient(135deg, #3498db, #2980b9);
+            background: linear-gradient(135deg, hsl(210, 87%, 57%), #34495e);
             color: white;
-            padding: 20px 0;
-        }
-        
-        .footer {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
+            padding: 2rem;
             text-align: center;
+            border-radius: 15px;
+            margin-top: 3rem;
+        }
+
+        .footer p {
+            margin-bottom: 1rem;
+        }
+
+        .footer a {
+            color: #ffcc2f;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer a:hover {
+            color: #f38020;
+        }
+
+        .footer img {
+            margin: 0 5px;
+            vertical-align: middle;
         }
         
         /* 移动端底部导航按钮样式 */
@@ -391,18 +486,32 @@
                 left: -100%;
                 top: 60px;
                 flex-direction: column;
-                background: #645ae7fa;
+                background: rgba(0, 0, 0, 0.9);
                 width: 100%;
                 text-align: center;
                 transition: left 0.3s ease-in-out;
                 box-shadow: 0 10px 27px rgba(0, 0, 0, 0.3);
                 padding: 20px 0;
                 z-index: 999;
-                gap: 0.5rem;
+                gap: 1rem;
             }
 
             .nav-menu li {
-                padding: 10px 0;
+                padding: 5px 0;
+            }
+
+            .nav-link {
+                display: inline-block;
+                width: 80%;
+                max-width: 300px;
+                margin: 0 auto;
+                padding: 10px 20px;
+                border-radius: 25px;
+                font-size: 1rem;
+            }
+
+            .nav-link:hover {
+                transform: none;
             }
 
             .nav-menu.active {
