@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>全球收款新方案-BagelPay的介绍和使用教程 - 爱博·客</title>
-    <meta name="description" content="详细介绍BagelPay全球收款方案，包括功能、集成方式、定价和使用教程，帮助独立开发者和SaaS业务处理全球支付。">
+    <title>分享如何打通全球收付款渠道-保姆教程</title>
+    <meta name="description" content="分享如何打通全球收付款渠道的保姆级教程，包括开通Wise账户、激活、修改地址等步骤">
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="/post/pagefind/pagefind-ui.css">
@@ -280,6 +280,21 @@
 
         /* 汉堡菜单样式 */
         .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+        }
+
+        .bar {
+            width: 25px;
+            height: 3px;
+            background-color: white;
+            margin: 3px 0;
+            transition: 0.3s;
+        }
+
+        /* ==================== 全新 Pagefind 搜索样式（搜索框水平居中版） ==================== */
+.hamburger {
             display: none;
             flex-direction: column;
             cursor: pointer;
@@ -640,164 +655,65 @@
         .features .block2 { background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); }
         .features .block3 { background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%); }
         .features .block4 { background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%); }
-        @media (max-width: 768px) { .features .blocks-container { gap: 15px; padding: 20px; } .features .block { width: 140px; height: 140px; font-size: 16px; } }
+        @media (max-width: 768px) {
+            .features .blocks-container { gap: 15px; padding: 20px; }
+            .features .block { width: 140px; height: 140px; font-size: 16px; }
+        }
 
-        .article-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 20px;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 20px;
-        }
-        .article-item {
-            text-align: center;
-            padding: 10px;
-            border: 1px solid #ddd;
-            border-radius: 8px;
-            transition: background-color 0.3s;
-        }
-        .article-item:hover { background-color: #f9f9f9; }
-        .article-link { text-decoration: none; color: #333; font-size: 16px; font-weight: bold; display: block; }
-        .article-link:hover { color: #007bff; }
-        @media (max-width: 768px) { .article-grid { grid-template-columns: 1fr; } }
-
-        .three-up {
-            display: grid;
-            grid-template-columns: repeat(3, 300px);
-            gap: 16px;
-            justify-content: center;
-            max-width: 1000px;
-            margin: 0 auto 22px auto;
-            padding: 8px 0;
-        }
-        .three-up .item img {
-            width: 300px;
-            height: 50px;
-            border-radius: 6px;
-            box-shadow: 0 1px 4px rgba(0,0,0,0.08);
-            object-fit: cover;
-            transition: all 0.2s;
-        }
-        .three-up .item img:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-        }
-        @media (max-width: 980px) { .three-up { grid-template-columns: repeat(2, 300px); } }
-        @media (max-width: 660px) { .three-up { grid-template-columns: 1fr; max-width: 300px; } } 
-        
-        /* BagelPay页面专用样式 */
+        /* 文章内容样式 */
         .main-content {
-            max-width: 1000px;
             margin: 80px auto 20px;
-            padding: 20px;
+            padding: 10px;
             background: white;
             border-radius: 10px;
             box-shadow: 0 2px 10px rgba(0,0,0,0.1);
         }
-        
+
         .main-content h1 {
             color: #333;
-            font-size: 2rem;
-            margin-bottom: 20px;
             text-align: center;
+            margin-bottom: 30px;
+            font-size: 2rem;
         }
-        
+
         .main-content h2 {
-            color: #444;
-            font-size: 1.5rem;
+            color: #2c3e50;
             margin-top: 30px;
             margin-bottom: 15px;
-            padding-bottom: 10px;
+            font-size: 1.5rem;
             border-bottom: 2px solid #3498db;
+            padding-bottom: 8px;
         }
-        
+
         .main-content h3 {
-            color: #555;
-            font-size: 1.2rem;
+            color: #34495e;
             margin-top: 25px;
             margin-bottom: 10px;
+            font-size: 1.2rem;
         }
-        
+
         .main-content p {
-            color: #666;
+            color: #555;
             line-height: 1.8;
             margin-bottom: 15px;
         }
-        
+
         .main-content ul {
-            margin-bottom: 20px;
-            padding-left: 30px;
-        }
-        
-        .main-content li {
-            color: #666;
+            color: #555;
             line-height: 1.8;
-            margin-bottom: 8px;
+            margin-bottom: 15px;
+            padding-left: 25px;
         }
-        
-        .main-content a {
-            color: #3498db;
-            text-decoration: none;
-            transition: color 0.3s;
+
+        .main-content li {
+            margin-bottom: 10px;
         }
-        
-        .main-content a:hover {
-            color: #2980b9;
-            text-decoration: underline;
-        }
-        
-        .main-content table {
-            width: 100%;
-            border-collapse: collapse;
-            margin: 20px 0;
-            background: #f9f9f9;
-        }
-        
-        .main-content th {
-            background: #3498db;
-            color: white;
-            padding: 12px;
-            text-align: left;
+
+        .main-content strong {
+            color: #2c3e50;
             font-weight: bold;
         }
-        
-        .main-content td {
-            padding: 12px;
-            border: 1px solid #ddd;
-            color: #666;
-        }
-        
-        .main-content tr:nth-child(even) {
-            background: #f0f0f0;
-        }
-        
-        .register-link {
-            display: inline-block;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 12px 24px;
-            border-radius: 25px;
-            text-decoration: none;
-            font-weight: bold;
-            margin: 20px 0;
-            transition: transform 0.3s ease;
-        }
-        
-        .register-link:hover {
-            transform: scale(1.05);
-            text-decoration: none;
-            color: white;
-        }
-        
-        .highlight-box {
-            background: #f0f8ff;
-            border-left: 4px solid #3498db;
-            padding: 15px;
-            margin: 20px 0;
-            border-radius: 5px;
-        }
-                    /* 课程列表 */
+                   /* 课程列表 */
         .container {
             display: flex;
             max-width: 1400px;
@@ -986,15 +902,43 @@
         </div>
     </nav>
 
-    <main>
-        <div class="main-content">
-            <h1>全球收款新方案-BagelPay的介绍和使用教程</h1>
-                <div class="container">
+    <main class="main-content">
+        <h1>分享如何打通全球收付款渠道-保姆教程</h1>
+        
+        <h2>一、开通<a href="https://wise.com/invite/ahpc/vecjew9" style="color:red" target="_blank" rel="noopener noreferrer">wise账户</a>-用国内身份证或护照</h2>
+        <p>如果要补充提交地址证明-电费账单、信用卡账单</p>
+        <ol>
+            <li>网上国网app下载电费账单</li>
+            <li>手机银行-对账单</li>
+        </ol>
+        
+        <h2>二、激活wise账户</h2>
+        <p>需要同名受监管的银行账户汇入21英镑</p>
+        <p>激活后，用wise全球收付款；建议还可以开通英区Stripe账号收款，绑定wise的英镑账户，0磨损提现</p>
+        <p>wise的资金可以提现至国内的微信和支付宝</p>
+        
+        <h2>三、修改地址</h2>
+        <p>改成英国地址-要求提交居住地址证明</p>
+        <p><strong>注意：我们没有办法提交的</strong></p>
+        <p>暂不提交</p>
+        <p>我们的目的是：</p>
+        <ol>
+            <li>获得并下载英国银行的对账单（wise的英镑银行对账单）；</li>
+            <ol type="a">
+                <li>开通Krak英区账户，提交wise的对账单证明居住地址，秒过；好处有二【Krak英区支持Paypal转入，咱们国区Paypal可以提现出来，省35美金费用，Krak会给你分配英国银行账户还有联名万事达卡，方便转出】</li>
+            </ol>
+            <li>开通好wise联名Visa卡</li>
+        </ol>
+        
+        <h2>四、改回中国的地址</h2>
+        <p>联系客户，说明回国了，误操作；想改回中国地址，Wise的联名visa卡仍可以保留使用的</p>
+    </main>
+    <div class="container">
         <div class="video-section">
-            <div class="video-title" id="currentTitle">功能演示和教程</div>
+            <div class="video-title" id="currentTitle">分享如何打通全球收付款渠道-保姆教程</div>
             <div class="video-player-container">
                 <video class="video-player" id="videoPlayer" controls>
-                    <source src="https://cf.aibochinese.com/%E8%A7%86%E9%A2%91%E7%A8%BF%E4%BB%B6/2025%E5%B9%B412%E6%9C%88/%E5%85%A8%E7%90%83%E6%94%B6%E6%AC%BE%E6%96%B0%E6%96%B9%E5%BC%8F%EF%BC%9ABagelPay%2C%E5%A4%A7%E9%99%86%E8%BA%AB%E4%BB%BD%E5%8F%AF%E5%BC%80%E9%80%9A%EF%BC%8C%E4%B8%B0%E5%AF%8C%E7%9A%84%E5%85%A8%E7%90%83%E6%94%B6%E6%AC%BE%E6%96%B9%E5%BC%8F%EF%BC%8C%E6%94%AF%E6%8C%81%E9%93%B6%E8%A1%8C%E6%B1%87%E6%AC%BE%E5%92%8C%E7%A8%B3%E5%AE%9A%E5%B8%81%E6%8F%90%E7%8E%B0/%E5%85%A8%E7%90%83%E6%94%B6%E6%AC%BE%E6%96%B0%E6%96%B9%E5%BC%8F%EF%BC%9ABagelPay%2C%E5%A4%A7%E9%99%86%E8%BA%AB%E4%BB%BD%E5%8F%AF%E5%BC%80%E9%80%9A%EF%BC%8C%E4%B8%B0%E5%AF%8C%E7%9A%84%E5%85%A8%E7%90%83%E6%94%B6%E6%AC%BE%E6%96%B9%E5%BC%8F%EF%BC%8C%E6%94%AF%E6%8C%81%E9%93%B6%E8%A1%8C%E6%B1%87%E6%AC%BE%E5%92%8C%E7%A8%B3%E5%AE%9A%E5%B8%81%E6%8F%90%E7%8E%B0.mp4" type="video/mp4">
+                    <source src="https://cf.aibochinese.com/%E8%A7%86%E9%A2%91%E7%A8%BF%E4%BB%B6/Cloudflare%20Pages%E6%B0%B8%E4%B9%85%E5%85%8D%E8%B4%B9%E5%BB%BA%E7%AB%99%EF%BC%8C%E4%B8%8D%E9%99%90%E6%B5%81%E9%87%8F%E5%92%8C%E7%A9%BA%E9%97%B4%EF%BC%8C%E5%BC%BA%E7%83%88%E6%8E%A8%E8%8D%90/Cloudflare%20Pages%E6%B0%B8%E4%B9%85%E5%85%8D%E8%B4%B9%E5%BB%BA%E7%AB%99%EF%BC%8C%E4%B8%8D%E9%99%90%E6%B5%81%E9%87%8F%E5%92%8C%E7%A9%BA%E9%97%B4%EF%BC%8C%E5%BC%BA%E7%83%88%E6%8E%A8%E8%8D%90.mp4" type="video/mp4">
                 </video>
                 <button class="document-button">查看相应文档说明</button>
             </div>
@@ -1005,58 +949,6 @@
             <div id="playlist"></div>
         </div>
     </div>
-            <div class="highlight-box">
-                <p><strong>注册链接：</strong><a href="https://bagelpay.gitbook.io/docs" target="_blank" rel="noopener noreferrer">https://bagelpay.gitbook.io/docs</a></p>
-            </div>
-            
-            <h2>BagelPay 简介</h2>
-            <p>BagelPay 是一个专为独立开发者（Indie Hackers）和 SaaS 业务设计的金融操作系统（Financial OS），提供一站式支付解决方案。它充当商户记录（Merchant of Record, MoR），帮助用户处理全球支付、订阅管理、税务合规、多币种提现等复杂事务，让开发者能更专注于产品开发而非后端财务细节。</p>
-            
-            <h2>主要功能</h2>
-            <h3>支付处理</h3>
-            <p>支持信用卡、借记卡、Apple Pay、Google Pay、数字钱包、Alipay、加密货币等多种支付方式。提供本地化结账页面，支持客户本地语言、货币和偏好支付方法，提升全球转化率。</p>
-            
-            <h3>订阅与计费</h3>
-            <p>内置订阅管理工具，处理 recurring payments，并自动处理税务（如 VAT/GST）。</p>
-            
-            <h3>集成方式</h3>
-            <p>支持无代码工具集成，或通过简单提示（magic prompt）快速接入。官方 SDK 包括 Python（bagelpay）和 Node.js（npm 包）版本，便于开发者嵌入现有项目。</p>
-            
-            <h3>风控与安全</h3>
-            <p>追踪支付来源（Referer/Origin），识别高风险交易，并提供 webhook 支持用于实时监控。</p>
-            
-            <h3>提现与多币种</h3>
-            <p>支持多币种自动提现，简化跨境业务。</p>
-            
-            <h2>定价与费用</h2>
-            <p>BagelPay 采用扁平费率结构：每笔交易收取 5% + 0.50 美元 的处理费，覆盖信用卡交易、货币转换、税务等所有成本。不分支付方式，无隐藏费用。详细费用可在官方文档查看。</p>
-            
-            <h2>提现费用</h2>
-            <table>
-                <thead>
-                    <tr>
-                        <th>Fees Item</th>
-                        <th>Price</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>USD SWIFT Payouts</td>
-                        <td>International wire transfer settlements for non-US businesses<br>BagelPay charges a 1% international transfer fee on the payment amount.</td>
-                    </tr>
-                    <tr>
-                        <td>USDC/USDT withdraw with Solana</td>
-                        <td>4% + $1.5 / per transaction</td>
-                    </tr>
-                </tbody>
-            </table>
-            
-            <h2>推荐使用 Roogoo 的加密钱包地址</h2>
-            <p>受邀渠道可以免费开通万事达卡在国内消费或找我扫商户码取现</p>
-            <p>开通钱包：<a href="https://blog.aibochinese.com/payment/roogoo" target="_blank" rel="noopener noreferrer">https://blog.aibochinese.com/payment/roogoo</a></p>
-        </div>
-    </main>
-
     <!-- 页脚（完整保留） -->
     <footer>
         <div class="footer">
@@ -1333,13 +1225,13 @@
  <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "Article",           // 或 WebPage、Article、FAQPage、Product等
-  "name": "全球收款新方案-BagelPay的介绍和使用教程",
-  "keywords": "BagelPay,全球收款,独立开发者,SaaS支付,跨境支付",
-  "description": "详细介绍BagelPay全球收款方案，包括功能、集成方式、定价和使用教程，帮助独立开发者和SaaS业务处理全球支付。",
-  "url": "https://blog.aibochinese.com/payment/bagelpay",
-  "datePublished": "2025-12-12",
-  "dateModified": "2025-12-12",
+  "@type": "WebPage",           // 或 WebPage、Article、FAQPage、Product等
+  "name": "分享如何打通全球收付款渠道-保姆教程",
+  "keywords": "全球收付款,wise账户,打通收付款渠道,保姆教程",
+  "description": "分享如何打通全球收付款渠道的保姆级教程，包括开通Wise账户、激活、修改地址等步骤",
+  "url": "https://blog.aibochinese.com/payment/global-payments-guide.html",
+  "datePublished": "2025-12-15",
+  "dateModified": "2025-12-15",
   "author": {"@type": "Person", "name": "AbelZou"},
   "publisher": {
     "@type": "Organization",
@@ -1350,28 +1242,43 @@
 </script>   
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6203499194676961"
      crossorigin="anonymous"></script>
-         <script>
+
+          <script>
         const videos = [
             {
-                chapter: "基础介绍",
-                title: "1.渠道和费率情况",
-                url: "https://cf.aibochinese.com/%E8%A7%86%E9%A2%91%E7%A8%BF%E4%BB%B6/2025%E5%B9%B412%E6%9C%88/%E5%85%A8%E7%90%83%E6%94%B6%E6%AC%BE%E6%96%B0%E6%96%B9%E5%BC%8F%EF%BC%9ABagelPay%2C%E5%A4%A7%E9%99%86%E8%BA%AB%E4%BB%BD%E5%8F%AF%E5%BC%80%E9%80%9A%EF%BC%8C%E4%B8%B0%E5%AF%8C%E7%9A%84%E5%85%A8%E7%90%83%E6%94%B6%E6%AC%BE%E6%96%B9%E5%BC%8F%EF%BC%8C%E6%94%AF%E6%8C%81%E9%93%B6%E8%A1%8C%E6%B1%87%E6%AC%BE%E5%92%8C%E7%A8%B3%E5%AE%9A%E5%B8%81%E6%8F%90%E7%8E%B0/%E5%85%A8%E7%90%83%E6%94%B6%E6%AC%BE%E6%96%B0%E6%96%B9%E5%BC%8F%EF%BC%9ABagelPay%2C%E5%A4%A7%E9%99%86%E8%BA%AB%E4%BB%BD%E5%8F%AF%E5%BC%80%E9%80%9A%EF%BC%8C%E4%B8%B0%E5%AF%8C%E7%9A%84%E5%85%A8%E7%90%83%E6%94%B6%E6%AC%BE%E6%96%B9%E5%BC%8F%EF%BC%8C%E6%94%AF%E6%8C%81%E9%93%B6%E8%A1%8C%E6%B1%87%E6%AC%BE%E5%92%8C%E7%A8%B3%E5%AE%9A%E5%B8%81%E6%8F%90%E7%8E%B0.mp4",
-                duration: "8:01",
-                document: "https://blog.aibochinese.com/payment/bagelpay"
+                chapter: "思路和总指引",
+                title: "1.如何打通全球收付款渠道",
+                url: "https://cf.aibochinese.com/%E8%A7%86%E9%A2%91%E7%A8%BF%E4%BB%B6/2025%E5%B9%B411%E6%9C%88/Roogoo%20U%E5%8D%A1%E7%9C%9F%E5%AE%9E%E4%BD%BF%E7%94%A8%E4%BD%93%E9%AA%8C%20%E5%85%8D%E8%B4%B9%E5%BC%80%E5%8D%A1%EF%BC%8C%E6%B6%88%E8%B4%B90%E7%A3%A8%E6%8D%9F/Roogoo%20U%E5%8D%A1%E7%9C%9F%E5%AE%9E%E4%BD%BF%E7%94%A8%E4%BD%93%E9%AA%8C%20%E5%85%8D%E8%B4%B9%E5%BC%80%E5%8D%A1%EF%BC%8C%E6%B6%88%E8%B4%B90%E7%A3%A8%E6%8D%9F.mp4",
+                duration: "10:34",
+                document: "https://blog.aibochinese.com/payment/global-payments-guide"
             },
             {
-                chapter: "提现详解",
-                title: "1.绑定Wise美国银行账户，ACH方式0费用",
-                url: "#",
-                duration: "5:20",
-                document: "https://blog.aibochinese.com/payment/bagelpay"
+                chapter: "国际Visa|万事达卡",
+                title: "2.2026年 0磨损境外收款美元或USDT回国教程",
+                url: "https://cf.aibochinese.com/%E8%A7%86%E9%A2%91%E7%A8%BF%E4%BB%B6/2025%E5%B9%B412%E6%9C%88/2026%E5%B9%B4%200%E7%A3%A8%E6%8D%9F%E5%A2%83%E5%A4%96%E6%94%B6%E6%AC%BE%E7%BE%8E%E5%85%83%E6%88%96USDT%E5%9B%9E%E5%9B%BD%E6%95%99%E7%A8%8B/2026%E5%B9%B4%200%E7%A3%A8%E6%8D%9F%E5%A2%83%E5%A4%96%E6%94%B6%E6%AC%BE%E7%BE%8E%E5%85%83%E6%88%96USDT%E5%9B%9E%E5%9B%BD%E6%95%99%E7%A8%8B.mp4",
+                duration: "10:20",
+                document: "https://blog.aibochinese.com/payment/pay"
             },
            {
-                chapter: "提现详解",
-                title: "2.如何使用稳定币提现",
-                url: "#",
+                chapter: "国际Visa|万事达卡",
+                title: "3.代充美元USDT,以及兑换回RMB【CTC服务】",
+                url: "https://cf.aibochinese.com/%E8%A7%86%E9%A2%91%E7%A8%BF%E4%BB%B6/%E4%BB%A3%E5%85%85%E7%BE%8E%E5%85%83USDT%2C%E4%BB%A5%E5%8F%8A%E5%85%91%E6%8D%A2%E5%9B%9ERMB%E3%80%90CTC%E6%9C%8D%E5%8A%A1%E3%80%91/%E4%BB%A3%E5%85%85%E7%BE%8E%E5%85%83USDT%2C%E4%BB%A5%E5%8F%8A%E5%85%91%E6%8D%A2%E5%9B%9ERMB%E3%80%90CTC%E6%9C%8D%E5%8A%A1%E3%80%91.mp4",
                 duration: "4:13",
-                document: "https://blog.aibochinese.com/payment/bagelpay"
+                document: "https://blog.aibochinese.com/payment/Proxy%20Recharge"
+            },
+            {
+                chapter: "加密货币收付",
+                title: "1.省钱有招：USDT链上转账怎么选择网络？",
+                url: "https://cf.aibochinese.com/%E8%A7%86%E9%A2%91%E7%A8%BF%E4%BB%B6/%E7%9C%81%E9%92%B1%E6%9C%89%E6%8B%9B%EF%BC%9AUSDT%E9%93%BE%E4%B8%8A%E8%BD%AC%E8%B4%A6%E6%80%8E%E4%B9%88%E9%80%89%E6%8B%A9%E7%BD%91%E7%BB%9C%EF%BC%9F/%E7%9C%81%E9%92%B1%E6%9C%89%E6%8B%9B%EF%BC%9AUSDT%E9%93%BE%E4%B8%8A%E8%BD%AC%E8%B4%A6%E6%80%8E%E4%B9%88%E9%80%89%E6%8B%A9%E7%BD%91%E7%BB%9C%EF%BC%9F.mp4",
+                duration: "4:15",
+                document: "https://blog.aibochinese.com/web3/binance"
+            },
+            {
+                chapter: "加密货币收付",
+                title: "2.购买USDT|加密货币转账|充值Visa或万事达卡教程",
+                url: "https://cf.aibochinese.com/%E8%A7%86%E9%A2%91%E7%A8%BF%E4%BB%B6/%E6%89%8B%E6%8A%8A%E6%89%8B%E7%BB%99%E6%82%A8%E6%BC%94%E7%A4%BA%EF%BC%9A%E8%99%9A%E6%8B%9F%E4%BF%A1%E7%94%A8%E5%8D%A1%E5%85%85%E5%80%BCUSDT.mp4",
+                duration: "13:15",
+                document: "hhttps://blog.aibochinese.com/payment/self%20recharge"
             }
 
         ];
