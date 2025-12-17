@@ -227,141 +227,399 @@
 #pagefind-search .pagefind-ui__result-excerpt { font-size: 13.5px; color: #666; line-height: 1.5; margin-top: 4px; }
 .pagefind-ui__result-excerpt mark { background: #dbeafe; color: #1e40af; padding: 1px 3px; border-radius: 3px; }
 #pagefind-search .pagefind-ui__message { padding: 20px; text-align: center; color: #666; font-size: 14px; }
-        /* 移动端底部导航样式 */
-        .mobile-nav {
-            position: fixed;
-            bottom: 0;
-            left: 0;
-            right: 0;
+        /* 弹窗搜索结果样式优化 */
+        #pagefind-search-popup .pagefind-ui__search-input {
+            padding: 10px 16px;
+            border: 2px solid #ddd;
+            border-radius: 25px;
+            font-size: 16px;
+            width: 100%;
+            max-width: 100%;
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
             background: white;
-            box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
-            z-index: 50;
-            display: none; /* 默认隐藏 */
+            color: #333;
+            box-sizing: border-box;
+            outline: none;
         }
-
-        .nav-container {
-            display: flex;
-            justify-content: space-around;
-            align-items: center;
-            padding: 12px 0;
+        
+        #pagefind-search-popup .pagefind-ui__search-input:focus {
+            border-color: #4a6fa5;
+            box-shadow: 0 0 0 4px rgba(74, 111, 165, 0.2);
         }
-
-        .nav-item {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            text-decoration: none;
-            color: #6b7280;
-            transition: all 0.3s ease;
+        
+        /* 关键：为弹窗搜索结果添加高度限制和滚动 */
+        #pagefind-search-popup .pagefind-ui__results {
+            background: white;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+            margin-top: 8px;
+            max-height: 400px; /* 限制最大高度，避免延伸到导航栏 */
+            overflow-y: auto; /* 添加垂直滚动 */
+            padding: 8px 0;
         }
-
-        .nav-item i {
-            font-size: 1.25rem;
-            margin-bottom: 0.25rem;
+        
+        #pagefind-search-popup .pagefind-ui__result {
+            padding: 12px 16px;
+            border-bottom: 1px solid #eee;
+            transition: background-color 0.2s;
         }
-
-        .nav-item span {
-            font-size: 0.75rem;
+        
+        #pagefind-search-popup .pagefind-ui__result:last-child {
+            border-bottom: none;
         }
-
-        .nav-item-active {
+        
+        #pagefind-search-popup .pagefind-ui__result:hover {
+            background-color: #f8f9ff;
+        }
+        
+        #pagefind-search-popup .pagefind-ui__result-title {
+            font-size: 15px;
+            font-weight: 600;
+            color: #1f2937;
+            margin-bottom: 4px;
+        }
+        
+        #pagefind-search-popup .pagefind-ui__result-link {
             color: #3B82F6;
-            transform: scale(1.1);
+            text-decoration: none;
+            display: inline-block;
+            width: 100%;
+            position: relative;
+            z-index: 10;
         }
-
-        .center-item {
-            background: #3B82F6;
+        
+        #pagefind-search-popup .pagefind-ui__result-link:hover {
+            text-decoration: underline;
+        }
+        
+        #pagefind-search-popup .pagefind-ui__result-excerpt {
+            font-size: 13.5px;
+            color: #666;
+            line-height: 1.5;
+            margin-top: 4px;
+        }
+        
+        #pagefind-search-popup .pagefind-ui__message {
+            padding: 20px;
+            text-align: center;
+            color: #666;
+            font-size: 14px;
+        }
+        /* 文本样式类 */
+        .text-white {
             color: white;
-            border-radius: 50%;
-            width: 3rem;
-            height: 3rem;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-top: -1.5rem;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         }
 
-        .center-item i {
-            font-size: 1.25rem;
-            margin: 0;
-        }
-
-        /* 在小屏幕设备上显示移动端导航 */
-        @media (max-width: 768px) {
-            .mobile-nav {
-                display: block;
-            }
+        .text-2xl {
+            font-size: 1.5rem;
         }
 
         /* 导航栏样式 */
         .navbar {
-            background-color: rgba(255, 255, 255, 0.98);
-            backdrop-filter: blur(10px);
-            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+            background: linear-gradient(135deg, #3498db, #2980b9);
+            color: white;
+            padding: 0;
             position: fixed;
             top: 0;
-            width: 100%;
+            left: 0;
+            right: 0;  /* 使用 left 和 right 代替 width: 100% */
             z-index: 1000;
-            padding: 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.15);
         }
 
         .nav-container {
-            max-width: 1400px;
+            max-width: 1200px;
             margin: 0 auto;
-            padding: 0 30px;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            height: 70px;
+            padding: 0.8rem 20px;
         }
 
         .logo img {
-            height: 45px;
+            height: 40px;
             width: auto;
-            transition: transform 0.3s ease;
-        }
-
-        .logo img:hover {
-            transform: scale(1.05);
+            display: block;
         }
 
         .nav-menu {
             display: flex;
             list-style: none;
-            gap: 5px;
-            align-items: center;
+            gap: 0rem;
+            margin: 0;
+            padding: 0;  /* 添加 padding: 0 以移除默认内边距 */
         }
 
         .nav-link {
-            color: #2c3e50;
+            color: white;
             text-decoration: none;
-            padding: 10px 18px;
-            border-radius: 8px;
             transition: all 0.3s ease;
+            font-size: 0.95rem;
             font-weight: 500;
-            font-size: 15px;
+            padding: 12px 20px;
+            border-radius: 25px;
+            background: linear-gradient(135deg, #3498db, #2980b9);
+            display: inline-block;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .nav-link::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: left 0.5s ease;
         }
 
         .nav-link:hover {
-            background-color: #3498db;
-            color: white;
-            transform: translateY(-2px);
+            transform: scale(1.1);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+            z-index: 10;
         }
 
+        .nav-link:hover::before {
+            left: 100%;
+        }
+
+        /* 为每个菜单项设置不同的渐变颜色 */
+        .nav-menu li:nth-child(1) .nav-link {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+
+        .nav-menu li:nth-child(2) .nav-link {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+        }
+
+        .nav-menu li:nth-child(3) .nav-link {
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+        }
+
+        .nav-menu li:nth-child(4) .nav-link {
+            background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
+        }
+
+        .nav-menu li:nth-child(5) .nav-link {
+            background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
+        }
+
+        .nav-menu li:nth-child(6) .nav-link {
+            background: linear-gradient(135deg, #ffa751 0%, #ffe259 100%);
+        }
+
+        .nav-menu li:nth-child(7) .nav-link {
+            background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+        }
+
+        .nav-menu li:nth-child(8) .nav-link {
+            background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%);
+        }
+
+        .nav-menu li:nth-child(9) .nav-link {
+            background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+        }
+
+        /* 为每个菜单项添加悬停渐变效果 */
+        .nav-menu li:nth-child(1) .nav-link:hover {
+            background: linear-gradient(135deg, #764ba2 0%, #667eea 100%);
+        }
+
+        .nav-menu li:nth-child(2) .nav-link:hover {
+            background: linear-gradient(135deg, #f5576c 0%, #f093fb 100%);
+        }
+
+        .nav-menu li:nth-child(3) .nav-link:hover {
+            background: linear-gradient(135deg, #00f2fe 0%, #4facfe 100%);
+        }
+
+        .nav-menu li:nth-child(4) .nav-link:hover {
+            background: linear-gradient(135deg, #38f9d7 0%, #43e97b 100%);
+        }
+
+        .nav-menu li:nth-child(5) .nav-link:hover {
+            background: linear-gradient(135deg, #fee140 0%, #fa709a 100%);
+        }
+
+        .nav-menu li:nth-child(6) .nav-link:hover {
+            background: linear-gradient(135deg, #ffe259 0%, #ffa751 100%);
+        }
+
+        .nav-menu li:nth-child(7) .nav-link:hover {
+            background: linear-gradient(135deg, #fed6e3 0%, #a8edea 100%);
+        }
+
+        .nav-menu li:nth-child(8) .nav-link:hover {
+            background: linear-gradient(135deg, #fecfef 0%, #ff9a9e 100%);
+        }
+
+        .nav-menu li:nth-child(9) .nav-link:hover {
+            background: linear-gradient(135deg, #fcb69f 0%, #ffecd2 100%);
+        }
+
+        /* 汉堡菜单样式 */
         .hamburger {
             display: none;
             flex-direction: column;
             cursor: pointer;
-            gap: 5px;
         }
 
         .bar {
             width: 25px;
             height: 3px;
-            background-color: #2c3e50;
-            border-radius: 3px;
+            background-color: white;
+            margin: 3px 0;
             transition: 0.3s;
+        }
+
+        /* 移动端底部导航按钮样式 */
+        .mobile-nav {
+            display: none;
+        }
+        
+        /* 响应式设计 - 汉堡菜单 */
+        @media (max-width: 1024px) {
+            .nav-menu {
+                position: fixed;
+                left: -100%;
+                top: 60px;
+                flex-direction: column;
+                background: rgba(0, 0, 0, 0.9);
+                width: 100%;
+                text-align: center;
+                transition: left 0.3s ease-in-out;
+                box-shadow: 0 10px 27px rgba(0, 0, 0, 0.3);
+                padding: 20px 0;
+                z-index: 999;
+                gap: 0rem;
+            }
+
+            .nav-menu li {
+                padding: 5px 0;
+            }
+
+            .nav-link {
+                display: inline-block;
+                width: auto;
+                min-width: 120px;
+                margin: 0 auto;
+                padding: 12px 24px;
+                border-radius: 25px;
+                font-size: 1rem;
+                box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+                text-align: center;
+            }
+
+            .nav-link:hover {
+                transform: scale(1.05);
+            }
+
+            .nav-menu.active {
+                left: 0;
+            }
+
+            .hamburger {
+                display: flex;
+            }
+
+            .hamburger.active .bar:nth-child(1) {
+                transform: translateY(8px) rotate(45deg);
+            }
+
+            .hamburger.active .bar:nth-child(2) {
+                opacity: 0;
+            }
+
+            .hamburger.active .bar:nth-child(3) {
+                transform: translateY(-8px) rotate(-45deg);
+            }
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding-top: 70px;
+            }
+
+            .nav-container {
+                padding: 0 20px;
+                height: 60px;
+            }
+
+            .main-content {
+                padding: 30px 20px 50px;
+            }
+            
+            .mobile-nav {
+                display: block;
+                position: fixed;
+                bottom: 0;
+                left: 0;
+                right: 0;
+                background: white;
+                box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+                z-index: 1000;
+            }
+            
+            .mobile-nav .nav-container {
+                display: flex;
+                justify-content: space-around;
+                align-items: center;
+                padding: 12px 0;
+                height: auto;
+            }
+            
+            .mobile-nav .nav-item {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                text-decoration: none;
+                color: #666;
+                transition: all 0.3s ease;
+                padding: 8px 12px;
+                border-radius: 8px;
+            }
+            
+            .mobile-nav .nav-item.active {
+                color: #3498db;
+                transform: scale(1.1);
+            }
+            
+            .mobile-nav .nav-item .icon {
+                font-size: 18px;
+                margin-bottom: 4px;
+            }
+            
+            .mobile-nav .nav-item .text {
+                font-size: 12px;
+            }
+            
+            .mobile-nav .nav-item.center {
+                background: #3498db;
+                color: white;
+                border-radius: 50%;
+                width: 50px;
+                height: 50px;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                margin-top: -20px;
+                box-shadow: 0 2px 10px rgba(52, 152, 219, 0.4);
+            }
+            
+            .mobile-nav .nav-item.center:hover {
+                background: #2980b9;
+                transform: scale(1.1);
+            }
+            
+            .mobile-nav .nav-item.center .text {
+                font-size: 12px;
+                margin-top: 2px;
+            }
         }
 
         header {
@@ -448,56 +706,37 @@
             color: #667eea;
         }
         
-        /* 页脚 */
-        .footer {
+        /* 页脚样式 */
+        footer {
+            background: linear-gradient(135deg, hsl(210, 87%, 57%), #34495e);
+            color: white;
+            padding: 2rem;
             text-align: center;
-            padding: 40px 20px;
-            color: rgba(255, 255, 255, 0.8);
-            font-size: 15px;
-            margin-top: 60px;
+            border-radius: 15px;
+            margin-top: 3rem;
+        }
+
+        .footer p {
+            margin-bottom: 1rem;
+        }
+
+        .footer a {
+            color: #ffcc2f;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer a:hover {
+            color: #f38020;
+        }
+
+        .footer img {
+            margin: 0 5px;
+            vertical-align: middle;
         }
 
         /* 响应式设计 */
         @media (max-width: 1024px) {
-            .nav-menu {
-                position: fixed;
-                left: -100%;
-                top: 60px;
-                flex-direction: column;
-                background: rgba(255, 255, 255, 0.98);
-                width: 100%;
-                text-align: center;
-                transition: left 0.3s ease-in-out;
-                box-shadow: 0 10px 27px rgba(0, 0, 0, 0.3);
-                padding: 20px 0;
-                z-index: 999;
-                gap: 0.5rem;
-            }
-
-            .nav-menu li {
-                padding: 10px 0;
-            }
-
-            .nav-menu.active {
-                left: 0;
-            }
-
-            .hamburger {
-                display: flex;
-            }
-
-            .hamburger.active .bar:nth-child(1) {
-                transform: translateY(8px) rotate(45deg);
-            }
-
-            .hamburger.active .bar:nth-child(2) {
-                opacity: 0;
-            }
-
-            .hamburger.active .bar:nth-child(3) {
-                transform: translateY(-8px) rotate(-45deg);
-            }
-
             .sections-container {
                 grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
                 gap: 25px;
@@ -505,19 +744,6 @@
         }
 
         @media (max-width: 768px) {
-            body {
-                padding-top: 70px;
-            }
-
-            .nav-container {
-                padding: 0 20px;
-                height: 60px;
-            }
-
-            .main-content {
-                padding: 30px 20px 50px;
-            }
-
             header h1 {
                 font-size: 2rem;
             }
@@ -553,7 +779,7 @@
                 <h2><a href="https://blog.aibochinese.com/" target="_blank"><img src="https://cf.aibochinese.com/%E7%88%B1%E5%8D%9A%C2%B7%E5%AE%A2%E5%9B%BE%E7%89%87%E5%BA%93/%E5%B8%B8%E7%94%A8%E6%A8%A1%E6%9D%BF%E5%9B%BE%E7%89%87/aibologo%20460%20100.png" alt="网站Logo"></a></h2>
             </div>
             <ul class="nav-menu">
-               <li class="nav-item"><a href="https://blog.aibochinese.com/mooc" class="nav-link">公开课</a></li>                  
+               <li class="nav-item"><a href="https://blog.aibochinese.com/mooc" class="nav-link">公开课</a></li>                   
                 <li class="nav-item">
                     <a href="https://blog.aibochinese.com/Rescous/free%20rs" class="nav-link">免费资源</a>
                 </li>
@@ -589,7 +815,7 @@
 
     <header>
         <h1>KVB账户讲解</h1>
-        <p>本页面作为入口，导航您深入了解KVB账户的各项功能和知识。</p>
+        <p>本页面作为入口，导航您深入了解KVB账户的各项功能和知识| <a href="https://tougu.aibochinese.com/kvb/account%20advtg" style="color:red" target="_blank" rel="noopener noreferrer">KVB优势</a>。</p>
     </header>
 
     <!-- 主要内容 -->
@@ -646,33 +872,33 @@
     <div class="mobile-nav">
         <div class="nav-container">
             <!-- 首页按钮 -->
-            <a href="https://blog.aibochinese.com/" class="nav-item nav-item-active">
-                <i class="fas fa-home"></i>
-                <span>首页</span>
+            <a href="https://blog.aibochinese.com/" class="nav-item active">
+                <i class="fa fa-home icon"></i>
+                <span class="text">首页</span>
             </a>
             
             <!-- 资源按钮 -->
             <a href="https://blog.aibochinese.com/Rescous/free%20rs" class="nav-item">
-                <i class="fas fa-cloud-download-alt"></i>
-                <span>资源</span>
+                <i class="fa fa-cloud-download icon"></i>
+                <span class="text">资源</span>
             </a>
 
-            <!-- 最新按钮 -->
-            <a href="https://blog.aibochinese.com/newest" class="nav-item center-item">
-                <i class="fas fa-sync-alt"></i>
-                <span>最新</span>
+            <!-- 最新 - 突出显示 -->
+            <a href="https://blog.aibochinese.com/newest" class="nav-item center">
+                <i class="fa fa-refresh icon"></i>
+                <span class="text">最新</span>
             </a>
 
             <!-- 建站按钮 -->
             <a href="https://blog.aibochinese.com/sitesbuild" class="nav-item">
-                <i class="fas fa-code"></i>
-                <span>建站</span>
+                <i class="fa fa-code icon"></i>
+                <span class="text">建站</span>
             </a>
 
             <!-- 淘金按钮 -->
             <a href="https://blog.aibochinese.com/earn%20online" class="nav-item">
-                <i class="fas fa-dollar-sign"></i>
-                <span>淘金</span>
+                <i class="fa fa-usd icon"></i>
+                <span class="text">淘金</span>
             </a>
         </div>
     </div>
@@ -693,42 +919,29 @@
     </footer>
 
     <script>
-        // 移动端菜单切换
+        // 移动端导航与汉堡菜单
         document.addEventListener('DOMContentLoaded', function() {
+            // 添加导航交互效果
+            const navItems = document.querySelectorAll('.mobile-nav .nav-item:not(.center)');
+            
+            navItems.forEach(item => {
+                item.addEventListener('click', function(e) {
+                    // 移除所有激活状态
+                    navItems.forEach(i => i.classList.remove('active'));
+                    // 给当前点击项添加激活状态
+                    this.classList.add('active');
+                });
+            });
+
             const hamburger = document.querySelector('.hamburger');
             const navMenu = document.querySelector('.nav-menu');
-            const navLinks = document.querySelectorAll('.nav-link');
-
             if (hamburger) {
-                hamburger.addEventListener('click', function() {
+                hamburger.addEventListener('click', () => {
                     hamburger.classList.toggle('active');
                     navMenu.classList.toggle('active');
                 });
-
-                navLinks.forEach(link => {
-                    link.addEventListener('click', () => {
-                        hamburger.classList.remove('active');
-                        navMenu.classList.remove('active');
-                    });
-                });
             }
         });
-
-        // 移动端底部导航交互
-        document.addEventListener('DOMContentLoaded', () => {
-            const navItems = document.querySelectorAll('.mobile-nav .nav-item:not(.center-item)');
-            
-            navItems.forEach(item => {
-                item.addEventListener('click', (e) => {
-                    // 移除所有激活状态
-                    navItems.forEach(i => i.classList.remove('nav-item-active'));
-                    
-                    // 给当前点击项添加激活状态
-                    e.currentTarget.classList.add('nav-item-active');
-                });
-            });
-        });
-    </script>
       </script>
    <!-- 悬浮图标容器 -->
     <div class="float-icons-container">
@@ -801,17 +1014,6 @@
         window.addEventListener('DOMContentLoaded', function () {
             console.log("Initializing Pagefind search...");
             try {
-                // 初始化页面顶部搜索框
-                new PagefindUI({
-                    element: "#pagefind-search",
-                    showImages: false,
-                    showSubResults: true,
-                    resetStyles: false,
-                    translations: {
-                        placeholder: "🔍资源、教程、工具..."
-                    }
-                });
-                
                 // 初始化右侧悬浮搜索弹窗
                 new PagefindUI({
                     element: "#pagefind-search-popup",
@@ -819,7 +1021,7 @@
                     showSubResults: true,
                     resetStyles: false,
                     translations: {
-                        placeholder: "🔍资源、教程、工具..."
+                        placeholder: "资源、教程、工具..."
                     }
                 });
                 
