@@ -970,8 +970,6 @@
     <!-- 引入Font Awesome图标 -->
     <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
     
-    <script src="../js/script.js"></script>
-    
     <!-- 移动端底部导航按钮JavaScript -->
     <script>
         // 移动端导航与汉堡菜单
@@ -987,15 +985,6 @@
                     this.classList.add('active');
                 });
             });
-
-            const hamburger = document.querySelector('.hamburger');
-            const navMenu = document.querySelector('.nav-menu');
-            if (hamburger) {
-                hamburger.addEventListener('click', () => {
-                    hamburger.classList.toggle('active');
-                    navMenu.classList.toggle('active');
-                });
-            }
         });
     </script>
    <!-- 悬浮图标容器 -->
@@ -1089,6 +1078,7 @@
                         // 初始化汉堡菜单
             const hamburger = document.querySelector('.hamburger');
             const navMenu = document.querySelector('.nav-menu');
+            const navLinks = document.querySelectorAll('.nav-link');
             
             if (hamburger && navMenu) {
                 hamburger.addEventListener('click', function() {
@@ -1096,6 +1086,14 @@
                     navMenu.classList.toggle('active');
                     // 切换汉堡图标的样式
                     hamburger.classList.toggle('active');
+                });
+                
+                // 点击导航链接时关闭菜单
+                navLinks.forEach(link => {
+                    link.addEventListener('click', () => {
+                        hamburger.classList.remove('active');
+                        navMenu.classList.remove('active');
+                    });
                 });
             }
         });
