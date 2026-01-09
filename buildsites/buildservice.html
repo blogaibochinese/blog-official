@@ -716,22 +716,23 @@
             position: absolute;
             top: 50%;
             transform: translateY(-50%);
-            background: rgba(255, 193, 7, 0.9);
-            color: white;
+            background: transparent;
+            color: #3B82F6;
             border: none;
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            font-size: 18px;
+            width: 50px;
+            height: 50px;
+            font-size: 40px;
+            font-weight: bold;
             cursor: pointer;
             z-index: 10;
             transition: all 0.3s ease;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+            line-height: 1;
+            padding: 0;
         }
         
         .slider-btn:hover {
-            background: rgba(255, 152, 0, 0.9);
-            transform: translateY(-50%) scale(1.1);
+            color: #2563EB;
+            transform: translateY(-50%) scale(1.2);
         }
         
         .prev-btn {
@@ -906,14 +907,8 @@
         <p style="text-align: center; font-size: 18px; margin: 30px 0;">
             专业定制您的Cloudflare Pages网站，提供高效、可靠的服务。
         </p>
-        
-        <div style="text-align: center;">
-            <a href="https://blog.aibochinese.com/sitesbuild" class="button">技术分享：免费教程</a>
-        </div>
-        
         <div class="service-info">
-            <h3>需要协助定制页面</h3>
-            <p>收费标准：￥300/10个页面</p>
+            <p><strong>收费标准：</strong>￥500</p>
             <p>具体费用视页面复杂程度和可能耗时而定。请提供详细需求，我们将为您量身定制。</p>
         </div>
         
@@ -977,10 +972,10 @@
             
             <!-- 左右切换按钮 -->
             <button class="slider-btn prev-btn" onclick="scrollCases(-1)">
-                <i class="fa fa-chevron-left"></i>
+                &lt;
             </button>
             <button class="slider-btn next-btn" onclick="scrollCases(1)">
-                <i class="fa fa-chevron-right"></i>
+                &gt;
             </button>
         </div>
         
