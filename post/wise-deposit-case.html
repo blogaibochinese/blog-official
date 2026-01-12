@@ -581,9 +581,15 @@
 
         .case-grid {
             display: grid;
-            grid-template-columns: repeat(2, 1fr);
+            grid-template-columns: repeat(3, 1fr);
             gap: 30px;
             margin-bottom: 40px;
+        }
+
+        @media (max-width: 1024px) {
+            .case-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
         }
 
         @media (max-width: 768px) {
@@ -831,7 +837,23 @@
                     <div class="image-info">图片 1 / 1</div>
                     <button class="zoom-btn" onclick="openZoom(this)">放大查看</button>
                 </div>
+            </div>    
+              <!-- 案例四 -->
+            <div class="case-card">
+                <h3>案例五</h3>
+                <div class="image-slider">
+                    <div class="slider-wrapper">
+                        <img src="https://cf.aibochinese.com/%E7%B4%A0%E6%9D%90%E7%AB%99/wise-deposit-case13.jpg" alt="案例二图片1" class="slider-image active">
+                    </div>
+                    <div class="slider-controls">
+                        <button class="slider-btn prev" onclick="changeSlide(this, -1)"><</button>
+                        <button class="slider-btn next" onclick="changeSlide(this, 1)">></button>
+                    </div>
+                    <div class="image-info">图片 1 / 1</div>
+                    <button class="zoom-btn" onclick="openZoom(this)">放大查看</button>
+                </div>
             </div>            
+            
         </div>
     </div>
 
