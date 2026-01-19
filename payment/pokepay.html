@@ -575,6 +575,54 @@
             padding: 20px;
         }
 
+        /* 两栏布局样式 */
+        .two-column-layout {
+            display: flex;
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        .left-column {
+            flex: 1;
+        }
+
+        .right-column {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        /* 视频容器样式 */
+        .video-container {
+            background-color: #f9f9f9;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .video-container h3 {
+            color: #f57c00;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+
+        .video-container video {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+        }
+
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            .two-column-layout {
+                flex-direction: column;
+            }
+
+            .right-column {
+                margin-top: 20px;
+            }
+        }
+
         h1 {
             color: #f57c00;
             font-size: 2.5rem;
@@ -869,33 +917,59 @@
     <main class="main-content">
         <h2>PokePay介绍：激活Wise账户、支持3DS、可申请实体卡（刷卡|ATM取现）</h2>
 
-        <p>黄金用途：支持Wise入金激活账户，查看<a href="https://blog.aibochinese.com/payment/wise" class="btn" target="_blank">教程</a></p>
+        <div class="two-column-layout">
+            <div class="left-column">
+                <p>黄金用途：支持Wise入金激活账户，查看<a href="https://blog.aibochinese.com/payment/wise" class="btn" target="_blank">教程</a></p>
 
-        <h3>一、受邀渠道领18USD优惠券（邀请码：401166）</h3>
+                <h3>一、领18USD优惠券（邀请码：401166）</h3>
 
-        <p>受邀渠道：<button><a href="https://app.pokepay.cc/pages/invitation/regist?r=401166" class="btn" target="_blank">点击注册</a></button></p>
+                <p>受邀渠道：<button><a href="https://app.pokepay.cc/pages/invitation/regist?r=401166" class="btn" target="_blank">点击注册</a></button></p>
+                <p>中国大陆和美国IP无法成功注册，推荐试用<a href="https://dedicatedlines.top" class="btn" target="_blank">海外流量</a>；注册成功后不受限</p>
+                <h2>二、充值</h2>
 
-        <h2>二、充值</h2>
-
-        <div class="info-box">
-            <p class="small-text">
-                「<strong>免费<a href="https://dedicatedlines.top/" target="_blank" rel="noopener"><mark>海外网络流量</mark></a></strong> + 访问<strong><a href="https://accounts.maxweb.red/zh-CN/register?ref=569491541" target="_blank" rel="noopener"><mark>币安 web3</mark></a></strong>」
-            </p>
-            <p class="small-text">
-                建议BSP网络，从币安充值USDT零手续费【<a href="self recharge.html" target="_blank" rel="noopener"><strong>教程</strong></a>】
-            </p>
+                <div class="info-box">
+                    <p class="small-text">
+                        「<strong>免费<a href="https://dedicatedlines.top/" target="_blank" rel="noopener"><mark>海外网络流量</mark></a></strong> + 访问<strong><a href="https://accounts.maxweb.red/zh-CN/register?ref=569491541" target="_blank" rel="noopener"><mark>币安 web3</mark></a></strong>」
+                    </p>
+                    <p class="small-text">
+                        建议BSP网络，从币安充值USDT零手续费【<a href="self recharge.html" target="_blank" rel="noopener"><strong>教程</strong></a>】
+                    </p>
+                </div>
+                
+                <p>
+                    <a href="Proxy Recharge.html" target="_blank" rel="noopener">代充服务</a>：人工费$1/笔
+                </p>
+            </div>
+            <div class="right-column">
+                <div class="video-container">
+                    <video controls width="100%" height="315">
+                        <source src="https://cf.aibochinese.com/%E5%9B%BD%E9%99%85%E8%99%9A%E6%8B%9F%E4%BF%A1%E7%94%A8%E5%8D%A1/PokePay%E6%BF%80%E6%B4%BBWise%E6%95%99%E7%A8%8B.mp4" type="video/mp4">
+                        您的浏览器不支持视频播放
+                    </video>
+                </div>
+            </div>
         </div>
-        
-        <p>
-            <a href="Proxy Recharge.html" target="_blank" rel="noopener">代充服务</a>：人工费$1/笔
-        </p>
 
-        <h2>三、开卡</h2>
-
-        <p>先名 后姓 ：用拼音 大写字母</p>
+        <h2>三、可申请实体卡，支持中国大陆刷卡和ATM取现</h2>
         <div style="text-align: center;">
-            <img src="https://cf.aibochinese.com/%E5%9B%BD%E9%99%85%E8%99%9A%E6%8B%9F%E4%BF%A1%E7%94%A8%E5%8D%A1/pokepay-cover.png" alt="介绍" style="width: 70%; height: 70%;" />
+            <img src="https://cf.aibochinese.com/%E5%9B%BD%E9%99%85%E8%99%9A%E6%8B%9F%E4%BF%A1%E7%94%A8%E5%8D%A1/photo_2026-01-19_13-57-29.jpg" 
+                 style="max-width: 70%; height: auto;" />
         </div>
+        <script>
+            function zoomImage(button) {
+                const img = button.parentElement.querySelector('img');
+                if (img.style.transform === 'scale(1.5)') {
+                    img.style.transform = 'scale(1)';
+                    img.style.zIndex = '1';
+                    img.style.position = 'relative';
+                } else {
+                    img.style.transform = 'scale(1.5)';
+                    img.style.zIndex = '1000';
+                    img.style.position = 'relative';
+                    img.style.transition = 'transform 0.3s ease';
+                }
+            }
+        </script>
   
             <div class="video-container">
         <div class="video-section">
@@ -1189,9 +1263,9 @@
 {
   "@context": "https://schema.org",
   "@type": "WebPage",           // 或 WebPage、Article、FAQPage、Product等
-  "name": "飞扬卡介绍：多卡段可选、支持3DS、无需KYC认证",
-  "keywords": "飞扬卡,多卡段,支持3DS,无需KYC认证",
-  "description": "飞扬卡介绍：多卡段可选、支持3DS、无需KYC认证",
+  "name": "PokePay介绍：激活Wise账户、支持3DS、可申请实体卡（刷卡|ATM取现）",
+  "keywords": "Pokepay,支持3DS, 激活wise,实卡，ATM取现，刷卡",
+  "description": "PokePay介绍：激活Wise账户、支持3DS、可申请实体卡（刷卡|ATM取现）",
   "url": "https://blog.aibochinese.com/payment/feiyangka.html",
   "datePublished": "2025-11-2",
   "dateModified": "2025-11-29",
