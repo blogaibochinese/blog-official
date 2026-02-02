@@ -401,29 +401,31 @@
                 position: fixed;
                 left: -100%;
                 top: 60px;
-                flex-direction: column;
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
                 background: rgba(0, 0, 0, 0.9);
                 width: 100%;
-                text-align: center;
+                box-sizing: border-box;
+                text-align: right;
                 transition: left 0.3s ease-in-out;
                 box-shadow: 0 10px 27px rgba(0, 0, 0, 0.3);
-                padding: 20px 0;
+                padding: 20px;
                 z-index: 999;
-                gap: 0rem;
+                gap: 1px;
             }
 
             .nav-menu li {
-                padding: 5px 0;
+                padding: 2px;
             }
 
             .nav-link {
                 display: inline-block;
                 width: auto;
-                min-width: 120px;
-                margin: 0 auto;
-                padding: 12px 24px;
+                min-width: 100px;
+                margin: 0 0 0 auto;
+                padding: 8px 16px;
                 border-radius: 25px;
-                font-size: 1rem;
+                font-size: 0.85rem;
                 box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
                 text-align: center;
             }
@@ -1276,51 +1278,31 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="/post/pagefind/pagefind-ui.css">
 
-    <!-- 汉堡菜单交互 -->
+    <!-- 脚本 -->
     <script>
-    document.addEventListener('DOMContentLoaded', function() {
-        const hamburger = document.querySelector('.hamburger');
-        const navMenu = document.querySelector('.nav-menu');
-        const navLinks = document.querySelectorAll('.nav-link');
-
-        if (hamburger && navMenu) {
-            hamburger.addEventListener('click', function() {
-                hamburger.classList.toggle('active');
-                navMenu.classList.toggle('active');
-            });
-
-            navLinks.forEach(link => {
-                link.addEventListener('click', () => {
-                    hamburger.classList.remove('active');
-                    navMenu.classList.remove('active');
+        // 移动端导航与汉堡菜单
+        document.addEventListener('DOMContentLoaded', function() {
+            // 添加导航交互效果
+            const navItems = document.querySelectorAll('.mobile-nav .nav-item:not(.center)');
+            
+            navItems.forEach(item => {
+                item.addEventListener('click', function(e) {
+                    // 移除所有激活状态
+                    navItems.forEach(i => i.classList.remove('active'));
+                    // 给当前点击项添加激活状态
+                    this.classList.add('active');
                 });
             });
-        }
-        
-        // 移动端底部导航按钮交互
-        const navItems = document.querySelectorAll('.nav-item');
-        
-        navItems.forEach(item => {
-            item.addEventListener('click', function(e) {
-                // 阻止默认跳转行为，以便查看动画效果
-                // e.preventDefault();
-                
-                // 移除所有按钮的激活状态
-                navItems.forEach(navItem => {
-                    navItem.classList.remove('active');
+
+            const hamburger = document.querySelector('.hamburger');
+            const navMenu = document.querySelector('.nav-menu');
+            if (hamburger) {
+                hamburger.addEventListener('click', () => {
+                    hamburger.classList.toggle('active');
+                    navMenu.classList.toggle('active');
                 });
-                
-                // 为当前点击的按钮添加激活状态
-                this.classList.add('active');
-                
-                // 如果需要页面跳转，可以取消下面的注释并调整逻辑
-                // setTimeout(() => {
-                //     window.location.href = this.getAttribute('href');
-                // }, 300);
-            });
+            }
         });
-    });
-    </script>
       </script>
    <!-- 悬浮图标容器 -->
     <div class="float-icons-container">
