@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>精选定制的APP工具 - 爱博·客</title>
-    <meta name="description" content="精选定制的APP工具，为您提供优质的移动应用解决方案">
+    <title>跨境收款 - 跨境收款App</title>
+    <meta name="description" content="跨境收款App，用境外本地银行账户，收款一般秒到账，接近0手续费！">
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="/post/pagefind/pagefind-ui.css">
@@ -663,15 +663,35 @@
             box-shadow: 0 4px 6px rgba(0,0,0,0.1);
             transition: transform 0.3s ease;
         }
-        .features .block:hover { transform: translateY(-5px); }
-        .features .block a { color: white; text-decoration: none; }
-        .features .block1 { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); }
-        .features .block2 { background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); }
-        .features .block3 { background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%); }
-        .features .block4 { background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%); }
+        .features .block:hover {
+            transform: translateY(-5px);
+        }
+        .features .block a {
+            color: white;
+            text-decoration: none;
+        }
+        .features .block1 {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+        .features .block2 {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+        }
+        .features .block3 {
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+        }
+        .features .block4 {
+            background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
+        }
         @media (max-width: 768px) {
-            .features .blocks-container { gap: 15px; padding: 20px; }
-            .features .block { width: 140px; height: 140px; font-size: 16px; }
+            .features .blocks-container {
+                gap: 15px;
+                padding: 20px;
+            }
+            .features .block {
+                width: 140px;
+                height: 140px;
+                font-size: 16px;
+            }
         }
 
         .article-grid {
@@ -689,10 +709,24 @@
             border-radius: 8px;
             transition: background-color 0.3s;
         }
-        .article-item:hover { background-color: #f9f9f9; }
-        .article-link { text-decoration: none; color: #333; font-size: 16px; font-weight: bold; display: block; }
-        .article-link:hover { color: #007bff; }
-        @media (max-width: 768px) { .article-grid { grid-template-columns: 1fr; } }
+        .article-item:hover {
+            background-color: #f9f9f9;
+        }
+        .article-link {
+            text-decoration: none;
+            color: #333;
+            font-size: 16px;
+            font-weight: bold;
+            display: block;
+        }
+        .article-link:hover {
+            color: #007bff;
+        }
+        @media (max-width: 768px) {
+            .article-grid {
+                grid-template-columns: 1fr;
+            }
+        }
 
         .three-up {
             display: grid;
@@ -715,117 +749,249 @@
             transform: translateY(-2px);
             box-shadow: 0 4px 12px rgba(0,0,0,0.15);
         }
-        @media (max-width: 980px) { .three-up { grid-template-columns: repeat(2, 300px); } }
-        @media (max-width: 660px) { .three-up { grid-template-columns: 1fr; max-width: 300px; } }
-
-        /* APP 卡片样式 */
-        .app-store {
-            margin: 100px 0 40px;
+        @media (max-width: 980px) {
+            .three-up {
+                grid-template-columns: repeat(2, 300px);
+            }
+        }
+        @media (max-width: 660px) {
+            .three-up {
+                grid-template-columns: 1fr;
+                max-width: 300px;
+            }
+        }
+        
+        /* App详情页样式 */
+        .app-container {
+            max-width: 1200px;
+            margin: 100px auto 0;
             padding: 0 20px;
         }
-
-        .app-store h1 {
-            text-align: center;
-            font-size: 2.5rem;
-            margin-bottom: 40px;
-            color: #333;
-        }
-
-        .app-cards-container {
+        
+        .app-header {
             display: grid;
-            grid-template-columns: repeat(5, 1fr);
-            gap: 20px;
-            max-width: 1200px;
-            margin: 0 auto;
+            grid-template-columns: 2fr 1fr;
+            gap: 40px;
+            margin-bottom: 60px;
+            align-items: start;
         }
-
-        .app-card {
+        
+        .app-info {
             background: white;
-            border-radius: 10px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-            padding: 20px;
-            text-align: center;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
         }
-
-        .app-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
-        }
-
+        
         .app-logo {
-            width: 100px;
-            height: 100px;
-            margin: 0 auto 15px;
+            width: 120px;
+            height: 120px;
             border-radius: 20px;
-            object-fit: cover;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
         }
-
-        .app-title {
-            font-size: 1.2rem;
+        
+        .app-name {
+            font-size: 2.5rem;
             font-weight: bold;
-            margin-bottom: 10px;
+            margin-bottom: 15px;
             color: #333;
         }
-
+        
         .app-description {
-            font-size: 0.9rem;
+            font-size: 1.1rem;
+            line-height: 1.6;
             color: #666;
             margin-bottom: 20px;
-            line-height: 1.4;
         }
-
-        .app-button {
-            display: inline-block;
-            padding: 10px 20px;
-            background: linear-gradient(135deg, #3498db, #2980b9);
+        
+        .app-download {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+        
+        .download-btn {
+            background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
             color: white;
+            border: none;
+            padding: 15px 30px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.3s ease;
             text-decoration: none;
-            border-radius: 25px;
-            font-size: 0.9rem;
-            font-weight: 500;
-            transition: background 0.3s ease, transform 0.3s ease;
+            display: inline-block;
+            width: 100%;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
         }
-
-        .app-button:hover {
-            background: linear-gradient(135deg, #2980b9, #3498db);
-            transform: scale(1.05);
+        
+        .download-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.15);
         }
-
-        /* 响应式设计 - APP 卡片 */
-        @media (max-width: 1024px) {
-            .app-cards-container {
-                grid-template-columns: repeat(3, 1fr);
+        
+        .screenshots-section {
+            margin-bottom: 60px;
+        }
+        
+        .screenshots-title {
+            font-size: 2rem;
+            font-weight: bold;
+            margin-bottom: 30px;
+            color: #333;
+            text-align: center;
+        }
+        
+        .screenshots-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+        
+        .screenshot-item {
+            position: relative;
+            cursor: pointer;
+            overflow: hidden;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .screenshot-item:hover {
+            transform: translateY(-5px);
+        }
+        
+        .screenshot-item img {
+            width: 100%;
+            height: auto;
+            display: block;
+            border-radius: 10px;
+        }
+        
+        .screenshot-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0,0,0,0.5);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            border-radius: 10px;
+        }
+        
+        .screenshot-item:hover .screenshot-overlay {
+            opacity: 1;
+        }
+        
+        .zoom-icon {
+            color: white;
+            font-size: 2rem;
+        }
+        
+        /* 图片查看器样式 */
+        .image-viewer {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0,0,0,0.9);
+            z-index: 3000;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .image-viewer.active {
+            display: flex;
+        }
+        
+        .viewer-content {
+            position: relative;
+            max-width: 90%;
+            max-height: 90%;
+        }
+        
+        .viewer-image {
+            max-width: 100%;
+            max-height: 90vh;
+            border-radius: 10px;
+        }
+        
+        .viewer-close {
+            position: absolute;
+            top: -40px;
+            right: 0;
+            color: white;
+            font-size: 2rem;
+            cursor: pointer;
+        }
+        
+        .viewer-prev, .viewer-next {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            color: white;
+            font-size: 3rem;
+            cursor: pointer;
+            z-index: 10;
+        }
+        
+        .viewer-prev {
+            left: -50px;
+        }
+        
+        .viewer-next {
+            right: -50px;
+        }
+        
+        /* 响应式设计 */
+        @media (max-width: 992px) {
+            .app-header {
+                grid-template-columns: 1fr;
+                gap: 30px;
             }
-        }
-
-        @media (max-width: 768px) {
-            .app-cards-container {
+            
+            .screenshots-grid {
                 grid-template-columns: repeat(2, 1fr);
             }
-
-            .app-store h1 {
-                font-size: 2rem;
+            
+            .viewer-prev {
+                left: 20px;
             }
-
-            .app-logo {
-                width: 80px;
-                height: 80px;
-            }
-
-            .app-title {
-                font-size: 1.1rem;
-            }
-
-            .app-description {
-                font-size: 0.85rem;
+            
+            .viewer-next {
+                right: 20px;
             }
         }
-
-        @media (max-width: 480px) {
-            .app-cards-container {
-                grid-template-columns: 1fr;
+        
+        @media (max-width: 768px) {
+            .app-container {
+                margin-top: 80px;
+            }
+            
+            .app-info {
+                padding: 20px;
+            }
+            
+            .app-download {
+                padding: 20px;
+            }
+            
+            .app-name {
+                font-size: 2rem;
+            }
+            
+            .screenshots-grid {
+                gap: 15px;
             }
         }
     </style>
@@ -860,51 +1026,53 @@
     </nav>
 
     <main>
-        <!-- APP 工具展示 -->
-        <section class="app-store">
-            <h1>精选定制的APP工具</h1>
-            <div class="app-cards-container">
-                 <!-- APP 卡片 0 -->
-                <div class="app-card">
-                    <img src="https://cf.aibomart.com/%E5%9B%BE%E5%BA%93/ic_todo.PNG" alt="APP Logo" class="app-logo">
-                    <h3 class="app-title">To do</h3>
-                    <p class="app-description">待办记事，助您成为一个有超高执行力的人，戒掉拖拉的毛病</p>
-                    <a href="https://blog.aibochinese.com/appstore/todo" class="app-button">查看详情</a>
-                </div>          
+        <div class="app-container">
+            <!-- App 头部信息 -->
+            <div class="app-header">
+                <!-- 左侧：App 信息 -->
+                <div class="app-info">
+                    <img src="https://cf.aibochinese.com/%E7%B4%A0%E6%9D%90%E7%AB%99/%E8%B7%A8%E5%A2%83%E6%94%B6%E4%BB%98%E6%AC%BE/kuijinghuikuan-icon.PNG" alt="跨境收款App Logo" class="app-logo">
+                    <h1 class="app-name">跨境收款</h1>
+                    <p class="app-description">用境外本地银行账户，收款一般秒到账，接近0手续费！</p>
+                </div>
                 
-                  <!-- APP 卡片 1 -->
-                <div class="app-card">
-                    <img src="https://cf.aibomart.com/%E5%9B%BE%E5%BA%93/%E4%B9%85%E7%9B%88logo.PNG" alt="APP Logo" class="app-logo">
-                    <h3 class="app-title">久盈</h3>
-                    <p class="app-description">践行“永久投资组合”的理念，助您控制风险，实现财富稳健增长</p>
-                    <a href="https://blog.aibochinese.com/appstore/jiuying" class="app-button">查看详情</a>
-                </div>        
-                 <!-- APP 卡片 2 -->
-                <div class="app-card">
-                    <img src="https://cf.aibochinese.com/%E7%B4%A0%E6%9D%90%E7%AB%99/%E8%B7%A8%E5%A2%83%E6%94%B6%E4%BB%98%E6%AC%BE/kuijinghuikuan-icon.PNG" alt="APP Logo" class="app-logo">
-                    <h3 class="app-title">跨境收款</h3>
-                    <p class="app-description">用境外本地银行账户，收款一般秒到账，接近0手续费</p>
-                    <a href="https://blog.aibochinese.com/appstore/remit" class="app-button">查看详情</a>
-                </div>                          
-                <!-- APP 卡片 2 -->
-                <div class="app-card">
-                    <img src="https://cf.aibochinese.com/%E7%88%B1%E5%8D%9A%C2%B7%E5%AE%A2%E5%9B%BE%E7%89%87%E5%BA%93/%E5%B9%BF%E5%91%8A%E8%81%94%E7%9B%9F/aiboDrive%20ads-3.png" alt="APP Logo" class="app-logo">
-                    <h3 class="app-title">商务网盘</h3>
-                    <p class="app-description">安全可靠的云存储解决方案，支持大文件传输和团队协作。</p>
-                    <a href="https://blog.aibochinese.com/tools/drive" class="app-button">查看详情</a>
+                <!-- 右侧：下载按钮 -->
+                <div class="app-download">
+                    <a href="https://drive.aibochinese.com/s/JNMHo" class="download-btn" target="_blank">下载apk安装文件</a>
                 </div>
- 
-                <!-- APP 卡片 3 -->
-                <div class="app-card">
-                    <img src="https://cf.aibochinese.com/%E7%88%B1%E5%8D%9A%C2%B7%E5%AE%A2%E5%9B%BE%E7%89%87%E5%BA%93/%E5%B8%B8%E7%94%A8%E6%A8%A1%E6%9D%BF%E5%9B%BE%E7%89%87/aibologo%20460%20100.png" alt="APP Logo" class="app-logo">
-                    <h3 class="app-title">爱博客户端</h3>
-                    <p class="app-description">集成所有功能的一站式客户端，提供便捷的内容访问和管理体验。</p>
-                    <a href="https://blog.aibochinese.com/client" class="app-button">查看详情</a>
-                </div>
-
-
             </div>
-        </section>
+            
+            <!-- 屏幕截图 -->
+            <div class="screenshots-section">
+                <h2 class="screenshots-title">应用截图</h2>
+                <div class="screenshots-grid">
+                    <div class="screenshot-item" data-index="0">
+                        <img src="https://cf.aibochinese.com/%E7%B4%A0%E6%9D%90%E7%AB%99/%E8%B7%A8%E5%A2%83%E6%94%B6%E4%BB%98%E6%AC%BE/app/kuajinghuikuan01.jpg" alt="跨境收款App Screenshot 1">
+                        <div class="screenshot-overlay">
+                            <i class="fas fa-search-plus zoom-icon"></i>
+                        </div>
+                    </div>
+                    <div class="screenshot-item" data-index="1">
+                        <img src="https://cf.aibochinese.com/%E7%B4%A0%E6%9D%90%E7%AB%99/%E8%B7%A8%E5%A2%83%E6%94%B6%E4%BB%98%E6%AC%BE/app/kuajinghuikuan02.jpg" alt="跨境收款App Screenshot 2">
+                        <div class="screenshot-overlay">
+                            <i class="fas fa-search-plus zoom-icon"></i>
+                        </div>
+                    </div>
+                    <div class="screenshot-item" data-index="2">
+                        <img src="https://cf.aibochinese.com/%E7%B4%A0%E6%9D%90%E7%AB%99/%E8%B7%A8%E5%A2%83%E6%94%B6%E4%BB%98%E6%AC%BE/app/kuajinghuikuan03.jpg" alt="跨境收款App Screenshot 3">
+                        <div class="screenshot-overlay">
+                            <i class="fas fa-search-plus zoom-icon"></i>
+                        </div>
+                    </div>
+                    <div class="screenshot-item" data-index="3">
+                        <img src="https://cf.aibochinese.com/%E7%B4%A0%E6%9D%90%E7%AB%99/%E8%B7%A8%E5%A2%83%E6%94%B6%E4%BB%98%E6%AC%BE/app/kuajinghuikuan04.jpg" alt="跨境收款App Screenshot 4">
+                        <div class="screenshot-overlay">
+                            <i class="fas fa-search-plus zoom-icon"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </main>
 
     <!-- 页脚（完整保留） -->
@@ -1016,6 +1184,16 @@
         </div>
     </div>
 
+    <!-- 图片查看器 -->
+    <div class="image-viewer" id="imageViewer">
+        <div class="viewer-content">
+            <img src="" alt="Enlarged Screenshot" class="viewer-image" id="viewerImage">
+            <span class="viewer-close" onclick="closeImageViewer()">&times;</span>
+            <span class="viewer-prev" onclick="prevImage()">&lt;</span>
+            <span class="viewer-next" onclick="nextImage()">&gt;</span>
+        </div>
+    </div>
+
     <script>
         // 搜索弹窗控制函数
         function toggleSearchModal() {
@@ -1041,13 +1219,57 @@
         window.onclick = function(event) {
             const searchModal = document.getElementById('searchModal');
             const wechatModal = document.getElementById('wechatModal');
+            const imageViewer = document.getElementById('imageViewer');
             
             if (event.target === searchModal) {
                 closeSearchModal();
             } else if (event.target === wechatModal) {
                 closeWechatModal();
+            } else if (event.target === imageViewer) {
+                closeImageViewer();
             }
         };
+        
+        // 图片查看器功能
+        const screenshotImages = [
+            'https://cf.aibochinese.com/%E7%B4%A0%E6%9D%90%E7%AB%99/%E8%B7%A8%E5%A2%83%E6%94%B6%E4%BB%98%E6%AC%BE/app/kuajinghuikuan01.jpg',
+            'https://cf.aibochinese.com/%E7%B4%A0%E6%9D%90%E7%AB%99/%E8%B7%A8%E5%A2%83%E6%94%B6%E4%BB%98%E6%AC%BE/app/kuajinghuikuan02.jpg',
+            'https://cf.aibochinese.com/%E7%B4%A0%E6%9D%90%E7%AB%99/%E8%B7%A8%E5%A2%83%E6%94%B6%E4%BB%98%E6%AC%BE/app/kuajinghuikuan03.jpg',
+            'https://cf.aibochinese.com/%E7%B4%A0%E6%9D%90%E7%AB%99/%E8%B7%A8%E5%A2%83%E6%94%B6%E4%BB%98%E6%AC%BE/app/kuajinghuikuan04.jpg'
+        ];
+        
+        let currentImageIndex = 0;
+        
+        // 打开图片查看器
+        document.querySelectorAll('.screenshot-item').forEach(item => {
+            item.addEventListener('click', function() {
+                currentImageIndex = parseInt(this.getAttribute('data-index'));
+                updateViewerImage();
+                document.getElementById('imageViewer').classList.add('active');
+            });
+        });
+        
+        // 关闭图片查看器
+        function closeImageViewer() {
+            document.getElementById('imageViewer').classList.remove('active');
+        }
+        
+        // 上一张图片
+        function prevImage() {
+            currentImageIndex = (currentImageIndex - 1 + screenshotImages.length) % screenshotImages.length;
+            updateViewerImage();
+        }
+        
+        // 下一张图片
+        function nextImage() {
+            currentImageIndex = (currentImageIndex + 1) % screenshotImages.length;
+            updateViewerImage();
+        }
+        
+        // 更新查看器图片
+        function updateViewerImage() {
+            document.getElementById('viewerImage').src = screenshotImages[currentImageIndex];
+        }
     </script>
        <!-- Pagefind 搜索（已完美修复） -->
     <script src="/post/pagefind/pagefind-ui.js"></script>
@@ -1183,12 +1405,12 @@
 {
   "@context": "https://schema.org",
   "@type": "WebPage",           // 或 WebPage、Article、FAQPage、Product等
-  "name": "精选定制的APP工具 - 爱博·客",
-  "keywords": "APP工具,定制APP,移动应用,工具下载",
-  "description": "精选定制的APP工具，为您提供优质的移动应用解决方案",
-  "url": "https://blog.aibochinese.com/appstore/home.html",
-  "datePublished": "2025-11-2",
-  "dateModified": "2025-11-29",
+  "name": "跨境收款 - 跨境收款App",
+  "keywords": "跨境收款,境外银行账户,秒到账,低手续费",
+  "description": "跨境收款App，用境外本地银行账户，收款一般秒到账，接近0手续费！",
+  "url": "https://blog.aibochinese.com/appstore/remit.html",
+  "datePublished": "2026-02-22",
+  "dateModified": "2026-02-22",
   "author": {"@type": "Person", "name": "AbelZou"},
   "publisher": {
     "@type": "Organization",
