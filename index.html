@@ -11,7 +11,32 @@
 
     <style>
 
-             /* 悬浮微信图标样式 */
+             /* 悬浮在线客服图标样式 */
+        .chat-float {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            cursor: pointer;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: transform 0.3s ease;
+        }
+
+        .chat-float:hover {
+            transform: scale(1.1);
+        }
+
+        .chat-icon {
+            width: 40px;
+            height: 40px;
+            background-image: url('https://cf.aibochinese.com/%E7%B4%A0%E6%9D%90%E7%AB%99/chat-icon.png');
+            background-size: cover;
+            background-position: center;
+        }
+
+        /* 悬浮微信图标样式 */
         .wechat-float {
             width: 60px;
             height: 60px;
@@ -868,6 +893,11 @@
       </script>
    <!-- 悬浮图标容器 -->
     <div class="float-icons-container">
+        <!-- 悬浮在线客服图标 -->
+        <div class="chat-float" onclick="toggleChatModal()">
+            <div class="chat-icon"></div>
+        </div>
+        
         <!-- 悬浮微信客服图标 -->
         <div class="wechat-float" onclick="toggleWechatModal()">
             <div class="wechat-icon"></div>
@@ -897,6 +927,16 @@
         </div>
     </div>
 
+    <!-- 在线客服弹出窗 -->
+    <div id="chatModal" class="wechat-modal" onclick="closeChatModal(event)">
+        <div class="wechat-popup" style="max-width: 500px; width: 90%; max-height: 80vh; overflow: hidden;" onclick="event.stopPropagation()">
+            <div style="height: 500px; overflow: auto;">
+                <iframe src="https://aibomart.com/chat_client.php" width="100%" height="100%" frameborder="0" allowfullscreen></iframe>
+            </div>
+            <button class="close-btn" onclick="closeChatModal()">关闭</button>
+        </div>
+    </div>
+
     <script>
         // 搜索弹窗控制函数
         function toggleSearchModal() {
@@ -918,15 +958,28 @@
             document.getElementById('wechatModal').style.display = 'none';
         }
 
+        // 在线客服弹窗控制函数
+        function toggleChatModal() {
+            const modal = document.getElementById('chatModal');
+            modal.style.display = modal.style.display === 'flex' ? 'none' : 'flex';
+        }
+
+        function closeChatModal(event) {
+            document.getElementById('chatModal').style.display = 'none';
+        }
+
         // 点击模态背景关闭
         window.onclick = function(event) {
             const searchModal = document.getElementById('searchModal');
             const wechatModal = document.getElementById('wechatModal');
+            const chatModal = document.getElementById('chatModal');
             
             if (event.target === searchModal) {
                 closeSearchModal();
             } else if (event.target === wechatModal) {
                 closeWechatModal();
+            } else if (event.target === chatModal) {
+                closeChatModal();
             }
         };
     </script>
