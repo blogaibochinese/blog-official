@@ -311,19 +311,18 @@
             transition: 0.3s;
         }
 
-        /* ==================== 全新 Pagefind 搜索样式（搜索框水平居中版） ====================
-.search-container {
-    position: relative;
-    /* 删除 margin-right，改为自动左右 margin 实现居中 */
-    margin: 0 auto;           /* 关键：水平居中 */
-    z-index: 1001;
-    min-width: 200px;
-    max-width: 380px;         /* 建议加上最大宽度，和下拉结果保持一致 */
-    width: 100%;
-    display: flex;
-    justify-content: center;  /* 内部元素水平居中 */
-    align-items: center;
-}
+        /* ==================== 全新 Pagefind 搜索样式（搜索框水平居中版） ==================== */
+        .search-container {
+            position: relative;
+            margin: 0 auto;
+            z-index: 1001;
+            min-width: 200px;
+            max-width: 380px;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
 
 /* 输入框：去掉宽度 100% + focus 扩展的左右晃动问题 */
 #pagefind-search .pagefind-ui__search-input {
@@ -331,8 +330,7 @@
     border: 2px solid #ddd;
     border-radius: 25px;
     font-size: 16px;
-    /* 固定宽度，或者使用 min-width + max-width 防止晃动 */
-    width: 300px;                     /* 固定一个舒适的宽度 */
+    width: 300px;
     max-width: 100%;
     transition: border-color 0.3s ease, box-shadow 0.3s ease;
     background: white;
@@ -344,7 +342,6 @@
 #pagefind-search .pagefind-ui__search-input:focus {
     border-color: #4a6fa5;
     box-shadow: 0 0 0 4px rgba(74, 111, 165, 0.2);
-    /* focus 时不再改变宽度，避免整个搜索框左右晃动 */
 }
 
 /* 下拉结果：从右对齐改为居中对齐 */
@@ -354,12 +351,12 @@
     border-radius: 8px;
     box-shadow: 0 8px 24px rgba(0,0,0,0.15);
     position: absolute;
-    top: calc(100% + 8px);            /* 确保与搜索框有间距 */
-    left: 50%;                        /* 关键：左边 50% */
-    transform: translateX(-50%);      /* 关键：向左偏移自身宽度的一半 → 完全居中 */
-    right: auto;                      /* 取消原来的 right: 0 */
+    top: calc(100% + 8px);
+    left: 50%;
+    transform: translateX(-50%);
+    right: auto;
     width: 380px;
-    max-height: 70vh;                 /* 限制最大高度为视口高度的70%，提供更多搜索结果可见空间 */
+    max-height: 70vh;
     overflow-y: auto;
     z-index: 1000;
     padding: 8px 0;
@@ -367,22 +364,22 @@
 }
 
 /* 其余样式保持不变 */
-        #pagefind-search .pagefind-ui__result { padding: 12px 16px; border-bottom: 1px solid #eee; transition: background-color 0.2s; }
-        #pagefind-search .pagefind-ui__result:last-child { border-bottom: none; }
-        #pagefind-search .pagefind-ui__result:hover { background-color: #f8f9ff; }
-        #pagefind-search .pagefind-ui__result-title { font-size: 15px; font-weight: 600; color: #1f2937; margin-bottom: 4px; }
-        #pagefind-search .pagefind-ui__result-link { 
-            color: #3B82F6; 
-            text-decoration: none; 
-            display: inline-block;
-            width: 100%;
-            position: relative;
-            z-index: 10;
-        }
-        #pagefind-search .pagefind-ui__result-link:hover { text-decoration: underline; }
-        #pagefind-search .pagefind-ui__result-excerpt { font-size: 13.5px; color: #666; line-height: 1.5; margin-top: 4px; }
-        .pagefind-ui__result-excerpt mark { background: #dbeafe; color: #1e40af; padding: 1px 3px; border-radius: 3px; }
-        #pagefind-search .pagefind-ui__message { padding: 20px; text-align: center; color: #666; font-size: 14px; }
+#pagefind-search .pagefind-ui__result { padding: 12px 16px; border-bottom: 1px solid #eee; transition: background-color 0.2s; }
+#pagefind-search .pagefind-ui__result:last-child { border-bottom: none; }
+#pagefind-search .pagefind-ui__result:hover { background-color: #f8f9ff; }
+#pagefind-search .pagefind-ui__result-title { font-size: 15px; font-weight: 600; color: #1f2937; margin-bottom: 4px; }
+#pagefind-search .pagefind-ui__result-link {
+    color: #3B82F6;
+    text-decoration: none;
+    display: inline-block;
+    width: 100%;
+    position: relative;
+    z-index: 10;
+}
+#pagefind-search .pagefind-ui__result-link:hover { text-decoration: underline; }
+#pagefind-search .pagefind-ui__result-excerpt { font-size: 13.5px; color: #666; line-height: 1.5; margin-top: 4px; }
+.pagefind-ui__result-excerpt mark { background: #dbeafe; color: #1e40af; padding: 1px 3px; border-radius: 3px; }
+#pagefind-search .pagefind-ui__message { padding: 20px; text-align: center; color: #666; font-size: 14px; }
         
         /* 弹窗搜索结果样式优化 */
         #pagefind-search-popup .pagefind-ui__search-input {
@@ -1097,8 +1094,7 @@
              style="width: 30px; height: 30px; display:block;" /></a>  <a href="https://xhslink.com/m/5it26wH34Zd" style="color:white; display:inline-block; vertical-align:middle;" rel="noopener noreferrer"><img src="https://cf.aibochinese.com/%E7%B4%A0%E6%9D%90%E7%AB%99/rednote.png" 
              style="width: 30px; height: 30px; display:block;" /></a>
             </p>
-            <p style="font-size: 13px; color: hsl(0, 25%, 94%);">© 2025 <a href="https://blog.aibochinese.com/" style="color:red " target="_blank" rel="noopener noreferrer">AiboGroup</a> - 所有权利保留|<a href="https://cf.aibochinese.com/%E7%88%B1%E5%8D%9A%C2%B7%E5%AE%A2%E5%9B%BE%E7%89%87%E5%BA%93/AiboGroup%E7%BB%8F%E8%90%A5%E8%84%89%E7%BB%9C%E5%9B%BE.png" style="color:red " target="_blank" rel="noopener noreferrer">关于我们</a></p>
-            <p>_</p>
+            <p style="font-size: 13px; color: hsl(0, 25%, 94%);">© 2025 <a href="https://blog.aibochinese.com/" style="color:red " target="_blank" rel="noopener noreferrer">AiboGroup</a> - 所有权利保留 |<a href="https://cf.aibochinese.com/%E7%88%B1%E5%8D%9A%C2%B7%E5%AE%A2%E5%9B%BE%E7%89%87%E5%BA%93/AiboGroup%E7%BB%8F%E8%90%A5%E8%84%89%E7%BB%9C%E5%9B%BE.png" style="color:red " target="_blank" rel="noopener noreferrer">关于我们</a></p>
         </div>
     </footer>
 
@@ -1162,8 +1158,8 @@
                 });
             }
         });
-      </script>
-   <!-- 悬浮图标容器 -->
+    </script>
+    <!-- 悬浮图标容器 -->
     <div class="float-icons-container">
         <!-- 悬浮微信客服图标 -->
         <div class="wechat-float" onclick="toggleWechatModal()">
@@ -1227,7 +1223,7 @@
             }
         };
     </script>
-       <!-- Pagefind 搜索（已完美修复） -->
+    <!-- Pagefind 搜索（已完美修复） -->
     <script src="/post/pagefind/pagefind-ui.js"></script>
     <script>
         window.addEventListener('DOMContentLoaded', function () {
@@ -1251,7 +1247,7 @@
             }
         });
     </script>
-    
+
     <!-- 终极链接修复解决方案 -->
     <script>
         // 终极链接修复解决方案
@@ -1357,7 +1353,7 @@
             console.log('终极链接修复方案已激活');
         })();
     </script>
- <script type="application/ld+json">
+    <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "WebPage",           // 或 WebPage、Article、FAQPage、Product等
@@ -1374,7 +1370,7 @@
     "logo": {"@type": "ImageObject", "url": "https://cf.aibochinese.com/%E7%88%B1%E5%8D%9A%C2%B7%E5%AE%A2%E5%9B%BE%E7%89%87%E5%BA%93/%E5%B8%B8%E7%94%A8%E6%A8%A1%E6%9D%BF%E5%9B%BE%E7%89%87/50-50%20%E7%88%B1%E5%8D%9A%E5%AE%A2logo.png"}
   }
 }
-</script>   
+</script>
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6203499194676961"
      crossorigin="anonymous"></script>
 </body>
